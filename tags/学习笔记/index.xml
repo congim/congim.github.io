@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>学习笔记 on My New Hugo Site</title>
-    <link>http://example.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-    <description>Recent content in 学习笔记 on My New Hugo Site</description>
+    <title>学习笔记 on Cong</title>
+    <link>http://cong.im/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 学习笔记 on Cong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 May 2020 13:33:58 +0000</lastBuildDate><atom:link href="http://example.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 May 2020 13:33:58 +0000</lastBuildDate><atom:link href="http://cong.im/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>网关简介</title>
-      <link>http://example.org/post/apigateway/</link>
+      <link>http://cong.im/post/apigateway/</link>
       <pubDate>Thu, 21 May 2020 13:33:58 +0000</pubDate>
       
-      <guid>http://example.org/post/apigateway/</guid>
+      <guid>http://cong.im/post/apigateway/</guid>
       <description>&lt;h3 id=&#34;网关作用&#34;&gt;网关作用&lt;/h3&gt;
 &lt;p&gt;网关分为两类&lt;/p&gt;
 &lt;ul&gt;

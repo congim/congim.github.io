@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>db on My New Hugo Site</title>
-    <link>http://example.org/tags/db/</link>
-    <description>Recent content in db on My New Hugo Site</description>
+    <title>db on Cong</title>
+    <link>http://cong.im/tags/db/</link>
+    <description>Recent content in db on Cong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 10:19:25 +0000</lastBuildDate><atom:link href="http://example.org/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jul 2020 10:19:25 +0000</lastBuildDate><atom:link href="http://cong.im/tags/db/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mysql小知识</title>
-      <link>http://example.org/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <link>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Mon, 20 Jul 2020 10:19:25 +0000</pubDate>
       
-      <guid>http://example.org/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <guid>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h4 id=&#34;事务的基本要素&#34;&gt;事务的基本要素&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -36,10 +36,10 @@
     
     <item>
       <title>hbase安装</title>
-      <link>http://example.org/post/hbase%E5%AE%89%E8%A3%85/</link>
+      <link>http://cong.im/post/hbase%E5%AE%89%E8%A3%85/</link>
       <pubDate>Wed, 15 Jul 2020 10:31:39 +0000</pubDate>
       
-      <guid>http://example.org/post/hbase%E5%AE%89%E8%A3%85/</guid>
+      <guid>http://cong.im/post/hbase%E5%AE%89%E8%A3%85/</guid>
       <description>&lt;h3 id=&#34;准备工作&#34;&gt;准备工作&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;hadoop-2.8.0.tar.gz&lt;/li&gt;
@@ -51,10 +51,10 @@
     
     <item>
       <title>centos7安装cassandra</title>
-      <link>http://example.org/post/centos7%E5%AE%89%E8%A3%85cassandra/</link>
+      <link>http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/</link>
       <pubDate>Wed, 15 Jul 2020 10:26:25 +0000</pubDate>
       
-      <guid>http://example.org/post/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
+      <guid>http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
       <description>&lt;p&gt;最近在开发监控系统，后台存储使用了cassandra,安装的时候留个档！&lt;/p&gt;
 &lt;h3 id=&#34;准备&#34;&gt;准备&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 操作系统&lt;/span&gt;
