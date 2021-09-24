@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.87.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>centos7安装cassandra &middot; My New Hugo Site</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://congim.github.io/"><h1>My New Hugo Site</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://congim.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>centos7安装cassandra</h1>
+  <time datetime=2020-07-15T10:26:25Z class="post-date">Wed, Jul 15, 2020</time>
+  <p>最近在开发监控系统，后台存储使用了cassandra,安装的时候留个档！</p>
+<h3 id="准备">准备</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 操作系统</span>
+3*CentOS Linux release 7.6.1810 <span style="color:#f92672">(</span>Core<span style="color:#f92672">)</span>
+<span style="color:#75715e"># java版本</span>
+<span style="color:#f92672">[</span>admin@db-apmDB-1 ~<span style="color:#f92672">]</span>$ java -version
+java version <span style="color:#e6db74">&#34;1.8.0_152&#34;</span>
+Java<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> SE Runtime Environment <span style="color:#f92672">(</span>build 1.8.0_152-b16<span style="color:#f92672">)</span>
+Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.152-b16, mixed mode<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 安装包</span>
+apache-cassandra-3.11.4-bin.tar.gz
+</code></pre></div><h3 id="下载">下载</h3>
+<p>apache-cassandra-3.11.4-bin.tar.gz <a href="https://cassandra.apache.org">下载地址</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 解压</span>
+tar -zxf  apache-cassandra-3.11.4-bin.tar.gz -C /httx/run/
+<span style="color:#75715e"># 重命名</span>
+mv apache-cassandra-3.11.4 cassandra-3.11.4
+</code></pre></div><h3 id="添加环境变量">添加环境变量</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 打开环境变量文件</span>
+vim /etc/profile
+<span style="color:#75715e"># 添加环境变量</span>
+export CASSANDRA_HOME<span style="color:#f92672">=</span>/httx/run/cassandra-3.11.4
+export PATH<span style="color:#f92672">=</span>$PATH:$CASSANDRA_HOME/bin
+<span style="color:#75715e"># 立刻生效</span>
+source /etc/profile
+</code></pre></div><h3 id="创建数据目录">创建数据目录</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 数据目录</span>
+mkdir -p /httx/run/cassandra_data/data1
+mkdir -p /httx/run/cassandra_data/data2
+mkdir -p /httx/run/cassandra_data/data3
+mkdir -p /httx/run/cassandra_data/data4
+mkdir -p /httx/run/cassandra_data/data5
+<span style="color:#75715e"># commitlog目录</span>
+mkdir -p /httx/run/cassandra_data/data6
+</code></pre></div><h3 id="修改配置文件">修改配置文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd $CASSANDRA_HOME/conf 
+vim cassandra.yaml
+</code></pre></div><pre><code class="language-conf" data-lang="conf"># 设置集群名
+# The name of the cluster. This is mainly used to prevent machines in
+# one logical cluster from joining another.
+cluster_name: 'APM Cluster'
+
+
+# 设置集群种子节点IP，如果多个用逗号分隔
+# seeds is actually a comma-delimited list of addresses.
+          # Ex: &quot;&lt;ip1&gt;,&lt;ip2&gt;,&lt;ip3&gt;&quot;
+          - seeds: &quot;你的机器IP1,你的机器IP2,你的机器IP3&quot;
+
+# 设置监听地址(本机的IP)，是为了其他节点能与节点进行通信(默认是 localhost)，每台机器填自己机器的IP
+# address associated with the hostname (it might not be).
+#
+# Setting listen_address to 0.0.0.0 is always wrong.
+#
+listen_address: 你本机IP
+
+# 开启 thrift rpc 服务(默认是 false)
+# Whether to start the thrift rpc server.
+start_rpc: true
+
+# 设置rpc的地址(默认是 localhost)
+# For security reasons, you should not expose this port to the internet.  Firewall it if needed.
+rpc_address: 你本机IP
+
+# 设置数据文件所在路径(默认是在cassandra目录下的data)
+# Directories where Cassandra should store data on disk.  Cassandra
+# will spread data evenly across them, subject to the granularity of
+# the configured compaction strategy.
+# If not set, the default directory is $CASSANDRA_HOME/data/data.
+data_file_directories:
+     - /httx/run/cassandra_data/data1
+     - /httx/run/cassandra_data/data2
+     - /httx/run/cassandra_data/data3
+     - /httx/run/cassandra_data/data4
+     - /httx/run/cassandra_data/data5
+# 设置commit log目录
+# commit log.  when running on magnetic HDD, this should be a
+# separate spindle than the data directories.
+# If not set, the default directory is $CASSANDRA_HOME/data/commitlog.
+commitlog_directory: /httx/run/cassandra_data/data6
+</code></pre><pre><code>因为这两个文件很大，分散集群中磁盘I/O压力，前者是cassandra实际数据存放的目录，后者是数据写入commitlog的文件目录
+</code></pre>
+<p>可以将上面上述修改的配置文件拷贝到其他的机器上，但是一定要修改$CASSANDRA_HOME/conf/cassandra.yaml 中的 listen_address 和 rpc_address 将其设置成自己的IP</p>
+<h3 id="启动">启动</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 分别在三台上执行</span>
+cassandra
+
+<span style="color:#75715e"># 查看状态,现实UN为正常，DN为异常</span>
+<span style="color:#f92672">[</span>admin@db-apmDB-1 /httx/run/cassandra-3.11.4/bin<span style="color:#f92672">]</span>$ nodetool status
+Datacenter: datacenter1
+<span style="color:#f92672">=======================</span>
+Status<span style="color:#f92672">=</span>Up/Down
+|/ State<span style="color:#f92672">=</span>Normal/Leaving/Joining/Moving
+--  Address      Load       Tokens       Owns <span style="color:#f92672">(</span>effective<span style="color:#f92672">)</span>  Host ID                               Rack
+UN  你的ip1  431.18 KiB  <span style="color:#ae81ff">256</span>          63.9%             82bb5bf7-504b-44b6-a630-55b6f8ef1b3c  rack1
+UN  你的ip2  274.44 KiB  <span style="color:#ae81ff">256</span>          68.7%             b82dd539-28bf-4934-91f1-ae48dd25cb57  rack1
+UN  你的ip3  245.96 KiB  <span style="color:#ae81ff">256</span>          67.3%             a90214dc-4232-47a0-9ca3-b2ea225903cf  rack1
+
+<span style="color:#75715e"># cqlsh </span>
+<span style="color:#f92672">[</span>admin@db-apmDB-1 ~<span style="color:#f92672">]</span>$ cqlsh 你的IP
+<span style="color:#f92672">[</span>cqlsh 5.0.1 | Cassandra 3.11.4 | CQL spec 3.4.4 | Native protocol v4<span style="color:#f92672">]</span>
+Use HELP <span style="color:#66d9ef">for</span> help.
+cqlsh&gt;
+</code></pre></div><p>完成！！！</p>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.87.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>进程小知识 &middot; My New Hugo Site</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://congim.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://congim.github.io/"><h1>My New Hugo Site</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="http://congim.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>进程小知识</h1>
+  <time datetime=2020-07-20T13:08:55Z class="post-date">Mon, Jul 20, 2020</time>
+  <h3 id="什么是进程">什么是进程</h3>
+<p>进程就是应用程序启动的实例。进程拥有代码和打开的文件资源、数据资源、独立的内存空间</p>
+<h4 id="什么是线程">什么是线程</h4>
+<p>线程从属进程，是程序的实际执行者。一个进程至少包含一个主线程，也可以有更多的自线程，线程拥有自己的栈空间。</p>
+<ul>
+<li>对操作系统来说线程是最小的执行单元，而进程是最小的资源管理单元。</li>
+<li>无论线程还是进程都是操作系统管理的</li>
+</ul>
+<h4 id="线程和进程的痛点">线程和进程的痛点</h4>
+<h4 id="从占用空间以及cpu利用率分析">从占用空间以及CPU利用率分析</h4>
+<p>进程在生命周期开始系统就会分配堆栈段和数据段，所以每个进程都会有独立的地址空间。
+线程在创建后拥有独立的堆栈空间，但是会共享数据段。且线程之间使用相同的地址空间，共享大部分数据，相对进程较为节省，由此看出线程体积小，开销小，切换方便，cpu的利用率自然就大大提升了。</p>
+<h4 id="从安全和复杂的角度分析">从安全和复杂的角度分析</h4>
+<p>进程之间相互独立，独立的地址空间使得进程之间相对很安全，一个进程崩溃并不会影响其他进程。然而进程之间的通信就比较复杂了，需要通过管道、信号量、消息队列、共享内存或者套接字的的机制。那么线程呢？由于使用相同的地址空间，使得线程并不安全，当一个线程崩溃时，必然会影响其他线程，使得整个进程崩溃。然而由于使用相同的地址空间等共享机制，使得线程之间的通信变得很方便。</p>
+<h4 id="什么时候使用进程和线程">什么时候使用进程和线程</h4>
+<ol>
+<li>当频繁创建和销毁的时候使用线程，创建进程的代价远高于线程</li>
+<li>考虑安全性的时候使用进程</li>
+<li>提高CPU利用率使用线程，即多核分布。多机分布用进程</li>
+<li>并行操作时用线程</li>
+<li>需要频繁切换，且大量计算时使用线程，同时耗时的计算操作使用线程可以提高程序的响应速度</li>
+</ol>
+<h4 id="进程和线程的痛点">进程和线程的痛点</h4>
+<ol>
+<li>涉及到同步锁</li>
+<li>涉及到线程阻塞和可运行状态之间的切换</li>
+<li>涉及到线程上下文切换
+以上任何一点都可能非常消耗性能</li>
+</ol>
+<h4 id="什么是协程">什么是协程</h4>
+<p>对于进程、线程都是内核进行调度，有CPU时间片的概念，进行抢占式调度。协程又称为微线程（Coroutine），类似子程序，如果A调用了子程序B，子程序B调用了子程序C，当程序C结束了返回子程序B继续执行之后的逻辑，当子程序B结束返回程序A，直到A运行结束。但是和子程序相比，协程又有刮起的概念，协程可以挂起跳转执行其他协程，合适的时机再跳转回来。
+协程，是一种比线程更加轻量级的存在。正如一个进程可以拥有多个线程一样，一个线程可以拥有多个协程。更重要的是，协程不是被操作系统内核所管理的，而是完全有程序控制（用户态执行）。这样带来的好处是不会由于切换线程那样消耗性能，从而来保证性能的提升。</p>
+<h4 id="线程调度原理">线程调度原理</h4>
+<p>N:1模型，多个用户空间线程在一个内核空间上运行。优势是上下文切换非常快，因为这些线程都在内核态运行，但是无法利用多核系统的有点。
+1:1模型，1个内核空间线程运行一个用户空间。这种充分利用了多核系统的优势，但是上下文切换非常慢，因为每一次调度都会在用户态和内核态之间切换。POSIX线程模型（pthread）就是这么做的。
+M:N模型，内核空间开启多个内核线程，一个内核空间线程对应多个用户空间线程。效率非常高，但是管理复杂。</p>
+<h4 id="goroutine调度原理">goroutine调度原理</h4>
+<p>本质上goroutine就是协程，但是完全运行在用户动态，借鉴了M:N模型。M-P-G模型。</p>
+<p><img src="/images/%E8%BF%9B%E7%A8%8B%E6%9D%82%E8%B0%88/goroutine.png" alt="WechatIMG8"></p>
+<p>相比其他语言，go采用了MPG模型管理协程，更加高效，但是管理较为复杂。
+M: 内核线程
+G: 代表一个goroutine
+P: Processor，处理器，用来管理和执行gorutine的</p>
+<h4 id="g-m-p三者之间关系和特点">G-M-P三者之间关系和特点</h4>
+<p>P的个数取决于GOMAXPROCS，go新版本默认使用最大内核数。
+M的数量和P不一定匹配，可以设置很多M，M和P绑定后才可以运行，多余的M处于休眠状态。
+P包含一个LRQ（Local Run Queue）本地运行队列，里面保存着P需要执行的协程G的队列。
+除了每个P自身保存的G的队列外，调度器还拥有一个全局的G队列（Global Run Queue），这个队列存储的是所有未分配的协程G。</p>
+<h3 id="tcp相关">TCP相关</h3>
+<ul>
+<li>
+<p>控制堵塞针对的是发送端，堵塞控制是调节TCP连接上单次发送的分株数量的算法，通过增减单词发送量逐步调整，使之逼近当前网络的承载量。单次发送的分组数量就是堵塞窗口。</p>
+</li>
+<li>
+<p>segment，发送端对滑动窗口内每个segment都设置了定时器，若有一个segment在规定的时间内没收到Ack，则认为当前网络又堵塞，执行快恢复。</p>
+</li>
+<li>
+<p>滑动窗口的意义，可靠性，滑动窗口只有在队列前部的被确认之后，才会往后移动，保证数据包被接收方正确接收且确认。其次是传输效率，假如没有窗口，服务端是杂乱无章的进行发包，因为tcp是队首效应，如果前面的包没有发送成功，就会不停的重试，反而造成更差的传输效率。最后稳定性，tcp的滑动窗口大小是整个复杂网络商榷的结果，会进行动态调整，可以尽量避免网络拥塞，更加稳定。</p>
+</li>
+</ul>
+<h4 id="水平触发">水平触发</h4>
+<p>如果文件描述符已经就绪可以非阻塞的执行IO操作了，此时会触发通知，允许在任意时刻重复检测IO的状态。select、poll就是属于水平触发。</p>
+<h4 id="边缘触发">边缘触发</h4>
+<p>如果文件描述符自上次改变后有新的IO活动到来，此时才会触发通知，在收到一个IO通知事件后要尽量可能多的执行IO操作，因为如果在一次通知中没有执行完IO那么就要等到下次新的IO活动到来才能取到就绪的描述符号，信号驱动式属于边缘触发。</p>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
