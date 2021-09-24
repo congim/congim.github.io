@@ -3,12 +3,12 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>hbase安装 &middot; Cong</title>
+  <title>hbase安装 &middot; 聪少</title>
   <meta name="description" content="" />
 
   
@@ -31,7 +31,7 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="http://cong.im/"><h1>Cong</h1></a>
+      <a href="http://cong.im/"><h1>聪少</h1></a>
       <p class="lead">
       
       </p>
@@ -80,7 +80,7 @@ slave1地址 slave2
 <span style="color:#75715e">### 最后一步很重要，要在master主机上登录一次slave1和slave2</span>
 <span style="color:#75715e">### 因为第一次登录需要验证密码的，后面则不需要</span>
 </code></pre></div><h3 id="配置文件">配置文件</h3>
-<pre><code>### 配置文件在hadoop/etc/hadoop目录下，依次将内容拷贝进去
+<pre tabindex="0"><code>### 配置文件在hadoop/etc/hadoop目录下，依次将内容拷贝进去
 ### core-site.xml
 &lt;configuration&gt;
     &lt;property&gt;
@@ -189,7 +189,7 @@ yarn-env.sh
 slave1
 slave2</p>
 <p>启动</p>
-<pre><code>### 第一步每一台都要执行
+<pre tabindex="0"><code>### 第一步每一台都要执行
 hadoop/bin/hdfs namenode -format  
 hadoop/sbin/start-dfs.sh
 hadoop/sbin/start-yarn.sh
@@ -218,12 +218,12 @@ echo <span style="color:#e6db74">&#34;3&#34;</span> &gt; /httx/run/zookeeper/dat
 ./bin/zkServer.sh start
 </code></pre></div><h2 id="hbase-安装启动">hbase 安装启动</h2>
 <h3 id="hbase-envsh-配置">hbase-env.sh 配置</h3>
-<pre><code>export JAVA_HOME=/httx/run/jdk
+<pre tabindex="0"><code>export JAVA_HOME=/httx/run/jdk
 export HBASE_MANAGES_ZK=false
 export HBASE_HEAPSIZE=8000
 export HBASE_LOG_DIR=/httx/run/hbase/log
 </code></pre><h3 id="hbase-sitexml-配置">hbase-site.xml 配置</h3>
-<pre><code>&lt;configuration&gt;
+<pre tabindex="0"><code>&lt;configuration&gt;
     &lt;property&gt;
         &lt;name&gt;hbase.rootdir&lt;/name&gt;
         &lt;value&gt;hdfs://master:9000/hbase&lt;/value&gt;
@@ -250,10 +250,10 @@ export HBASE_LOG_DIR=/httx/run/hbase/log
     &lt;/property&gt;
 &lt;/configuration&gt;
 </code></pre><h3 id="配置-regionservers">配置 regionservers</h3>
-<pre><code>slave1
+<pre tabindex="0"><code>slave1
 slave2
 </code></pre><h3 id="启动hbase">启动hbase</h3>
-<pre><code>./bin/start-hbase.sh
+<pre tabindex="0"><code>./bin/start-hbase.sh
 ./bin/hbase shell
 </code></pre><pre><code>按照上面到流程安装成功了，表也创建成功了，但是在put的时候会报错，找了很多资料发现
 仅仅是因为linux（centos）的hosts的问题，是由于默认hosts中的local.localdomain。
