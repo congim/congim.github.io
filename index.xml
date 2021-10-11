@@ -13,7 +13,7 @@
       <pubDate>Mon, 11 Jan 2021 15:39:49 +0000</pubDate>
       
       <guid>http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
-      <description>&lt;p&gt;内存是计算机系统重要资源之一，为了让多个同时运行的进程可以安全、高效的使用内存。现代操作系统的普遍做法是在进程和物理内存之间抽象了一个概念&lt;em&gt;虚拟内存&lt;/em&gt;。`&lt;/p&gt;</description>
+      <description>&lt;p&gt;内存是计算机系统重要资源之一，为了让多个同时运行的进程可以安全、高效的使用内存。现代操作系统的普遍做法是在进程和物理内存之间抽象了一个概念&lt;em&gt;虚拟内存&lt;/em&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
