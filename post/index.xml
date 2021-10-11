@@ -13,7 +13,7 @@
       <pubDate>Mon, 11 Jan 2021 15:39:49 +0000</pubDate>
       
       <guid>http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
-      <description></description>
+      <description>什么是物理地址和虚拟地址 什么是地址翻译 地址翻译的主要机制有哪些 为什么需要多级页表 为什么需要TLB&amp;amp;TLB的工作原理是什么 什么是缺页/换页，为什么需要 如何选择页进行替换：页替换的策略 </description>
     </item>
     
     <item>

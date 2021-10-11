@@ -2,22 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://cong.im/categories/</loc>
-    <lastmod>2021-01-11T15:39:49+00:00</lastmod>
-  </url><url>
-    <loc>http://cong.im/tags/linux/</loc>
-    <lastmod>2021-01-11T15:39:49+00:00</lastmod>
-  </url><url>
-    <loc>http://cong.im/categories/linux/</loc>
-    <lastmod>2021-01-11T15:39:49+00:00</lastmod>
-  </url><url>
     <loc>http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2021-01-11T15:39:49+00:00</lastmod>
   </url><url>
     <loc>http://cong.im/post/</loc>
-    <lastmod>2021-01-11T15:39:49+00:00</lastmod>
-  </url><url>
-    <loc>http://cong.im/tags/</loc>
     <lastmod>2021-01-11T15:39:49+00:00</lastmod>
   </url><url>
     <loc>http://cong.im/</loc>
@@ -35,12 +23,6 @@
     <loc>http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2020-07-20T13:08:55+00:00</lastmod>
   </url><url>
-    <loc>http://cong.im/tags/db/</loc>
-    <lastmod>2020-07-20T10:19:25+00:00</lastmod>
-  </url><url>
-    <loc>http://cong.im/categories/db/</loc>
-    <lastmod>2020-07-20T10:19:25+00:00</lastmod>
-  </url><url>
     <loc>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2020-07-20T10:19:25+00:00</lastmod>
   </url><url>
@@ -53,13 +35,11 @@
     <loc>http://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</loc>
     <lastmod>2020-06-24T14:48:16+00:00</lastmod>
   </url><url>
-    <loc>http://cong.im/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-05-21T13:33:58+00:00</lastmod>
-  </url><url>
-    <loc>http://cong.im/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-05-21T13:33:58+00:00</lastmod>
-  </url><url>
     <loc>http://cong.im/post/apigateway/</loc>
     <lastmod>2020-05-21T13:33:58+00:00</lastmod>
+  </url><url>
+    <loc>http://cong.im/categories/</loc>
+  </url><url>
+    <loc>http://cong.im/tags/</loc>
   </url>
 </urlset>
