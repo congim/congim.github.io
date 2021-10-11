@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>聪少</title>
@@ -5,17 +6,94 @@
     <description>Recent content on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 Jan 2021 15:39:49 +0000</lastBuildDate>
-    
-        <atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 11 Jan 2021 15:39:49 +0000</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Posts</title>
-      <link>http://cong.im/post/</link>
+      <title>linux内存管理</title>
+      <link>http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
       <pubDate>Mon, 11 Jan 2021 15:39:49 +0000</pubDate>
       
-      <guid>http://cong.im/post/</guid>
+      <guid>http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>跨进程复制socket</title>
+      <link>http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</link>
+      <pubDate>Tue, 15 Dec 2020 11:15:04 +0000</pubDate>
+      
+      <guid>http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>io知识</title>
+      <link>http://cong.im/post/linux/io%E5%88%86%E6%9E%90/</link>
+      <pubDate>Wed, 09 Dec 2020 16:28:28 +0000</pubDate>
+      
+      <guid>http://cong.im/post/linux/io%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpu性能分析</title>
+      <link>http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 08 Dec 2020 20:21:15 +0000</pubDate>
+      
+      <guid>http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>进程小知识</title>
+      <link>http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 20 Jul 2020 13:08:55 +0000</pubDate>
+      
+      <guid>http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql小知识</title>
+      <link>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 20 Jul 2020 10:19:25 +0000</pubDate>
+      
+      <guid>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hbase安装</title>
+      <link>http://cong.im/post/hbase%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Wed, 15 Jul 2020 10:31:39 +0000</pubDate>
+      
+      <guid>http://cong.im/post/hbase%E5%AE%89%E8%A3%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>centos7安装cassandra</title>
+      <link>http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/</link>
+      <pubDate>Wed, 15 Jul 2020 10:26:25 +0000</pubDate>
+      
+      <guid>http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>如何提升内存分配的效率</title>
+      <link>http://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</link>
+      <pubDate>Wed, 24 Jun 2020 14:48:16 +0000</pubDate>
+      
+      <guid>http://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网关简介</title>
+      <link>http://cong.im/post/apigateway/</link>
+      <pubDate>Thu, 21 May 2020 13:33:58 +0000</pubDate>
+      
+      <guid>http://cong.im/post/apigateway/</guid>
       <description></description>
     </item>
     

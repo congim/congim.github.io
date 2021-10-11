@@ -1,51 +1,37 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>聪少  | 进程小知识</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
-    <link rel="stylesheet" href="http://cong.im/css/blog.css" />
-    </head>
-<body>
+		<title>进程小知识</title>
 
-    
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="http://cong.im/">Home</a>
-        </div>
-    </nav>
-    
+		
+		<link rel="stylesheet" href="http://cong.im/css/colors-dark.min.04ff1d6d2078fa65747fb72cef57eee0015c1b56e56c24eed85082032b2182f4.css">
 
-    
-    <section class="hero is-info is-medium">
-        <div class="hero-body" style="background-image: url(http://cong.im/img/bg-blog.jpg);">
-            <div class="container has-text-centered">
-                <br>
-                <h1 class="title is-size-1">
-                    
-                        进程小知识
-                    
-                </h1>
-                
-            </div>
-        </div>
-    </section>
+		
+	</head>
+	<body>
+		<header id="header">
+			<h1><a href="http://cong.im/">聪少</a></h1>
+			<p></p>
+		</header>
 
+		<div id="page">
+			<div id="sidebar">
+				<nav>
+	
+</nav>
 
-<div class="container">
-    <div class="section">
-    
+			</div>
 
-<div class="columns">
-    <div class="column is-9">
-        <div class="tile is-child box">
-            <div class="content">
-                <h3 id="什么是进程">什么是进程</h3>
+			<div id="content">
+				
+	<article class="post">
+		<h1><a href="http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">进程小知识</a> </h1>
+
+		<div class="post-content"><h3 id="什么是进程">什么是进程</h3>
 <p>进程就是应用程序启动的实例。进程拥有代码和打开的文件资源、数据资源、独立的内存空间</p>
 <h4 id="什么是线程">什么是线程</h4>
 <p>线程从属进程，是程序的实际执行者。一个进程至少包含一个主线程，也可以有更多的自线程，线程拥有自己的栈空间。</p>
@@ -108,83 +94,23 @@ P包含一个LRQ（Local Run Queue）本地运行队列，里面保存着P需要
 <h4 id="水平触发">水平触发</h4>
 <p>如果文件描述符已经就绪可以非阻塞的执行IO操作了，此时会触发通知，允许在任意时刻重复检测IO的状态。select、poll就是属于水平触发。</p>
 <h4 id="边缘触发">边缘触发</h4>
-<p>如果文件描述符自上次改变后有新的IO活动到来，此时才会触发通知，在收到一个IO通知事件后要尽量可能多的执行IO操作，因为如果在一次通知中没有执行完IO那么就要等到下次新的IO活动到来才能取到就绪的描述符号，信号驱动式属于边缘触发。</p>
-            </div>
-        </div>
-    </div>
-    <div class="column is-3">
-        <div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Tags</h1>
-        <div class="tags">
-        
-            <span class="tag"><a href="http://cong.im/tags/db">db</a></span>
-        
-            <span class="tag"><a href="http://cong.im/tags/linux">linux</a></span>
-        
-            <span class="tag"><a href="http://cong.im/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></span>
-        
-        </div>          
-    </div>
-</div><br>
-        <div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Recent posts</h1>
-        
-            <h1><a href="http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">linux内存管理</a></h1>
-            <time class="has-text-grey-light is-size-7">11 January 2021</time>
-        
-            <h1><a href="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">跨进程复制socket</a></h1>
-            <time class="has-text-grey-light is-size-7">15 December 2020</time>
-        
-            <h1><a href="http://cong.im/post/linux/io%E5%88%86%E6%9E%90/">io知识</a></h1>
-            <time class="has-text-grey-light is-size-7">9 December 2020</time>
-        
-            <h1><a href="http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">cpu性能分析</a></h1>
-            <time class="has-text-grey-light is-size-7">8 December 2020</time>
-        
-            <h1><a href="http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">进程小知识</a></h1>
-            <time class="has-text-grey-light is-size-7">20 July 2020</time>
-        
-    </div>
-</div>
-    <br>
-                
+<p>如果文件描述符自上次改变后有新的IO活动到来，此时才会触发通知，在收到一个IO通知事件后要尽量可能多的执行IO操作，因为如果在一次通知中没有执行完IO那么就要等到下次新的IO活动到来才能取到就绪的描述符号，信号驱动式属于边缘触发。</p></div>
 
+		<p class="meta">Posted on <span class="postdate">20. July 2020</span></p>
+	</article>
 
-    
-<br>
-        <div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Archives</h1>
-        
-            <a href="http://cong.im/archives/2021">2021</a> (1)<br>
-        
-            <a href="http://cong.im/archives/2020">2020</a> (9)<br>
-        
-    </div>
-</div>
+			</div>
 
-    </div>
-</div>
+			<footer id="footer">
+				<p class="copyright">
+					
+						Powered by <a href="https://gohugo.io/">Hugo</a> and the
+						<a href="https://github.com/bake/solar-theme-hugo">Solar</a>-theme.
+					
+				</p>
+			</footer>
+		</div>
 
-
-    </div>
-</div>
-
-<footer class="footer has-background-grey-darker has-text-white">
-    <div class="content has-text-centered">
-        <p>
-            <span class="icon is-large"><a href="https://twitter.com/" class="mysocial" rel="me"><i class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
-            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial" rel="me"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
-            <span class="icon is-large"><a href="https://github.com/" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
-            <br><br>
-            Copyright &copy; 聪少 2021 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
-            - <a class="mysocial" href="http://cong.im/about">About</a>
-        </p>
-    </div>
-</footer>
-
-<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-</body>
+		
+	</body>
 </html>
