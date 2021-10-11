@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -61,6 +61,7 @@
 <li>出口网关
 出口网关，在实际的系统开发过程中，会依赖很多外部的三方服务，如三方账号登录、三方支付服务等。所以开发者可以在自身服务和三方服务之间部署出口网关，在出口网关中对外调用外部的API做统一的认证、授权、审计和权限访问。</li>
 </ul>
+<!-- raw HTML omitted -->
 <h3 id="实现注意细节">实现注意细节</h3>
 <ul>
 <li>性能
@@ -81,21 +82,13 @@ API网关承接所有从客户端的所有流量，假如业务处理需要10ms�
 <h3 id="如何引用api网关">如何引用API网关</h3>
 <p>用电商应用举个例子，在服务层和客户端之间有一层Web层，这个Web层主要做两个方面的事情：</p>
 <ol>
-<li>
-<p><em><strong>对服务层接口数据的聚合</strong></em>。如商品详情页的接口可能聚合到服务层总，获取商品信息、用户信息、店铺信息以及用户评论等多个服务的接口数据。</p>
-</li>
-<li>
-<p><em><strong>Web层可能需要将Http请求转换成RPC请求，且对某些请求添加黑名单功能等</strong></em>。因此我们在做改造的时候可以先将API网关先从Web层中独立出来，将协议转换、限流、黑明单等功能搬到API网关中来处理，形成独立的<em><strong>入口网关</strong></em>。</p>
-</li>
+<li><em><strong>对服务层接口数据的聚合</strong></em>。如商品详情页的接口可能聚合到服务层总，获取商品信息、用户信息、店铺信息以及用户评论等多个服务的接口数据。</li>
+<li><em><strong>Web层可能需要将Http请求转换成RPC请求，且对某些请求添加黑名单功能等</strong></em>。因此我们在做改造的时候可以先将API网关先从Web层中独立出来，将协议转换、限流、黑明单等功能搬到API网关中来处理，形成独立的<em><strong>入口网关</strong></em>。</li>
 </ol>
 <p>针对服务接口数据聚合的操作一般两种解决思路是：</p>
 <ul>
-<li>
-<p>独立一组网关专门做聚合、超时控制方面的事情，前一种网关称作流量网关，后一种称作业务网关</p>
-</li>
-<li>
-<p>抽取独立的服务层，做门做接口聚合操作。这样服务层就大概分为原子服务层和聚合服务层。</p>
-</li>
+<li>独立一组网关专门做聚合、超时控制方面的事情，前一种网关称作流量网关，后一种称作业务网关</li>
+<li>抽取独立的服务层，做门做接口聚合操作。这样服务层就大概分为原子服务层和聚合服务层。</li>
 </ul>
 <p>接口数据聚合是业务操作，与其放在通用网关来实现不如放在更贴近业务的服务层来实现</p>
 <p><img src="/images/apigateway/WechatIMG7.png" alt="WechatIMG7"></p>

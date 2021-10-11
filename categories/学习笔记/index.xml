@@ -5,7 +5,7 @@
     <link>http://cong.im/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 学习笔记 on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Thu, 21 May 2020 13:33:58 +0000</lastBuildDate><atom:link href="http://cong.im/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>网关简介</title>
@@ -13,15 +13,7 @@
       <pubDate>Thu, 21 May 2020 13:33:58 +0000</pubDate>
       
       <guid>http://cong.im/post/apigateway/</guid>
-      <description>&lt;h3 id=&#34;网关作用&#34;&gt;网关作用&lt;/h3&gt;
-&lt;p&gt;网关分为两类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;入口网关
-入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。在服务系统中对外暴露的协议可能不同，如http服务，rpc服务等等，甚至有些历史遗留的服务。API网关可以很好的对客户端屏蔽这些服务的地址以及协议细节，给客户端接入带来极大的便捷。
-在API网关中可以加入一些服务治理策略，如服务熔断、降级、流量控制、分流等。对于客户端等认证、鉴权也可以放在API网关中。另外还可以配合黑白名单，如设备ID、用户ID等维度策略。在网关中还可以很方便的做一些统计工作，如访问订单服务、商品服务等等。&lt;/li&gt;
-&lt;li&gt;出口网关
-出口网关，在实际的系统开发过程中，会依赖很多外部的三方服务，如三方账号登录、三方支付服务等。所以开发者可以在自身服务和三方服务之间部署出口网关，在出口网关中对外调用外部的API做统一的认证、授权、审计和权限访问。&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description></description>
     </item>
     
   </channel>

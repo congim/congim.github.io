@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -56,7 +56,7 @@
     <a href="http://cong.im/post/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">linux内存管理</a>
   </h1>
   <time datetime="2021-01-11T15:39:49Z" class="post-date">Mon, Jan 11, 2021</time>
-  <h2 id="什么是物理地址和虚拟地址">什么是物理地址和虚拟地址</h2>
+  
   
   <div class="read-more-link">
     <a href="/post/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">Read More…</a>
@@ -67,9 +67,7 @@
     <a href="http://cong.im/post/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">跨进程复制socket</a>
   </h1>
   <time datetime="2020-12-15T11:15:04Z" class="post-date">Tue, Dec 15, 2020</time>
-  <h1 id="linux为什么能跨进程传递socket文件描述符">linux为什么能跨进程传递socket文件描述符</h1>
-<p>在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
-下面仔细跟踪一下socket创建的过程（3.10内核）。</p>
+  
   
   <div class="read-more-link">
     <a href="/post/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">Read More…</a>
@@ -80,13 +78,7 @@
     <a href="http://cong.im/post/io%E5%88%86%E6%9E%90/">io知识</a>
   </h1>
   <time datetime="2020-12-09T16:28:28Z" class="post-date">Wed, Dec 9, 2020</time>
-  <h1 id="linux文件系统">Linux文件系统</h1>
-<p>文件系统本身是对存储设备上的文件进行组织管理的机制。组织方式不同就形成不同的文件系统。
-在Linux中一切皆为文件，为了方便管理Linux文件系统为每个文件都分配两个数据结构，索引节点、和目录项。</p>
-<ul>
-<li>索引节点 用来记录文件的元数据如inode编号、文件大小、访问权限等，inode跟文件内容一样都会被持久化到磁盘中</li>
-<li>目录项 dentry，用来记录文件的名字、索引节点指针以及与其他目录项的关联关系。</li>
-</ul>
+  
   
   <div class="read-more-link">
     <a href="/post/io%E5%88%86%E6%9E%90/">Read More…</a>
@@ -97,12 +89,7 @@
     <a href="http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">cpu性能分析</a>
   </h1>
   <time datetime="2020-12-08T20:21:15Z" class="post-date">Tue, Dec 8, 2020</time>
-  <ul>
-<li>面对问题束手无策</li>
-<li>面对“系统”、“底层”发怵</li>
-<li>遇到根源复杂的性能问题既不懂怎么去分析，也不能抽丝剥茧的找到瓶颈</li>
-<li>随遇而安，认为遇到问题上网查就行了。有可能解决问题，但是懒得研究为何有效</li>
-</ul>
+  
   
   <div class="read-more-link">
     <a href="/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">Read More…</a>
@@ -113,14 +100,7 @@
     <a href="http://cong.im/post/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">进程小知识</a>
   </h1>
   <time datetime="2020-07-20T13:08:55Z" class="post-date">Mon, Jul 20, 2020</time>
-  <h3 id="什么是进程">什么是进程</h3>
-<p>进程就是应用程序启动的实例。进程拥有代码和打开的文件资源、数据资源、独立的内存空间</p>
-<h4 id="什么是线程">什么是线程</h4>
-<p>线程从属进程，是程序的实际执行者。一个进程至少包含一个主线程，也可以有更多的自线程，线程拥有自己的栈空间。</p>
-<ul>
-<li>对操作系统来说线程是最小的执行单元，而进程是最小的资源管理单元。</li>
-<li>无论线程还是进程都是操作系统管理的</li>
-</ul>
+  
   
   <div class="read-more-link">
     <a href="/post/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">Read More…</a>
@@ -131,25 +111,7 @@
     <a href="http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/">mysql小知识</a>
   </h1>
   <time datetime="2020-07-20T10:19:25Z" class="post-date">Mon, Jul 20, 2020</time>
-  <h4 id="事务的基本要素">事务的基本要素</h4>
-<ul>
-<li>
-<p>原子性
-事务开始后的所有操作要么做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错会回滚到事务开始的状态。所有的操作就像没有发生过一样。也就是说一个事务是一个不可分割的整体。(undo log实现)</p>
-</li>
-<li>
-<p>一致性
-事务开始前和结束后，数据库的完整约束没有被破坏。如A向B赚钱，不可能A扣了钱，B却没收到。</p>
-</li>
-<li>
-<p>隔离性
-统一时间只允许一个事务请求同一数据，不同事务之间彼此没有任何干扰。比如A正从银行开中取钱，在A取钱的过程中，B不能向这张卡转账。</p>
-</li>
-<li>
-<p>持久性
-事务一旦提交，其更改是永久性的，即使数据库系统崩溃也能恢复。（redo log实现）</p>
-</li>
-</ul>
+  
   
   <div class="read-more-link">
     <a href="/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/">Read More…</a>
@@ -160,13 +122,7 @@
     <a href="http://cong.im/post/hbase%E5%AE%89%E8%A3%85/">hbase安装</a>
   </h1>
   <time datetime="2020-07-15T10:31:39Z" class="post-date">Wed, Jul 15, 2020</time>
-  <h3 id="准备工作">准备工作</h3>
-<ul>
-<li>hadoop-2.8.0.tar.gz</li>
-<li>hbase-1.3.1-bin.tar.gz</li>
-<li>zookeeper-3.4.9.tar.gz</li>
-<li>CentOS Linux release 7.6.1810 (Core) * 3</li>
-</ul>
+  
   
   <div class="read-more-link">
     <a href="/post/hbase%E5%AE%89%E8%A3%85/">Read More…</a>
@@ -177,18 +133,7 @@
     <a href="http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/">centos7安装cassandra</a>
   </h1>
   <time datetime="2020-07-15T10:26:25Z" class="post-date">Wed, Jul 15, 2020</time>
-  <p>最近在开发监控系统，后台存储使用了cassandra,安装的时候留个档！</p>
-<h3 id="准备">准备</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 操作系统</span>
-3*CentOS Linux release 7.6.1810 <span style="color:#f92672">(</span>Core<span style="color:#f92672">)</span>
-<span style="color:#75715e"># java版本</span>
-<span style="color:#f92672">[</span>admin@db-apmDB-1 ~<span style="color:#f92672">]</span>$ java -version
-java version <span style="color:#e6db74">&#34;1.8.0_152&#34;</span>
-Java<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> SE Runtime Environment <span style="color:#f92672">(</span>build 1.8.0_152-b16<span style="color:#f92672">)</span>
-Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.152-b16, mixed mode<span style="color:#f92672">)</span>
-<span style="color:#75715e"># 安装包</span>
-apache-cassandra-3.11.4-bin.tar.gz
-</code></pre></div>
+  
   
   <div class="read-more-link">
     <a href="/post/centos7%E5%AE%89%E8%A3%85cassandra/">Read More…</a>
@@ -199,15 +144,7 @@ apache-cassandra-3.11.4-bin.tar.gz
     <a href="http://cong.im/post/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/">如何提升内存分配的效率</a>
   </h1>
   <time datetime="2020-06-24T14:48:16Z" class="post-date">Wed, Jun 24, 2020</time>
-  <p>谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。</p>
-<p>大部分高级语言或多或少都与C语言有一定关系，如Java，申请内存必须经过C库，C库为了加快内存分配速度，通过预分配更大的空间作为内存池。这样预先分配的6GB的C库内存池就与JVM中预先分配的8G内存池叠加在一起，造成Java进程内存占用超出预期。</p>
-<h3 id="了解内存池的好处">了解内存池的好处</h3>
-<ul>
-<li>避免写程序时内存占用过大导致服务整体性能下降或者OOM的情况</li>
-<li>加快内存分配速度（分布式环境下繁忙的多线程服务获取内存的时间可能会上升几十倍）</li>
-<li>优化内存池技术应用在分布式环境可大大提升性能</li>
-</ul>
-<h2 id="如何提升内存分配速度">如何提升内存分配速度</h2>
+  
   
   <div class="read-more-link">
     <a href="/post/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/">Read More…</a>
@@ -218,15 +155,7 @@ apache-cassandra-3.11.4-bin.tar.gz
     <a href="http://cong.im/post/apigateway/">网关简介</a>
   </h1>
   <time datetime="2020-05-21T13:33:58Z" class="post-date">Thu, May 21, 2020</time>
-  <h3 id="网关作用">网关作用</h3>
-<p>网关分为两类</p>
-<ul>
-<li>入口网关
-入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。在服务系统中对外暴露的协议可能不同，如http服务，rpc服务等等，甚至有些历史遗留的服务。API网关可以很好的对客户端屏蔽这些服务的地址以及协议细节，给客户端接入带来极大的便捷。
-在API网关中可以加入一些服务治理策略，如服务熔断、降级、流量控制、分流等。对于客户端等认证、鉴权也可以放在API网关中。另外还可以配合黑白名单，如设备ID、用户ID等维度策略。在网关中还可以很方便的做一些统计工作，如访问订单服务、商品服务等等。</li>
-<li>出口网关
-出口网关，在实际的系统开发过程中，会依赖很多外部的三方服务，如三方账号登录、三方支付服务等。所以开发者可以在自身服务和三方服务之间部署出口网关，在出口网关中对外调用外部的API做统一的认证、授权、审计和权限访问。</li>
-</ul>
+  
   
   <div class="read-more-link">
     <a href="/post/apigateway/">Read More…</a>
