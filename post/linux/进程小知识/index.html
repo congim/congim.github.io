@@ -1,58 +1,51 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<html lang="zh-cn">
 <head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.88.1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>聪少  | 进程小知识</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="http://cong.im/css/blog.css" />
+    </head>
+<body>
 
-  <title>进程小知识 &middot; 聪少</title>
-  <meta name="description" content="" />
-
-  
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/hyde.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
-
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-
-  
-  
-</head>
-
-  <body class=" ">
-  <aside class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="http://cong.im/"><h1>聪少</h1></a>
-      <p class="lead">
-      
-      </p>
-    </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="http://cong.im/">Home</a> </li>
-        
-      </ul>
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://cong.im/">Home</a>
+        </div>
     </nav>
+    
 
-    <p>&copy; 2021. All rights reserved. </p>
-  </div>
-</aside>
+    
+    <section class="hero is-info is-medium">
+        <div class="hero-body" style="background-image: url(http://cong.im/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                    
+                        进程小知识
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
 
-    <main class="content container">
-    <div class="post">
-  <h1>进程小知识</h1>
-  <time datetime=2020-07-20T13:08:55Z class="post-date">Mon, Jul 20, 2020</time>
-  <h3 id="什么是进程">什么是进程</h3>
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <h3 id="什么是进程">什么是进程</h3>
 <p>进程就是应用程序启动的实例。进程拥有代码和打开的文件资源、数据资源、独立的内存空间</p>
 <h4 id="什么是线程">什么是线程</h4>
 <p>线程从属进程，是程序的实际执行者。一个进程至少包含一个主线程，也可以有更多的自线程，线程拥有自己的栈空间。</p>
@@ -116,13 +109,82 @@ P包含一个LRQ（Local Run Queue）本地运行队列，里面保存着P需要
 <p>如果文件描述符已经就绪可以非阻塞的执行IO操作了，此时会触发通知，允许在任意时刻重复检测IO的状态。select、poll就是属于水平触发。</p>
 <h4 id="边缘触发">边缘触发</h4>
 <p>如果文件描述符自上次改变后有新的IO活动到来，此时才会触发通知，在收到一个IO通知事件后要尽量可能多的执行IO操作，因为如果在一次通知中没有执行完IO那么就要等到下次新的IO活动到来才能取到就绪的描述符号，信号驱动式属于边缘触发。</p>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="http://cong.im/tags/db">db</a></span>
+        
+            <span class="tag"><a href="http://cong.im/tags/linux">linux</a></span>
+        
+            <span class="tag"><a href="http://cong.im/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">linux内存管理</a></h1>
+            <time class="has-text-grey-light is-size-7">11 January 2021</time>
+        
+            <h1><a href="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">跨进程复制socket</a></h1>
+            <time class="has-text-grey-light is-size-7">15 December 2020</time>
+        
+            <h1><a href="http://cong.im/post/linux/io%E5%88%86%E6%9E%90/">io知识</a></h1>
+            <time class="has-text-grey-light is-size-7">9 December 2020</time>
+        
+            <h1><a href="http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">cpu性能分析</a></h1>
+            <time class="has-text-grey-light is-size-7">8 December 2020</time>
+        
+            <h1><a href="http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">进程小知识</a></h1>
+            <time class="has-text-grey-light is-size-7">20 July 2020</time>
+        
+    </div>
+</div>
+    <br>
+                
+
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="http://cong.im/archives/2021">2021</a> (1)<br>
+        
+            <a href="http://cong.im/archives/2020">2020</a> (9)<br>
+        
+    </div>
+</div>
+
+    </div>
 </div>
 
 
-    </main>
+    </div>
+</div>
 
-    
-      
-    
-  </body>
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://twitter.com/" class="mysocial" rel="me"><i class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial" rel="me"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://github.com/" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; 聪少 2021 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="http://cong.im/about">About</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
 </html>

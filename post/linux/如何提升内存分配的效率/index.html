@@ -1,58 +1,51 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<html lang="zh-cn">
 <head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.88.1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>聪少  | 如何提升内存分配的效率</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="http://cong.im/css/blog.css" />
+    </head>
+<body>
 
-  <title>如何提升内存分配的效率 &middot; 聪少</title>
-  <meta name="description" content="" />
-
-  
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="http://cong.im/css/hyde.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
-
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-
-  
-  
-</head>
-
-  <body class=" ">
-  <aside class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="http://cong.im/"><h1>聪少</h1></a>
-      <p class="lead">
-      
-      </p>
-    </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="http://cong.im/">Home</a> </li>
-        
-      </ul>
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://cong.im/">Home</a>
+        </div>
     </nav>
+    
 
-    <p>&copy; 2021. All rights reserved. </p>
-  </div>
-</aside>
+    
+    <section class="hero is-info is-medium">
+        <div class="hero-body" style="background-image: url(http://cong.im/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                    
+                        如何提升内存分配的效率
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
 
-    <main class="content container">
-    <div class="post">
-  <h1>如何提升内存分配的效率</h1>
-  <time datetime=2020-06-24T14:48:16Z class="post-date">Wed, Jun 24, 2020</time>
-  <p>谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。</p>
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <p>谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。</p>
 <p>大部分高级语言或多或少都与C语言有一定关系，如Java，申请内存必须经过C库，C库为了加快内存分配速度，通过预分配更大的空间作为内存池。这样预先分配的6GB的C库内存池就与JVM中预先分配的8G内存池叠加在一起，造成Java进程内存占用超出预期。</p>
 <h3 id="了解内存池的好处">了解内存池的好处</h3>
 <ul>
@@ -68,13 +61,82 @@
 <h3 id="tcmalloc">TCMalloc</h3>
 <h3 id="如何选择ptmalloc2和tcmalloc">如何选择Ptmalloc2和TCMalloc？</h3>
 <h3 id="从堆还是栈上分配内存">从堆还是栈上分配内存？</h3>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="http://cong.im/tags/db">db</a></span>
+        
+            <span class="tag"><a href="http://cong.im/tags/linux">linux</a></span>
+        
+            <span class="tag"><a href="http://cong.im/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="http://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">linux内存管理</a></h1>
+            <time class="has-text-grey-light is-size-7">11 January 2021</time>
+        
+            <h1><a href="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">跨进程复制socket</a></h1>
+            <time class="has-text-grey-light is-size-7">15 December 2020</time>
+        
+            <h1><a href="http://cong.im/post/linux/io%E5%88%86%E6%9E%90/">io知识</a></h1>
+            <time class="has-text-grey-light is-size-7">9 December 2020</time>
+        
+            <h1><a href="http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">cpu性能分析</a></h1>
+            <time class="has-text-grey-light is-size-7">8 December 2020</time>
+        
+            <h1><a href="http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">进程小知识</a></h1>
+            <time class="has-text-grey-light is-size-7">20 July 2020</time>
+        
+    </div>
+</div>
+    <br>
+                
+
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="http://cong.im/archives/2021">2021</a> (1)<br>
+        
+            <a href="http://cong.im/archives/2020">2020</a> (9)<br>
+        
+    </div>
+</div>
+
+    </div>
 </div>
 
 
-    </main>
+    </div>
+</div>
 
-    
-      
-    
-  </body>
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://twitter.com/" class="mysocial" rel="me"><i class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial" rel="me"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://github.com/" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; 聪少 2021 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="http://cong.im/about">About</a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
 </html>
