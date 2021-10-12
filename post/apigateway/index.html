@@ -16,7 +16,12 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="" />
+  <meta name="description" content="网关作用
+网关分为两类
+
+入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。
+" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
   <title>网关简介 | 聪少</title>
@@ -25,7 +30,12 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="网关作用
+网关分为两类
+
+入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。
+" />
   <meta property="og:title" content="网关简介" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -41,7 +51,12 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="网关简介 | 聪少" />
-  <meta name="twitter:description" content="" />
+  <meta name="twitter:description" content="网关作用
+网关分为两类
+
+入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。
+" />
   <meta name="twitter:domain" content="http://cong.im/post/apigateway/" />
 
   
@@ -226,8 +241,11 @@ a min to read</span>
 <p>网关分为两类</p>
 <ul>
 <li>入口网关
-入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。在服务系统中对外暴露的协议可能不同，如http服务，rpc服务等等，甚至有些历史遗留的服务。API网关可以很好的对客户端屏蔽这些服务的地址以及协议细节，给客户端接入带来极大的便捷。
-在API网关中可以加入一些服务治理策略，如服务熔断、降级、流量控制、分流等。对于客户端等认证、鉴权也可以放在API网关中。另外还可以配合黑白名单，如设备ID、用户ID等维度策略。在网关中还可以很方便的做一些统计工作，如访问订单服务、商品服务等等。</li>
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。</li>
+</ul>
+<p>在服务系统中对外暴露的协议可能不同，如http服务，rpc服务等等，甚至有些历史遗留的服务。API网关可以很好的对客户端屏蔽这些服务的地址以及协议细节，给客户端接入带来极大的便捷。
+在API网关中可以加入一些服务治理策略，如服务熔断、降级、流量控制、分流等。对于客户端等认证、鉴权也可以放在API网关中。另外还可以配合黑白名单，如设备ID、用户ID等维度策略。在网关中还可以很方便的做一些统计工作，如访问订单服务、商品服务等等。</p>
+<ul>
 <li>出口网关
 出口网关，在实际的系统开发过程中，会依赖很多外部的三方服务，如三方账号登录、三方支付服务等。所以开发者可以在自身服务和三方服务之间部署出口网关，在出口网关中对外调用外部的API做统一的认证、授权、审计和权限访问。</li>
 </ul>

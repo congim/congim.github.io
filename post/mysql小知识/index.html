@@ -16,7 +16,11 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="" />
+  <meta name="description" content="事务的基本要素
+
+原子性
+事务开始后的所有操作要么做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错会回滚到事务开始的状态。所有的操作就像没有发生过一样。也就是说一个事务是一个不可分割的整体。(undo log实现)
+" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
   <title>mysql小知识 | 聪少</title>
@@ -25,7 +29,11 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="事务的基本要素
+
+原子性
+事务开始后的所有操作要么做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错会回滚到事务开始的状态。所有的操作就像没有发生过一样。也就是说一个事务是一个不可分割的整体。(undo log实现)
+" />
   <meta property="og:title" content="mysql小知识" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -41,7 +49,11 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="mysql小知识 | 聪少" />
-  <meta name="twitter:description" content="" />
+  <meta name="twitter:description" content="事务的基本要素
+
+原子性
+事务开始后的所有操作要么做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错会回滚到事务开始的状态。所有的操作就像没有发生过一样。也就是说一个事务是一个不可分割的整体。(undo log实现)
+" />
   <meta name="twitter:domain" content="http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/" />
 
   
@@ -224,10 +236,10 @@ a min to read</span>
       <article class="post-entry content">
         <h4 id="事务的基本要素">事务的基本要素</h4>
 <ul>
-<li>
-<p>原子性
-事务开始后的所有操作要么做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错会回滚到事务开始的状态。所有的操作就像没有发生过一样。也就是说一个事务是一个不可分割的整体。(undo log实现)</p>
-</li>
+<li>原子性
+事务开始后的所有操作要么做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错会回滚到事务开始的状态。所有的操作就像没有发生过一样。也就是说一个事务是一个不可分割的整体。(undo log实现)</li>
+</ul>
+<ul>
 <li>
 <p>一致性
 事务开始前和结束后，数据库的完整约束没有被破坏。如A向B赚钱，不可能A扣了钱，B却没收到。</p>
