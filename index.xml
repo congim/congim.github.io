@@ -22,7 +22,9 @@
       <pubDate>Tue, 15 Dec 2020 11:15:04 +0000</pubDate>
       
       <guid>http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</guid>
-      <description></description>
+      <description>&lt;h3 id=&#34;linux为什么能跨进程传递socket文件描述符&#34;&gt;linux为什么能跨进程传递socket文件描述符&lt;/h3&gt;
+&lt;p&gt;在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
+下面仔细跟踪一下socket创建的过程（3.10内核）。&lt;/p&gt;</description>
     </item>
     
     <item>

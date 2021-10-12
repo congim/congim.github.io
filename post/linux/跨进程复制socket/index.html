@@ -16,7 +16,9 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="" />
+  <meta name="description" content="linux为什么能跨进程传递socket文件描述符
+在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
+下面仔细跟踪一下socket创建的过程（3.10内核）。" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
   <title>跨进程复制socket | 聪少</title>
@@ -25,7 +27,9 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="linux为什么能跨进程传递socket文件描述符
+在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
+下面仔细跟踪一下socket创建的过程（3.10内核）。" />
   <meta property="og:title" content="跨进程复制socket" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -41,7 +45,9 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="跨进程复制socket | 聪少" />
-  <meta name="twitter:description" content="" />
+  <meta name="twitter:description" content="linux为什么能跨进程传递socket文件描述符
+在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
+下面仔细跟踪一下socket创建的过程（3.10内核）。" />
   <meta name="twitter:domain" content="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
 
   
@@ -222,10 +228,9 @@
         
       </div>
       <article class="post-entry content">
-        <h1 id="linux为什么能跨进程传递socket文件描述符">linux为什么能跨进程传递socket文件描述符</h1>
+        <h3 id="linux为什么能跨进程传递socket文件描述符">linux为什么能跨进程传递socket文件描述符</h3>
 <p>在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
 下面仔细跟踪一下socket创建的过程（3.10内核）。</p>
-<!-- raw HTML omitted -->
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> server_fd <span style="color:#f92672">=</span> socket(AF_INET, SOCK_STREAM, <span style="color:#ae81ff">0</span> );
 <span style="color:#75715e">//  ...
 </span><span style="color:#75715e">// 
@@ -288,7 +293,7 @@
 	<span style="color:#66d9ef">return</span> file;
 }
 
-</code></pre></div><h1 id="如何传递传递过程中注意哪些问题">如何传递、传递过程中注意哪些问题</h1>
+</code></pre></div><h3 id="如何传递传递过程中注意哪些问题">如何传递、传递过程中注意哪些问题</h3>
 <ul>
 <li>父子进程建立unix socket连接传递</li>
 <li>假设传递的socket为client_fd，调用dup_fd = dup(client_fd)（复制fd），然后将
