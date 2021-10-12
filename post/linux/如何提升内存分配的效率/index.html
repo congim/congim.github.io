@@ -16,7 +16,8 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="" />
+  <meta name="description" content="谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。
+大部分高级语言或多或少都与C语言有" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
   <title>如何提升内存分配的效率 | 聪少</title>
@@ -25,7 +26,8 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。
+大部分高级语言或多或少都与C语言有" />
   <meta property="og:title" content="如何提升内存分配的效率" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -41,7 +43,8 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="如何提升内存分配的效率 | 聪少" />
-  <meta name="twitter:description" content="" />
+  <meta name="twitter:description" content="谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。
+大部分高级语言或多或少都与C语言有" />
   <meta name="twitter:domain" content="http://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/" />
 
   
@@ -223,7 +226,8 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         <p>谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。</p>
-<p>大部分高级语言或多或少都与C语言有一定关系，如Java，申请内存必须经过C库，C库为了加快内存分配速度，通过预分配更大的空间作为内存池。这样预先分配的6GB的C库内存池就与JVM中预先分配的8G内存池叠加在一起，造成Java进程内存占用超出预期。</p>
+<p>大部分高级语言或多或少都与C语言有</p>
+<p>一定关系，如Java，申请内存必须经过C库，C库为了加快内存分配速度，通过预分配更大的空间作为内存池。这样预先分配的6GB的C库内存池就与JVM中预先分配的8G内存池叠加在一起，造成Java进程内存占用超出预期。</p>
 <h3 id="了解内存池的好处">了解内存池的好处</h3>
 <ul>
 <li>避免写程序时内存占用过大导致服务整体性能下降或者OOM的情况</li>

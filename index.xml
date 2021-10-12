@@ -33,7 +33,9 @@
       <pubDate>Wed, 09 Dec 2020 16:28:28 +0000</pubDate>
       
       <guid>http://cong.im/post/linux/io%E5%88%86%E6%9E%90/</guid>
-      <description></description>
+      <description>&lt;h3 id=&#34;linux文件系统&#34;&gt;Linux文件系统&lt;/h3&gt;
+&lt;p&gt;文件系统本身是对存储设备上的文件进行组织管理的机制。组织方式不同就形成不同的文件系统。
+在Linux中一切皆为文件，为了方便管理Linux文件系统为每个文件都分配两个数据结构，索引节点、和目录项。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,7 +53,10 @@
       <pubDate>Mon, 20 Jul 2020 13:08:55 +0000</pubDate>
       
       <guid>http://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
-      <description></description>
+      <description>&lt;h3 id=&#34;什么是进程&#34;&gt;什么是进程&lt;/h3&gt;
+&lt;p&gt;进程就是应用程序启动的实例。进程拥有代码和打开的文件资源、数据资源、独立的内存空间&lt;/p&gt;
+&lt;h4 id=&#34;什么是线程&#34;&gt;什么是线程&lt;/h4&gt;
+&lt;p&gt;线程从属进程，是程序的实际执行者。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -87,7 +92,8 @@
       <pubDate>Wed, 24 Jun 2020 14:48:16 +0000</pubDate>
       
       <guid>http://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</guid>
-      <description></description>
+      <description>&lt;p&gt;谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。&lt;/p&gt;
+&lt;p&gt;大部分高级语言或多或少都与C语言有&lt;/p&gt;</description>
     </item>
     
     <item>
