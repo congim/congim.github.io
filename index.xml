@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Fri, 22 Oct 2021 20:07:09 +0800</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Redo Log、binlog</title>
+      <title>Redo Log、binlog、Undo log</title>
       <link>http://cong.im/post/mysql/redo-logbinlog/</link>
       <pubDate>Fri, 22 Oct 2021 20:07:09 +0800</pubDate>
       
