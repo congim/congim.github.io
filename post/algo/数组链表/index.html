@@ -16,7 +16,7 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" 两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left&#43;&#43; } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea } " />
+  <meta name="description" content="两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left&#43;&#43; } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea }  移动零  func moveZeroes(nums []int) { saveIndex := 0 for index := 0; index &lt; len(nums); index&#43;&#43; { if nums[index] !" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
   <title>数组、链表 | 聪少</title>
@@ -25,7 +25,7 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" 两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left&#43;&#43; } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea } " />
+  <meta property="og:description" content="两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left&#43;&#43; } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea }  移动零  func moveZeroes(nums []int) { saveIndex := 0 for index := 0; index &lt; len(nums); index&#43;&#43; { if nums[index] !" />
   <meta property="og:title" content="数组、链表" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -41,7 +41,7 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="数组、链表 | 聪少" />
-  <meta name="twitter:description" content=" 两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left&#43;&#43; } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea } " />
+  <meta name="twitter:description" content="两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left&#43;&#43; } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea }  移动零  func moveZeroes(nums []int) { saveIndex := 0 for index := 0; index &lt; len(nums); index&#43;&#43; { if nums[index] !" />
   <meta name="twitter:domain" content="http://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/" />
 
   
@@ -270,6 +270,22 @@ a min to read</span>
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newArea</span>
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">oldArea</span>
+}
+</code></pre></div><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/move-zeroes/">移动零</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveZeroes</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>)  {
+	<span style="color:#a6e22e">saveIndex</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">index</span> &lt; len(<span style="color:#a6e22e">nums</span>); <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">index</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+			<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">saveIndex</span>] = <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">index</span>]
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">saveIndex</span> {
+				<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">index</span>] = <span style="color:#ae81ff">0</span>
+			}
+			<span style="color:#75715e">// 放到下面++
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">saveIndex</span><span style="color:#f92672">++</span>
+		}
+	}
 }
 </code></pre></div>
       </article>
