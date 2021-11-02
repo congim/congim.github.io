@@ -214,7 +214,7 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-a min to read</span>
+2 mins to read</span>
         
         
         
@@ -286,6 +286,31 @@ a min to read</span>
 </span><span style="color:#75715e"></span>			<span style="color:#a6e22e">saveIndex</span><span style="color:#f92672">++</span>
 		}
 	}
+}
+</code></pre></div><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/climbing-stairs/">爬楼梯</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 递归
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">climbStairs</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span>
+	}
+	<span style="color:#a6e22e">cache</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">int</span>)
+	<span style="color:#a6e22e">cache</span>[<span style="color:#ae81ff">1</span>] = <span style="color:#ae81ff">1</span>
+	<span style="color:#a6e22e">cache</span>[<span style="color:#ae81ff">2</span>] = <span style="color:#ae81ff">2</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">climbStair</span>(<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">cache</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">climbStair</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">cache</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">setups</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cache</span>[<span style="color:#a6e22e">n</span>]; <span style="color:#a6e22e">ok</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">setups</span>
+	}
+	<span style="color:#a6e22e">setups</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">climbStair</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">cache</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">climbStair</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">cache</span>)
+	<span style="color:#a6e22e">cache</span>[<span style="color:#a6e22e">n</span>] = <span style="color:#a6e22e">setups</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">setups</span>
 }
 </code></pre></div>
       </article>
