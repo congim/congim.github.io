@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Oct 2021 20:07:09 +0800</lastBuildDate><atom:link href="http://cong.im/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Nov 2021 19:43:11 +0800</lastBuildDate><atom:link href="http://cong.im/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数组、链表</title>
+      <link>http://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Tue, 02 Nov 2021 19:43:11 +0800</pubDate>
+      
+      <guid>http://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</guid>
+      <description> 两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &amp;lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  </description>
+    </item>
+    
     <item>
       <title>Redo Log、binlog、Undo log</title>
       <link>http://cong.im/post/mysql/redo-logbinlog/</link>
