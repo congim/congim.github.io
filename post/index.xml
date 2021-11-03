@@ -22,7 +22,9 @@
       <pubDate>Tue, 02 Nov 2021 19:43:11 +0800</pubDate>
       
       <guid>http://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</guid>
-      <description>两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &amp;lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &amp;lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &amp;gt; height[right] { right-- } else { left++ } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &amp;gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &amp;gt; oldArea { return newArea } return oldArea }  移动零  func moveZeroes(nums []int) { saveIndex := 0 for index := 0; index &amp;lt; len(nums); index++ { if nums[index] !</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;a href=&#34;https://leetcode-cn.com/problems/two-sum/&#34;&gt;两数之和&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>

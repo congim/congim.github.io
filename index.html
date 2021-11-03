@@ -180,7 +180,9 @@
           <a href="http://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/" title="数组、链表">数组、链表</a>
         </h3>
         <div class="content summary">
-          <p>两数之和  func twoSum(nums []int, target int) []int { if nums == nil || len(nums) &lt;= 1 { return nil } // a = target -b  cache := make(map[int]int) for index, value := range nums { if otherIndex, ok := cache[target-value]; ok { return []int{index, otherIndex} } cache[value] = index } return nil }  盛最多水的容器  // 双指针 func maxArea(height []int) int { area, left, right := 0, 0, len(height)-1 for left &lt; right { newArea := getArea(left, right, height) area = getMax(newArea, area) if height[left] &gt; height[right] { right-- } else { left++ } } return area } func getArea(left, right int, height []int) int { // 高选低的 	if height[left] &gt; height[right] { return (right - left) * height[right] } return (right - left) * height[left] } func getMax(newArea, oldArea int) int { if newArea &gt; oldArea { return newArea } return oldArea }  移动零  func moveZeroes(nums []int) { saveIndex := 0 for index := 0; index &lt; len(nums); index++ { if nums[index] !</p>
+          <p><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/two-sum/">两数之和</a></li>
+</ul></p>
           
             <span class="hellip">&hellip;</span>
           
