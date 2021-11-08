@@ -434,15 +434,41 @@
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
 		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 	}
-	<span style="color:#a6e22e">slow</span>, <span style="color:#a6e22e">fast</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span>
+	<span style="color:#a6e22e">slow</span>, <span style="color:#a6e22e">fast</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">head</span>
 	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">slow</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fast</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">slow</span> = <span style="color:#a6e22e">slow</span>.<span style="color:#a6e22e">Next</span>
-		<span style="color:#a6e22e">fast</span> = <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span>.<span style="color:#a6e22e">Next</span>
+		<span style="color:#a6e22e">slow</span>, <span style="color:#a6e22e">fast</span> = <span style="color:#a6e22e">slow</span>.<span style="color:#a6e22e">Next</span>, <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span>.<span style="color:#a6e22e">Next</span>
 		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">slow</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">fast</span> {
 			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
 		}
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/linked-list-cycle-ii">环形链表II</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">detectCycle</span>(<span style="color:#a6e22e">head</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+	}
+	<span style="color:#a6e22e">slow</span>, <span style="color:#a6e22e">fast</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">head</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">slow</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fast</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">slow</span>, <span style="color:#a6e22e">fast</span> = <span style="color:#a6e22e">slow</span>.<span style="color:#a6e22e">Next</span>, <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span>.<span style="color:#a6e22e">Next</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">slow</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">fast</span> {
+			<span style="color:#66d9ef">break</span>
+		}
+	}
+	<span style="color:#75715e">// 判断有环没
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">fast</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+	}
+
+	<span style="color:#a6e22e">slow</span> = <span style="color:#a6e22e">head</span>
+	<span style="color:#75715e">// 相遇的时就是结果
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">slow</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">fast</span> {
+		<span style="color:#a6e22e">slow</span> = <span style="color:#a6e22e">slow</span>.<span style="color:#a6e22e">Next</span>
+		<span style="color:#a6e22e">fast</span> = <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">Next</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">slow</span>
 }
 </code></pre></div>
       </article>
