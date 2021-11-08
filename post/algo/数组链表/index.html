@@ -214,7 +214,7 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-4 mins to read</span>
+5 mins to read</span>
         
         
         
@@ -473,7 +473,45 @@
 </code></pre></div><ul>
 <li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/reverse-nodes-in-k-group/">K个一组翻转链表</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">reverseKGroup</span>(<span style="color:#a6e22e">head</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
+	<span style="color:#75715e">// 找到k个节点，然后反转，head就是当前链表的最后一个节点，那么head的next就是一个k个节点的开头
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>
+	}
+	<span style="color:#75715e">// 便利k-1次，因为head已经+1了, 记得判断curr不能等于nil
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">curr</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">head</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">curr</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#75715e">// 找到最后一个
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">curr</span> = <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">Next</span>
+	}
+	<span style="color:#75715e">// 不够k，直接返回head
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">curr</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>
+	}
+	<span style="color:#75715e">// 下个k链表
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">next</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">Next</span>
+	<span style="color:#75715e">// 截断当前链表
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#66d9ef">nil</span>
+	<span style="color:#75715e">// 进行反转
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">localReverse</span>(<span style="color:#a6e22e">head</span>)
+	<span style="color:#75715e">// 继续反转下个k，然后head的Next就是下个链表
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">reverseKGroup</span>(<span style="color:#a6e22e">next</span>, <span style="color:#a6e22e">k</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">curr</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">localReverse</span>(<span style="color:#a6e22e">head</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>
+	}
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pre</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">next</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span>
+		<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">pre</span>
+		<span style="color:#a6e22e">pre</span> = <span style="color:#a6e22e">head</span>
+		<span style="color:#a6e22e">head</span> = <span style="color:#a6e22e">next</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pre</span>
+}
 </code></pre></div>
       </article>
     </div>
