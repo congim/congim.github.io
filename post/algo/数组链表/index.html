@@ -412,7 +412,25 @@
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pre</span>
 }
-</code></pre></div>
+</code></pre></div><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs">两两交换链表中的节点</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">swapPairs</span>(<span style="color:#a6e22e">head</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>
+	}
+	<span style="color:#a6e22e">curr</span>, <span style="color:#a6e22e">pre</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span>
+	<span style="color:#75715e">// 一对节点反转即 pre.next = curr,head 变为pre,所以return pre
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// 那么curr的next就编程pre.next继续做反转的动作了
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">swapPairs</span>(<span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Next</span>)
+	<span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">curr</span>
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pre</span>
+}
+</code></pre></div><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/linked-list-cycle">环形链表</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"></code></pre></div>
       </article>
     </div>
 
