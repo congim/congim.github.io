@@ -252,7 +252,32 @@ a min to read</span>
 </code></pre></div><ul>
 <li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram">柱状图中最大的矩形</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">largestRectangleArea</span>(<span style="color:#a6e22e">heights</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">area</span> <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">stack</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">0</span>)
+	<span style="color:#a6e22e">stack</span> = append(<span style="color:#a6e22e">stack</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#75715e">// 预防特殊情况，无法触发计算 ，如：[2, 4]
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">heights</span> = append(<span style="color:#a6e22e">heights</span>, <span style="color:#ae81ff">0</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">right</span> &lt; len(<span style="color:#a6e22e">heights</span>); <span style="color:#a6e22e">right</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">for</span> len(<span style="color:#a6e22e">stack</span>) &gt; <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">heights</span>[<span style="color:#a6e22e">stack</span>[len(<span style="color:#a6e22e">stack</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] &gt; <span style="color:#a6e22e">heights</span>[<span style="color:#a6e22e">right</span>] {
+			<span style="color:#75715e">// 当前需要计算的height的index
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">top</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stack</span>[len(<span style="color:#a6e22e">stack</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+			<span style="color:#a6e22e">stack</span> = <span style="color:#a6e22e">stack</span>[:len(<span style="color:#a6e22e">stack</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+			<span style="color:#75715e">// 左下标
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">left</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stack</span>[len(<span style="color:#a6e22e">stack</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+			<span style="color:#a6e22e">area</span> = <span style="color:#a6e22e">maxArea</span>(<span style="color:#a6e22e">area</span>, (<span style="color:#a6e22e">right</span><span style="color:#f92672">-</span><span style="color:#a6e22e">left</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">heights</span>[<span style="color:#a6e22e">top</span>])
+		}
+		<span style="color:#a6e22e">stack</span> = append(<span style="color:#a6e22e">stack</span>, <span style="color:#a6e22e">right</span>)
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">area</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxArea</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> &gt; <span style="color:#a6e22e">y</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">y</span>
+}
 </code></pre></div>
       </article>
     </div>
