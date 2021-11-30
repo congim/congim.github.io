@@ -165,7 +165,7 @@
           <a href="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" title="字符串拼接性能">字符串拼接性能</a>
         </h3>
         <div class="content summary">
-          <p>package main import ( &#34;bytes&#34; &#34;fmt&#34; &#34;strings&#34; &#34;testing&#34; ) // 大量字符串拼接性能测试  // fmt.Printf func BenchmarkFmtSprintfMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i++ { s += fmt.Sprintf(&#34;%s%s&#34;, &#34;hello&#34;, &#34;world&#34;) } fmt.Errorf(s) } // 加号 拼接 func BenchmarkAddMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i++ { s += &#34;hello&#34; + &#34;world&#34; } fmt.Errorf(s) } // strings.Join func BenchmarkStringsJoinMore(b *testing.B) { var s string for i := 0; i &lt; b.</p>
+          <p></p>
           
             <span class="hellip">&hellip;</span>
           

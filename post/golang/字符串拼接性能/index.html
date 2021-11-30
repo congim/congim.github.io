@@ -16,7 +16,7 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="package main import ( &#34;bytes&#34; &#34;fmt&#34; &#34;strings&#34; &#34;testing&#34; ) // 大量字符串拼接性能测试  // fmt.Printf func BenchmarkFmtSprintfMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i&#43;&#43; { s &#43;= fmt.Sprintf(&#34;%s%s&#34;, &#34;hello&#34;, &#34;world&#34;) } fmt.Errorf(s) } // 加号 拼接 func BenchmarkAddMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i&#43;&#43; { s &#43;= &#34;hello&#34; &#43; &#34;world&#34; } fmt.Errorf(s) } // strings.Join func BenchmarkStringsJoinMore(b *testing.B) { var s string for i := 0; i &lt; b." />
+  <meta name="description" content="" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
   <title>字符串拼接性能 | 聪少</title>
@@ -25,7 +25,7 @@
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="package main import ( &#34;bytes&#34; &#34;fmt&#34; &#34;strings&#34; &#34;testing&#34; ) // 大量字符串拼接性能测试  // fmt.Printf func BenchmarkFmtSprintfMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i&#43;&#43; { s &#43;= fmt.Sprintf(&#34;%s%s&#34;, &#34;hello&#34;, &#34;world&#34;) } fmt.Errorf(s) } // 加号 拼接 func BenchmarkAddMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i&#43;&#43; { s &#43;= &#34;hello&#34; &#43; &#34;world&#34; } fmt.Errorf(s) } // strings.Join func BenchmarkStringsJoinMore(b *testing.B) { var s string for i := 0; i &lt; b." />
+  <meta property="og:description" content="" />
   <meta property="og:title" content="字符串拼接性能" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -41,7 +41,7 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="字符串拼接性能 | 聪少" />
-  <meta name="twitter:description" content="package main import ( &#34;bytes&#34; &#34;fmt&#34; &#34;strings&#34; &#34;testing&#34; ) // 大量字符串拼接性能测试  // fmt.Printf func BenchmarkFmtSprintfMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i&#43;&#43; { s &#43;= fmt.Sprintf(&#34;%s%s&#34;, &#34;hello&#34;, &#34;world&#34;) } fmt.Errorf(s) } // 加号 拼接 func BenchmarkAddMore(b *testing.B) { var s string for i := 0; i &lt; b.N; i&#43;&#43; { s &#43;= &#34;hello&#34; &#43; &#34;world&#34; } fmt.Errorf(s) } // strings.Join func BenchmarkStringsJoinMore(b *testing.B) { var s string for i := 0; i &lt; b." />
+  <meta name="twitter:description" content="" />
   <meta name="twitter:domain" content="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
 
   
@@ -324,7 +324,6 @@ PASS
 ok      github.com/congim/testCode      59.921s
 </code></pre></div><p>从上可以看出单词调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf
 如果涉及到大量数据拼接推荐 bytes.buffer{}</p>
-
       </article>
     </div>
 
