@@ -322,8 +322,10 @@ BenchmarkStringsJoin-8           <span style="color:#ae81ff">9086439</span>     
 BenchmarkBuffer-8                <span style="color:#ae81ff">8177436</span>               158.0 ns/op
 PASS
 ok      github.com/congim/testCode      59.921s
-</code></pre></div><p>从上可以看出单词调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf
-如果涉及到大量数据拼接推荐 bytes.buffer{}</p>
+</code></pre></div><ul>
+<li>从上可以看出单词调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</li>
+<li>如果涉及到大量数据拼接推荐 bytes.buffer{}</li>
+</ul>
       </article>
     </div>
 
