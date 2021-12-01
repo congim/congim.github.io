@@ -19,14 +19,14 @@
   <meta name="description" content="" />
   <meta name="author" content="">
   <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
-  <title>字符串拼接性能 | 聪少</title>
+  <title>golang字符串拼接性能对比 | 聪少</title>
   <link rel="canonical" href="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
   
 
   
   <meta property="og:type" content="article" />
   <meta property="og:description" content="" />
-  <meta property="og:title" content="字符串拼接性能" />
+  <meta property="og:title" content="golang字符串拼接性能对比" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:url" content="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
@@ -40,7 +40,7 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="字符串拼接性能 | 聪少" />
+  <meta name="twitter:title" content="golang字符串拼接性能对比 | 聪少" />
   <meta name="twitter:description" content="" />
   <meta name="twitter:domain" content="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
 
@@ -157,7 +157,7 @@
 
 
 <li class="active">
-  <a href="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/">字符串拼接性能</a>
+  <a href="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/">golang字符串拼接性能对比</a>
 </li>
 
 </ol>
@@ -175,7 +175,7 @@
 <main id="main">
   <div class="container has-padding">
     <div class="article-card post single">
-      <h1 class="title">字符串拼接性能</h1>
+      <h1 class="title">golang字符串拼接性能对比</h1>
       <div class="post-info">
         <span>
 
@@ -323,8 +323,8 @@ BenchmarkBuffer-8                <span style="color:#ae81ff">8177436</span>     
 PASS
 ok      github.com/congim/testCode      59.921s
 </code></pre></div><ul>
-<li>从上可以看出单词调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</li>
-<li>如果涉及到大量数据拼接推荐 bytes.buffer{}</li>
+<li>从上可以看出<del><del>单次</del></del>调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</li>
+<li>如果涉及到~<del>大量数据</del>拼接推荐 bytes.buffer{}</li>
 </ul>
       </article>
     </div>
@@ -382,8 +382,8 @@ Share with</span>
         target="_blank"
         title="share to reddit"
         rel="noopener noreferrer"
-        aria-label="share 字符串拼接性能 on reddit"
-        href="https://reddit.com/submit?url=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&title=%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd">
+        aria-label="share golang字符串拼接性能对比 on reddit"
+        href="https://reddit.com/submit?url=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&title=golang%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd%e5%af%b9%e6%af%94">
         
 
 
@@ -408,8 +408,8 @@ Share with</span>
         target="_blank" 
         title="share to twitter"
         rel="noopener noreferrer"
-        aria-label="share 字符串拼接性能 on twitter"
-        href="https://twitter.com/intent/tweet/?text=%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd&amp;url=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&amp;hashtags=">
+        aria-label="share golang字符串拼接性能对比 on twitter"
+        href="https://twitter.com/intent/tweet/?text=golang%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd%e5%af%b9%e6%af%94&amp;url=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&amp;hashtags=">
         
 
 
@@ -434,7 +434,7 @@ Share with</span>
         target="_blank"
         title="share to facebook"
         rel="noopener noreferrer"
-        aria-label="share 字符串拼接性能 on facebook"
+        aria-label="share golang字符串拼接性能对比 on facebook"
         href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f">
         
 
