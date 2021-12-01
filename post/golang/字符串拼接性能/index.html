@@ -323,8 +323,8 @@ BenchmarkBuffer-8                <span style="color:#ae81ff">8177436</span>     
 PASS
 ok      github.com/congim/testCode      59.921s
 </code></pre></div><ul>
-<li>从上可以看出<del><del>单次</del></del>调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</li>
-<li>如果涉及到~<del>大量数据</del>拼接推荐 bytes.buffer{}</li>
+<li>从上可以看出<strong>单次</strong>调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</li>
+<li>如果涉及到<strong>大量数据</strong>拼接推荐 bytes.buffer{}</li>
 </ul>
       </article>
     </div>
