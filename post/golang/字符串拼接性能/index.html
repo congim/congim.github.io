@@ -318,8 +318,13 @@ BenchmarkBuffer-8                <span style="color:#ae81ff">8177436</span>     
 PASS
 ok      github.com/congim/testCode      59.921s
 </code></pre></div><ul>
-<li>从上可以看出<strong>单次</strong>调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</li>
-<li>如果涉及到<strong>大量数据</strong>拼接推荐 bytes.buffer{}</li>
+<li>
+<p>从上可以看出<strong>单次</strong>调用字符串拼接性能 + &gt; strings.Join &gt; bytes.Buffer &gt; fmt.Sprintf</p>
+</li>
+<li>
+<p>如果涉及到<strong>大量数据</strong>拼接推荐 bytes.buffer{}</p>
+<p>不晓得是我测试方式是否有问题，很多人测试结果是strings.Join最强， bytes.Buffer随后。然后各种分析内部内存分配次数！总之在适当的场景选择适当的方式吧，上线之前尽量去实际的压一次选择合适自身场景的方法~</p>
+</li>
 </ul>
       </article>
     </div>
