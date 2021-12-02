@@ -3,7 +3,35 @@
   
   <url>
     <loc>http://cong.im/</loc>
-    <lastmod>2021-12-01T17:40:21+08:00</lastmod>
+    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/tags/mysql/</loc>
+    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/</loc>
+    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/tags/</loc>
+    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17,20 +45,6 @@
   
   <url>
     <loc>http://cong.im/tags/golang/</loc>
-    <lastmod>2021-12-01T17:40:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://cong.im/post/</loc>
-    <lastmod>2021-12-01T17:40:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://cong.im/tags/</loc>
     <lastmod>2021-12-01T17:40:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -74,13 +88,6 @@
   <url>
     <loc>http://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2021-11-02T19:43:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://cong.im/tags/mysql/</loc>
-    <lastmod>2021-10-22T20:07:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

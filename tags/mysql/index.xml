@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>聪少</copyright>
-    <lastBuildDate>Fri, 22 Oct 2021 20:07:09 +0800</lastBuildDate><atom:link href="http://cong.im/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 10:52:50 +0800</lastBuildDate><atom:link href="http://cong.im/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker启动mysql并挂载本地配置文件</title>
+      <link>http://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Thu, 02 Dec 2021 10:52:50 +0800</pubDate>
+      
+      <guid>http://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>本地配置文件 1 vim /etc/mysql/conf/my.cnf 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 # For advice on how to change settings please see # http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html [mysqld] # # Remove leading # and set to the amount of RAM for</description>
+    </item>
+    
     <item>
       <title>Redo Log、binlog、Undo log</title>
       <link>http://cong.im/post/mysql/redo-logbinlog/</link>
