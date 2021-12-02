@@ -5,6 +5,53 @@
     <link>http://cong.im/tags/</link>
     <description>Recent content in Tags on Cong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://cong.im/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>聪少</copyright>
+    <lastBuildDate>Wed, 01 Dec 2021 17:40:21 +0800</lastBuildDate><atom:link href="http://cong.im/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang</title>
+      <link>http://cong.im/tags/golang/</link>
+      <pubDate>Wed, 01 Dec 2021 17:40:21 +0800</pubDate>
+      
+      <guid>http://cong.im/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nosql</title>
+      <link>http://cong.im/tags/nosql/</link>
+      <pubDate>Mon, 15 Nov 2021 11:05:21 +0800</pubDate>
+      
+      <guid>http://cong.im/tags/nosql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algo</title>
+      <link>http://cong.im/tags/algo/</link>
+      <pubDate>Mon, 08 Nov 2021 20:46:20 +0800</pubDate>
+      
+      <guid>http://cong.im/tags/algo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>http://cong.im/tags/mysql/</link>
+      <pubDate>Fri, 22 Oct 2021 20:07:09 +0800</pubDate>
+      
+      <guid>http://cong.im/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://cong.im/tags/linux/</link>
+      <pubDate>Mon, 11 Jan 2021 15:39:49 +0000</pubDate>
+      
+      <guid>http://cong.im/tags/linux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

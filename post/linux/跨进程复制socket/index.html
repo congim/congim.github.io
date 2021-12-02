@@ -55,7 +55,7 @@
 下面仔细跟踪一下socket创建的过程（3.10内核）。"><meta itemprop="datePublished" content="2020-12-15T11:15:04+00:00" />
 <meta itemprop="dateModified" content="2020-12-15T11:15:04+00:00" />
 <meta itemprop="wordCount" content="3513">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="跨进程复制socket"/>
 <meta name="twitter:description" content="linux为什么能跨进程传递socket文件描述符
 在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
@@ -1438,7 +1438,9 @@ sendmsg发送给子进程，然后close(client_fd)（在发往子进程网络的
   
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
             <i class="iconfont icon-left"></i>

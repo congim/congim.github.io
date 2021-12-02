@@ -6,6 +6,7 @@
     <description>Recent content on Cong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>聪少</copyright>
     <lastBuildDate>Wed, 01 Dec 2021 17:40:21 +0800</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Zero一致性hash</title>
@@ -22,6 +23,15 @@
       <pubDate>Tue, 30 Nov 2021 21:53:38 +0800</pubDate>
       
       <guid>http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redis知识点</title>
+      <link>http://cong.im/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Mon, 15 Nov 2021 11:05:21 +0800</pubDate>
+      
+      <guid>http://cong.im/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
       <description></description>
     </item>
     
