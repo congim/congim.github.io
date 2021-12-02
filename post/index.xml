@@ -87,10 +87,10 @@
     
     <item>
       <title>cpu性能分析</title>
-      <link>http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <link>http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 08 Dec 2020 20:21:15 +0000</pubDate>
       
-      <guid>http://cong.im/post/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <guid>http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;面对问题束手无策&lt;/li&gt;
 &lt;li&gt;面对“系统”、“底层”发怵&lt;/li&gt;
@@ -113,10 +113,10 @@
     
     <item>
       <title>mysql小知识</title>
-      <link>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <link>http://cong.im/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Mon, 20 Jul 2020 10:19:25 +0000</pubDate>
       
-      <guid>http://cong.im/post/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <guid>http://cong.im/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h4 id=&#34;事务的基本要素&#34;&gt;事务的基本要素&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;原子性
@@ -126,10 +126,10 @@
     
     <item>
       <title>hbase安装</title>
-      <link>http://cong.im/post/hbase%E5%AE%89%E8%A3%85/</link>
+      <link>http://cong.im/post/nosql/hbase%E5%AE%89%E8%A3%85/</link>
       <pubDate>Wed, 15 Jul 2020 10:31:39 +0000</pubDate>
       
-      <guid>http://cong.im/post/hbase%E5%AE%89%E8%A3%85/</guid>
+      <guid>http://cong.im/post/nosql/hbase%E5%AE%89%E8%A3%85/</guid>
       <description>&lt;h3 id=&#34;准备工作&#34;&gt;准备工作&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;hadoop-2.8.0.tar.gz&lt;/li&gt;
@@ -141,10 +141,10 @@
     
     <item>
       <title>centos7安装cassandra</title>
-      <link>http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/</link>
+      <link>http://cong.im/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</link>
       <pubDate>Wed, 15 Jul 2020 10:26:25 +0000</pubDate>
       
-      <guid>http://cong.im/post/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
+      <guid>http://cong.im/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
       <description></description>
     </item>
     
@@ -160,10 +160,10 @@
     
     <item>
       <title>网关简介</title>
-      <link>http://cong.im/post/apigateway/</link>
+      <link>http://cong.im/post/apigateway/apigateway/</link>
       <pubDate>Thu, 21 May 2020 13:33:58 +0000</pubDate>
       
-      <guid>http://cong.im/post/apigateway/</guid>
+      <guid>http://cong.im/post/apigateway/apigateway/</guid>
       <description>&lt;h3 id=&#34;网关作用&#34;&gt;网关作用&lt;/h3&gt;
 &lt;p&gt;网关分为两类&lt;/p&gt;
 &lt;ul&gt;

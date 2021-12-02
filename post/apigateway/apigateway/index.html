@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html
+ lang="zh-cn"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+
+
+<head lang="zh-cn">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="网关作用
+网关分为两类
+
+入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。
+" />
+  <meta name="author" content="">
+  <meta name="keywords" content="115, 116, 114, 105, 110, 103, 91, 93">
+  <title>网关简介 | 聪少</title>
+  <link rel="canonical" href="http://cong.im/post/apigateway/apigateway/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="网关作用
+网关分为两类
+
+入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。
+" />
+  <meta property="og:title" content="网关简介" />
+  <meta property="og:site_name" content="聪少" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://cong.im/post/apigateway/apigateway/" />
+  <meta property="og:locale" content="zh-cn" />
+
+  
+    <meta property="article:published_time" content="2020-05-21" />
+    <meta property="article:modified_time" content="2020-05-21" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="网关简介 | 聪少" />
+  <meta name="twitter:description" content="网关作用
+网关分为两类
+
+入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。
+" />
+  <meta name="twitter:domain" content="http://cong.im/post/apigateway/apigateway/" />
+
+  
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize@1.0.0/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    
+    <link rel="stylesheet" href="http://cong.im/style.min.24dece96ebe77a911ff4af20cffc54f5b46ee96ad7e33f168e1af342b043ec26.css" integrity="sha256-JN7OluvnepEf9K8gz/xU9bRu6WrX4z8WjhrzQrBD7CY=" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+    
+  
+</head>
+
+  <body>
+    <script>
+  const currentTheme = window.localStorage.getItem('theme')
+  if (currentTheme === "dark") {
+    document.body.classList.toggle("theme-dark");
+  } else if (currentTheme == "light") {
+    document.body.classList.toggle("theme-light");
+  }
+</script>
+<header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://cong.im/" title="聪少">
+          <span>聪少</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    <div class="container has-padding">
+      <div class="breadcrumb">
+        
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://cong.im/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://cong.im/post/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://cong.im/post/apigateway/apigateway/">网关简介</a>
+</li>
+
+</ol>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</header>
+
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">网关简介</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2020-05-21T13:33:58Z class="date">May 21, 2020</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+a min to read</span>
+        
+        
+        
+          <span>post </span>
+        
+      </div>
+      <article class="post-entry content">
+        <h3 id="网关作用">网关作用</h3>
+<p>网关分为两类</p>
+<ul>
+<li>入口网关
+入口网关将一些服务共有的功能整合在一起，独立部署为单独的一层，用来解决一些服务治理的问题。可以把网关看作系统边界，它可以对出入系统的流量进行统一的管控。网关提供客户端一个统一的接入地址，API网关可以将用户的请求动态路由到不同的业务服务上，并且做一些必要的协议转换工作。</li>
+</ul>
+<p>在服务系统中对外暴露的协议可能不同，如http服务，rpc服务等等，甚至有些历史遗留的服务。API网关可以很好的对客户端屏蔽这些服务的地址以及协议细节，给客户端接入带来极大的便捷。
+在API网关中可以加入一些服务治理策略，如服务熔断、降级、流量控制、分流等。对于客户端等认证、鉴权也可以放在API网关中。另外还可以配合黑白名单，如设备ID、用户ID等维度策略。在网关中还可以很方便的做一些统计工作，如访问订单服务、商品服务等等。</p>
+<ul>
+<li>出口网关
+出口网关，在实际的系统开发过程中，会依赖很多外部的三方服务，如三方账号登录、三方支付服务等。所以开发者可以在自身服务和三方服务之间部署出口网关，在出口网关中对外调用外部的API做统一的认证、授权、审计和权限访问。</li>
+</ul>
+<!-- raw HTML omitted -->
+<h3 id="实现注意细节">实现注意细节</h3>
+<ul>
+<li>性能
+API网关承接所有从客户端的所有流量，假如业务处理需要10ms，在API网关处理需要1ms，那么相当于每个API的响应时间需要增加10%，无疑在对性能影响是重大的。提升API网关的性能很重要的一部分在于I/O模型。Netfix开源的API网关Zuul中采用I/O多路复用的模型处理接入的I/O请求，并且使用非阻塞的调用方式。除此之外，API网关中执行动作有些是可以预先定义好的，如黑白名单、接口动态路由等等。API网关在设计的时候需要注意拓展性，方便开发者随时在网关上增加一些逻辑或者下掉一些逻辑。
+一般来说，可以把每一个操作定义为一个filter过滤器，然后使用责任链模式将这些过滤器串起来。责任链可以动态的组织这些过滤器，解偶过滤器之间的关系，无轮增加还是减少都对其他过滤器无任何影响。（过滤器通常分为三种过滤器：1. 路由前过滤器 2. 路由过滤器 3. 路由后过滤器）</li>
+</ul>
+<p><img src="/images/apigateway/WechatIMG8.png" alt="WechatIMG8"></p>
+<ul>
+<li>线程隔离/保护
+为了提升网关的并行处理能力，一般使用线程池来执行请求。当在后端服务响应缓慢的时候，线程池中线程就会被后端的缓慢服务消耗殆尽，那么其他服务的请求就会受到影响，所以我们要针对不同的服务做线程隔离或者保护。
+以下两种方法：
+<ul>
+<li>如果后端的服务拆分的不多，可以针对不同的服务采用不同的线程池，这样发生故障的服务就不会影响其他正常的服务了</li>
+<li>线程池内部可以针对不同服务甚至不同的接口做线程保护。如线程池的最大线程是1000，那么可以给每个服务设置一个最多的使用配额。（在golang中可以适当的控制携程数量，来达到控制线程数的相同目的）</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何引用api网关">如何引用API网关</h3>
+<p>用电商应用举个例子，在服务层和客户端之间有一层Web层，这个Web层主要做两个方面的事情：</p>
+<ol>
+<li><em><strong>对服务层接口数据的聚合</strong></em>。如商品详情页的接口可能聚合到服务层总，获取商品信息、用户信息、店铺信息以及用户评论等多个服务的接口数据。</li>
+<li><em><strong>Web层可能需要将Http请求转换成RPC请求，且对某些请求添加黑名单功能等</strong></em>。因此我们在做改造的时候可以先将API网关先从Web层中独立出来，将协议转换、限流、黑明单等功能搬到API网关中来处理，形成独立的<em><strong>入口网关</strong></em>。</li>
+</ol>
+<p>针对服务接口数据聚合的操作一般两种解决思路是：</p>
+<ul>
+<li>独立一组网关专门做聚合、超时控制方面的事情，前一种网关称作流量网关，后一种称作业务网关</li>
+<li>抽取独立的服务层，做门做接口聚合操作。这样服务层就大概分为原子服务层和聚合服务层。</li>
+</ul>
+<p>接口数据聚合是业务操作，与其放在通用网关来实现不如放在更贴近业务的服务层来实现</p>
+<p><img src="/images/apigateway/WechatIMG7.png" alt="WechatIMG7"></p>
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2020-05-21 21:33 CST</time>
+      
+    </div>
+
+    
+
+    <div class="row social-share">
+      <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+      
+      
+      <a
+        target="_blank"
+        title="share to reddit"
+        rel="noopener noreferrer"
+        aria-label="share 网关简介 on reddit"
+        href="https://reddit.com/submit?url=http%3a%2f%2fcong.im%2fpost%2fapigateway%2fapigateway%2f&title=%e7%bd%91%e5%85%b3%e7%ae%80%e4%bb%8b">
+        
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+      </a>
+      <a
+        target="_blank" 
+        title="share to twitter"
+        rel="noopener noreferrer"
+        aria-label="share 网关简介 on twitter"
+        href="https://twitter.com/intent/tweet/?text=%e7%bd%91%e5%85%b3%e7%ae%80%e4%bb%8b&amp;url=http%3a%2f%2fcong.im%2fpost%2fapigateway%2fapigateway%2f&amp;hashtags=">
+        
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+      </a>
+      <a
+        target="_blank"
+        title="share to facebook"
+        rel="noopener noreferrer"
+        aria-label="share 网关简介 on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fcong.im%2fpost%2fapigateway%2fapigateway%2f">
+        
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+      </a>
+    </div>
+
+    
+</div>
+    
+
+    
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://cong.im/index.xml" type="application/rss+xml">RSS</a>
+      </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2021 聪少
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://cong.im/js/main.min.7685c4d03abca7fd02a772a2e64c7a8aa3a7031024bbab70a17975e8928cb004.js" integrity="sha256-doXE0Dq8p/0Cp3Ki5kx6iqOnAxAku6twoXl16JKMsAQ=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>
