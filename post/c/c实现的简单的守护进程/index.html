@@ -49,7 +49,7 @@
 <meta itemprop="name" content="c 实现的简单的守护进程">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-12-03T15:48:13+08:00" />
 <meta itemprop="dateModified" content="2021-12-03T15:48:13+08:00" />
-<meta itemprop="wordCount" content="324">
+<meta itemprop="wordCount" content="316">
 <meta itemprop="keywords" content="c," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="c 实现的简单的守护进程"/>
 <meta name="twitter:description" content=""/>
@@ -220,13 +220,13 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
         <span class="n">fprintf</span> <span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&#34;fork faild %s </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>   <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
         <span class="n">start_real_work</span><span class="p">();</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
         <span class="n">signal</span><span class="p">(</span> <span class="n">SIGCHLD</span><span class="p">,</span> <span class="n">restart_real_work</span><span class="p">);</span>
         <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">sleep</span> <span class="p">(</span><span class="mi">6</span><span class="p">);</span>
@@ -240,7 +240,7 @@
     <span class="cm">/*屏蔽管道破裂信号*/</span>
     <span class="n">signal</span><span class="p">(</span><span class="n">SIGPIPE</span><span class="p">,</span> <span class="n">SIG_IGN</span><span class="p">);</span>
     
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&#34;working&#34;</span><span class="p">);</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>
@@ -251,15 +251,15 @@
 <span class="p">{</span>
     <span class="n">fprintf</span> <span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&#34;守护进程</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
     <span class="n">pid_t</span> <span class="n">childPid</span> <span class="o">=</span> <span class="n">waitpid</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">childPid</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">childPid</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">){</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="n">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
         <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;fork failed, errmsg %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
         <span class="n">start_real_work</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="p">;</span>
