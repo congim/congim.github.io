@@ -2,8 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cong.im/tags/c/</loc>
+    <lastmod>2021-12-03T15:48:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</loc>
+    <lastmod>2021-12-03T15:48:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://cong.im/</loc>
-    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
+    <lastmod>2021-12-03T15:48:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/</loc>
+    <lastmod>2021-12-03T15:48:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/tags/</loc>
+    <lastmod>2021-12-03T15:48:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17,20 +45,6 @@
   
   <url>
     <loc>http://cong.im/tags/mysql/</loc>
-    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://cong.im/post/</loc>
-    <lastmod>2021-12-02T10:52:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://cong.im/tags/</loc>
     <lastmod>2021-12-02T10:52:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
