@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html
- lang="zh-cn"
+ lang="en-us"
   prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
 >
   
 
 
 
+  
+  
 
 
-<head lang="zh-cn">
+<head lang="en-us">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="HandheldFriendly" content="True" />
@@ -19,10 +21,10 @@
   <meta name="description" content="linux为什么能跨进程传递socket文件描述符
 在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
 下面仔细跟踪一下socket创建的过程（3.10内核）。" />
-  <meta name="author" content="">
+  <meta name="author" content="Cong">
   <meta name="keywords" content="linux">
   <title>跨进程复制socket | 聪少</title>
-  <link rel="canonical" href="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
+  <link rel="canonical" href="https://example.com/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
   
 
   
@@ -33,8 +35,8 @@
   <meta property="og:title" content="跨进程复制socket" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
-  <meta property="og:locale" content="zh-cn" />
+  <meta property="og:url" content="https://example.com/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
+  <meta property="og:locale" content="en-us" />
 
   
     <meta property="article:published_time" content="2020-12-15" />
@@ -50,7 +52,7 @@
   <meta name="twitter:description" content="linux为什么能跨进程传递socket文件描述符
 在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
 下面仔细跟踪一下socket创建的过程（3.10内核）。" />
-  <meta name="twitter:domain" content="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
+  <meta name="twitter:domain" content="https://example.com/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/" />
 
   
   
@@ -69,7 +71,7 @@
 
   
     
-    <link rel="stylesheet" href="http://cong.im/style.min.24dece96ebe77a911ff4af20cffc54f5b46ee96ad7e33f168e1af342b043ec26.css" integrity="sha256-JN7OluvnepEf9K8gz/xU9bRu6WrX4z8WjhrzQrBD7CY=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://example.com/style.min.c960935d8d4f104620049788ddc6687727237973b8603ffd305918dd3c5e9535.css" integrity="sha256-yWCTXY1PEEYgBJeI3cZodycjeXO4YD/9MFkY3TxelTU=" rel="preload stylesheet" as="style"/>
   
 
   
@@ -110,13 +112,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://cong.im/" title="聪少">
+        <a class="logo navbar-button" href="https://example.com" title="聪少">
           <span>聪少</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/post/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/post/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -155,17 +181,17 @@
   
 
 <li >
-  <a href="http://cong.im/">Home</a>
+  <a href="https://example.com/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://cong.im/post/">Posts</a>
+  <a href="https://example.com/post/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">跨进程复制socket</a>
+  <a href="https://example.com/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/">跨进程复制socket</a>
 </li>
 
 </ol>
@@ -224,6 +250,26 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 9 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Cong</span>
+        
         
         
           <span>post </span>
@@ -233,67 +279,67 @@
         <h3 id="linux为什么能跨进程传递socket文件描述符">linux为什么能跨进程传递socket文件描述符</h3>
 <p>在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
 下面仔细跟踪一下socket创建的过程（3.10内核）。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> server_fd <span style="color:#f92672">=</span> socket(AF_INET, SOCK_STREAM, <span style="color:#ae81ff">0</span> );
-<span style="color:#75715e">//  ...
-</span><span style="color:#75715e">// 
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sock_map_fd</span>(<span style="color:#66d9ef">struct</span> socket <span style="color:#f92672">*</span>sock, <span style="color:#66d9ef">int</span> flags)
-{
-	<span style="color:#66d9ef">struct</span> file <span style="color:#f92672">*</span>newfile;
-    <span style="color:#75715e">// 分配fd
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> get_unused_fd_flags(flags);
-	<span style="color:#66d9ef">if</span> (unlikely(fd <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>))
-		<span style="color:#66d9ef">return</span> fd;
-    <span style="color:#75715e">// 到网络空间分配文件
-</span><span style="color:#75715e"></span>	newfile <span style="color:#f92672">=</span> sock_alloc_file(sock, flags, NULL);
-	<span style="color:#66d9ef">if</span> (likely(<span style="color:#f92672">!</span>IS_ERR(newfile))) {
-		fd_install(fd, newfile);
-		<span style="color:#66d9ef">return</span> fd;
-	}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">server_fd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+<span class="c1">//  ...
+</span><span class="c1">// 
+</span><span class="c1"></span><span class="k">static</span> <span class="kt">int</span> <span class="nf">sock_map_fd</span><span class="p">(</span><span class="k">struct</span> <span class="n">socket</span> <span class="o">*</span><span class="n">sock</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">newfile</span><span class="p">;</span>
+    <span class="c1">// 分配fd
+</span><span class="c1"></span>	<span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">get_unused_fd_flags</span><span class="p">(</span><span class="n">flags</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">unlikely</span><span class="p">(</span><span class="n">fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span>
+		<span class="k">return</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="c1">// 到网络空间分配文件
+</span><span class="c1"></span>	<span class="n">newfile</span> <span class="o">=</span> <span class="n">sock_alloc_file</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">likely</span><span class="p">(</span><span class="o">!</span><span class="n">IS_ERR</span><span class="p">(</span><span class="n">newfile</span><span class="p">)))</span> <span class="p">{</span>
+		<span class="n">fd_install</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">newfile</span><span class="p">);</span>
+		<span class="k">return</span> <span class="n">fd</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	put_unused_fd(fd);
-	<span style="color:#66d9ef">return</span> PTR_ERR(newfile);
-}
+	<span class="n">put_unused_fd</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">PTR_ERR</span><span class="p">(</span><span class="n">newfile</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span style="color:#75715e">// 网络空间分配文件
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> file <span style="color:#f92672">*</span><span style="color:#a6e22e">sock_alloc_file</span>(<span style="color:#66d9ef">struct</span> socket <span style="color:#f92672">*</span>sock, <span style="color:#66d9ef">int</span> flags, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>dname)
-{
-	<span style="color:#66d9ef">struct</span> qstr name <span style="color:#f92672">=</span> { .name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> };
-	<span style="color:#66d9ef">struct</span> path path;
-	<span style="color:#66d9ef">struct</span> file <span style="color:#f92672">*</span>file;
+<span class="c1">// 网络空间分配文件
+</span><span class="c1"></span><span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="nf">sock_alloc_file</span><span class="p">(</span><span class="k">struct</span> <span class="n">socket</span> <span class="o">*</span><span class="n">sock</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">dname</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">struct</span> <span class="n">qstr</span> <span class="n">name</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="p">};</span>
+	<span class="k">struct</span> <span class="n">path</span> <span class="n">path</span><span class="p">;</span>
+	<span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">file</span><span class="p">;</span>
 
-	<span style="color:#66d9ef">if</span> (dname) {
-		name.name <span style="color:#f92672">=</span> dname;
-		name.len <span style="color:#f92672">=</span> strlen(name.name);
-	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (sock<span style="color:#f92672">-&gt;</span>sk) {
-		name.name <span style="color:#f92672">=</span> sock<span style="color:#f92672">-&gt;</span>sk<span style="color:#f92672">-&gt;</span>sk_prot_creator<span style="color:#f92672">-&gt;</span>name;
-		name.len <span style="color:#f92672">=</span> strlen(name.name);
-	}
-	path.dentry <span style="color:#f92672">=</span> d_alloc_pseudo(sock_mnt<span style="color:#f92672">-&gt;</span>mnt_sb, <span style="color:#f92672">&amp;</span>name);
-	<span style="color:#66d9ef">if</span> (unlikely(<span style="color:#f92672">!</span>path.dentry))
-		<span style="color:#66d9ef">return</span> ERR_PTR(<span style="color:#f92672">-</span>ENOMEM);
-	path.mnt <span style="color:#f92672">=</span> mntget(sock_mnt);
+	<span class="k">if</span> <span class="p">(</span><span class="n">dname</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">name</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">dname</span><span class="p">;</span>
+		<span class="n">name</span><span class="p">.</span><span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">sock</span><span class="o">-&gt;</span><span class="n">sk</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">name</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">sock</span><span class="o">-&gt;</span><span class="n">sk</span><span class="o">-&gt;</span><span class="n">sk_prot_creator</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span>
+		<span class="n">name</span><span class="p">.</span><span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">path</span><span class="p">.</span><span class="n">dentry</span> <span class="o">=</span> <span class="n">d_alloc_pseudo</span><span class="p">(</span><span class="n">sock_mnt</span><span class="o">-&gt;</span><span class="n">mnt_sb</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">unlikely</span><span class="p">(</span><span class="o">!</span><span class="n">path</span><span class="p">.</span><span class="n">dentry</span><span class="p">))</span>
+		<span class="k">return</span> <span class="n">ERR_PTR</span><span class="p">(</span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">);</span>
+	<span class="n">path</span><span class="p">.</span><span class="n">mnt</span> <span class="o">=</span> <span class="n">mntget</span><span class="p">(</span><span class="n">sock_mnt</span><span class="p">);</span>
 
-	d_instantiate(path.dentry, SOCK_INODE(sock));
-	SOCK_INODE(sock)<span style="color:#f92672">-&gt;</span>i_fop <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>socket_file_ops;
+	<span class="n">d_instantiate</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">dentry</span><span class="p">,</span> <span class="n">SOCK_INODE</span><span class="p">(</span><span class="n">sock</span><span class="p">));</span>
+	<span class="n">SOCK_INODE</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">i_fop</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">socket_file_ops</span><span class="p">;</span>
 
-	file <span style="color:#f92672">=</span> alloc_file(<span style="color:#f92672">&amp;</span>path, FMODE_READ <span style="color:#f92672">|</span> FMODE_WRITE,
-		  <span style="color:#f92672">&amp;</span>socket_file_ops);
-	<span style="color:#66d9ef">if</span> (unlikely(IS_ERR(file))) {
-		<span style="color:#75715e">/* drop dentry, keep inode */</span>
-		ihold(path.dentry<span style="color:#f92672">-&gt;</span>d_inode);
-		path_put(<span style="color:#f92672">&amp;</span>path);
-		<span style="color:#66d9ef">return</span> file;
-	}
-    <span style="color:#75715e">// 对于下面两行的拓展使用:
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 系统在使用socket接口进行操作到时候，都需要通过这个文件来获取socket结构,那么只要有文件描述符，就可以在file结构中
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// private_data字段获取socket结构，并对其进行操作
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 所以同一台主机上socket文件是可以传递的。
-</span><span style="color:#75715e"></span>	sock<span style="color:#f92672">-&gt;</span>file <span style="color:#f92672">=</span> file;
-	file<span style="color:#f92672">-&gt;</span>f_flags <span style="color:#f92672">=</span> O_RDWR <span style="color:#f92672">|</span> (flags <span style="color:#f92672">&amp;</span> O_NONBLOCK);
-	file<span style="color:#f92672">-&gt;</span>private_data <span style="color:#f92672">=</span> sock;
-	<span style="color:#66d9ef">return</span> file;
-}
+	<span class="n">file</span> <span class="o">=</span> <span class="n">alloc_file</span><span class="p">(</span><span class="o">&amp;</span><span class="n">path</span><span class="p">,</span> <span class="n">FMODE_READ</span> <span class="o">|</span> <span class="n">FMODE_WRITE</span><span class="p">,</span>
+		  <span class="o">&amp;</span><span class="n">socket_file_ops</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">unlikely</span><span class="p">(</span><span class="n">IS_ERR</span><span class="p">(</span><span class="n">file</span><span class="p">)))</span> <span class="p">{</span>
+		<span class="cm">/* drop dentry, keep inode */</span>
+		<span class="n">ihold</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">dentry</span><span class="o">-&gt;</span><span class="n">d_inode</span><span class="p">);</span>
+		<span class="n">path_put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">path</span><span class="p">);</span>
+		<span class="k">return</span> <span class="n">file</span><span class="p">;</span>
+	<span class="p">}</span>
+    <span class="c1">// 对于下面两行的拓展使用:
+</span><span class="c1"></span>    <span class="c1">// 系统在使用socket接口进行操作到时候，都需要通过这个文件来获取socket结构,那么只要有文件描述符，就可以在file结构中
+</span><span class="c1"></span>    <span class="c1">// private_data字段获取socket结构，并对其进行操作
+</span><span class="c1"></span>    <span class="c1">// 所以同一台主机上socket文件是可以传递的。
+</span><span class="c1"></span>	<span class="n">sock</span><span class="o">-&gt;</span><span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="p">;</span>
+	<span class="n">file</span><span class="o">-&gt;</span><span class="n">f_flags</span> <span class="o">=</span> <span class="n">O_RDWR</span> <span class="o">|</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+	<span class="n">file</span><span class="o">-&gt;</span><span class="n">private_data</span> <span class="o">=</span> <span class="n">sock</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">file</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></div><h3 id="如何传递传递过程中注意哪些问题">如何传递、传递过程中注意哪些问题</h3>
 <ul>
@@ -308,554 +354,554 @@ sendmsg发送给子进程，然后close(client_fd)（在发往子进程网络的
 <li>跨进程复制的socket如果不关闭，都可以进行收发数据，收数据的时候竞争关系</li>
 <li>复制过去的socket接收、发送缓存区是同一个</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
-<span style="color:#75715e">// socket发送、接收函数
-</span><span style="color:#75715e"></span>ssize_t <span style="color:#a6e22e">sendmsg</span>(<span style="color:#66d9ef">int</span> socket, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> msghdr <span style="color:#f92672">*</span>message, <span style="color:#66d9ef">int</span> flags);
-ssize_t <span style="color:#a6e22e">recvmsg</span>(<span style="color:#66d9ef">int</span> socket, <span style="color:#66d9ef">struct</span> msghdr <span style="color:#f92672">*</span>message, <span style="color:#66d9ef">int</span> flags);
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c">
+<span class="c1">// socket发送、接收函数
+</span><span class="c1"></span><span class="n">ssize_t</span> <span class="nf">sendmsg</span><span class="p">(</span><span class="kt">int</span> <span class="n">socket</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">msghdr</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span>
+<span class="n">ssize_t</span> <span class="nf">recvmsg</span><span class="p">(</span><span class="kt">int</span> <span class="n">socket</span><span class="p">,</span> <span class="k">struct</span> <span class="n">msghdr</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span>
 
-<span style="color:#75715e">// 相关数据结构
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> msghdr {
-	<span style="color:#66d9ef">void</span>		<span style="color:#f92672">*</span>msg_name;	<span style="color:#75715e">/* ptr to socket address structure */</span> <span style="color:#75715e">// 数据的目的地址，网络包指向sockaddr_in, netlink则指向sockaddr_nl;
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span>		msg_namelen;	<span style="color:#75715e">/* size of socket address structure */</span> <span style="color:#75715e">// msg_name 所代表的地址长度
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">struct</span> iovec	<span style="color:#f92672">*</span>msg_iov;	<span style="color:#75715e">/* scatter/gather array */</span>  <span style="color:#75715e">// 指向的是缓冲区数组
-</span><span style="color:#75715e"></span>	__kernel_size_t	msg_iovlen;	<span style="color:#75715e">/* # elements in msg_iov */</span> <span style="color:#75715e">// 缓冲区数组长度
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">void</span>		<span style="color:#f92672">*</span>msg_control;	<span style="color:#75715e">/* ancillary data */</span>    <span style="color:#75715e">// 辅助数据，控制信息(发送任何的控制信息)
-</span><span style="color:#75715e"></span>	__kernel_size_t	msg_controllen;	<span style="color:#75715e">/* ancillary data buffer length */</span>  <span style="color:#75715e">// 辅助信息长度
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span>	msg_flags;	<span style="color:#75715e">/* flags on received message */</span> <span style="color:#75715e">// 消息标识
-</span><span style="color:#75715e"></span>};
+<span class="c1">// 相关数据结构
+</span><span class="c1"></span><span class="k">struct</span> <span class="n">msghdr</span> <span class="p">{</span>
+	<span class="kt">void</span>		<span class="o">*</span><span class="n">msg_name</span><span class="p">;</span>	<span class="cm">/* ptr to socket address structure */</span> <span class="c1">// 数据的目的地址，网络包指向sockaddr_in, netlink则指向sockaddr_nl;
+</span><span class="c1"></span>	<span class="kt">int</span>		<span class="n">msg_namelen</span><span class="p">;</span>	<span class="cm">/* size of socket address structure */</span> <span class="c1">// msg_name 所代表的地址长度
+</span><span class="c1"></span>	<span class="k">struct</span> <span class="n">iovec</span>	<span class="o">*</span><span class="n">msg_iov</span><span class="p">;</span>	<span class="cm">/* scatter/gather array */</span>  <span class="c1">// 指向的是缓冲区数组
+</span><span class="c1"></span>	<span class="n">__kernel_size_t</span>	<span class="n">msg_iovlen</span><span class="p">;</span>	<span class="cm">/* # elements in msg_iov */</span> <span class="c1">// 缓冲区数组长度
+</span><span class="c1"></span>	<span class="kt">void</span>		<span class="o">*</span><span class="n">msg_control</span><span class="p">;</span>	<span class="cm">/* ancillary data */</span>    <span class="c1">// 辅助数据，控制信息(发送任何的控制信息)
+</span><span class="c1"></span>	<span class="n">__kernel_size_t</span>	<span class="n">msg_controllen</span><span class="p">;</span>	<span class="cm">/* ancillary data buffer length */</span>  <span class="c1">// 辅助信息长度
+</span><span class="c1"></span>	<span class="kt">unsigned</span> <span class="kt">int</span>	<span class="n">msg_flags</span><span class="p">;</span>	<span class="cm">/* flags on received message */</span> <span class="c1">// 消息标识
+</span><span class="c1"></span><span class="p">};</span>
 
-<span style="color:#66d9ef">struct</span> iovec
-{
-	<span style="color:#66d9ef">void</span> __user <span style="color:#f92672">*</span>iov_base;	<span style="color:#75715e">/* BSD uses caddr_t (1003.1g requires void *) */</span>
-	__kernel_size_t iov_len; <span style="color:#75715e">/* Must be size_t (1003.1g) */</span>
-};
+<span class="k">struct</span> <span class="n">iovec</span>
+<span class="p">{</span>
+	<span class="kt">void</span> <span class="n">__user</span> <span class="o">*</span><span class="n">iov_base</span><span class="p">;</span>	<span class="cm">/* BSD uses caddr_t (1003.1g requires void *) */</span>
+	<span class="n">__kernel_size_t</span> <span class="n">iov_len</span><span class="p">;</span> <span class="cm">/* Must be size_t (1003.1g) */</span>
+<span class="p">};</span>
 
-<span style="color:#66d9ef">struct</span> cmsghdr {
-	__kernel_size_t	cmsg_len;	<span style="color:#75715e">/* data byte count, including hdr */</span>
-        <span style="color:#66d9ef">int</span>		cmsg_level;	<span style="color:#75715e">/* originating protocol */</span>
-        <span style="color:#66d9ef">int</span>		cmsg_type;	<span style="color:#75715e">/* protocol-specific type */</span>
-};
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// 简单的例子
-</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/socket.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/wait.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/uio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;netinet/in.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;arpa/inet.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
+<span class="k">struct</span> <span class="n">cmsghdr</span> <span class="p">{</span>
+	<span class="n">__kernel_size_t</span>	<span class="n">cmsg_len</span><span class="p">;</span>	<span class="cm">/* data byte count, including hdr */</span>
+        <span class="kt">int</span>		<span class="n">cmsg_level</span><span class="p">;</span>	<span class="cm">/* originating protocol */</span>
+        <span class="kt">int</span>		<span class="n">cmsg_type</span><span class="p">;</span>	<span class="cm">/* protocol-specific type */</span>
+<span class="p">};</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">// 简单的例子
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/uio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;errno.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;netinet/in.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;arpa/inet.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
 
-using namespace std;
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">tcpServer</span>();
+<span class="kt">int</span> <span class="nf">tcpServer</span><span class="p">();</span>
 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">send_fd</span>(<span style="color:#66d9ef">int</span> sock, <span style="color:#66d9ef">int</span> fd)
-{
-    iovec iov[<span style="color:#ae81ff">1</span>];
-    <span style="color:#66d9ef">char</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    iov[<span style="color:#ae81ff">0</span>].iov_base <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>c;
-    iov[<span style="color:#ae81ff">0</span>].iov_len  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span class="kt">void</span> <span class="nf">send_fd</span><span class="p">(</span><span class="kt">int</span> <span class="n">sock</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fd</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">iovec</span> <span class="n">iov</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">iov</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">iov_base</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">iov</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">iov_len</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     
-    <span style="color:#66d9ef">int</span> cmsgsize <span style="color:#f92672">=</span> CMSG_LEN(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>));
-    cmsghdr<span style="color:#f92672">*</span> cmptr <span style="color:#f92672">=</span> (cmsghdr<span style="color:#f92672">*</span>)malloc(cmsgsize);
-    <span style="color:#66d9ef">if</span>(cmptr <span style="color:#f92672">==</span> NULL){
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[send_fd] init cmptr error&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        exit(<span style="color:#ae81ff">1</span>);
-    }
-    cmptr<span style="color:#f92672">-&gt;</span>cmsg_level <span style="color:#f92672">=</span> SOL_SOCKET;
-    cmptr<span style="color:#f92672">-&gt;</span>cmsg_type <span style="color:#f92672">=</span> SCM_RIGHTS; <span style="color:#75715e">// we are sending fd.
-</span><span style="color:#75715e"></span>    cmptr<span style="color:#f92672">-&gt;</span>cmsg_len <span style="color:#f92672">=</span> cmsgsize;
+    <span class="kt">int</span> <span class="n">cmsgsize</span> <span class="o">=</span> <span class="n">CMSG_LEN</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">cmsghdr</span><span class="o">*</span> <span class="n">cmptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">cmsghdr</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">cmsgsize</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cmptr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;[send_fd] init cmptr error&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">cmptr</span><span class="o">-&gt;</span><span class="n">cmsg_level</span> <span class="o">=</span> <span class="n">SOL_SOCKET</span><span class="p">;</span>
+    <span class="n">cmptr</span><span class="o">-&gt;</span><span class="n">cmsg_type</span> <span class="o">=</span> <span class="n">SCM_RIGHTS</span><span class="p">;</span> <span class="c1">// we are sending fd.
+</span><span class="c1"></span>    <span class="n">cmptr</span><span class="o">-&gt;</span><span class="n">cmsg_len</span> <span class="o">=</span> <span class="n">cmsgsize</span><span class="p">;</span>
  
-    msghdr msg;
-    msg.msg_iov <span style="color:#f92672">=</span> iov;
-    msg.msg_iovlen <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    msg.msg_name <span style="color:#f92672">=</span> NULL;
-    msg.msg_namelen <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    msg.msg_control <span style="color:#f92672">=</span> cmptr;
-    msg.msg_controllen <span style="color:#f92672">=</span> cmsgsize;
-    <span style="color:#f92672">*</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>)CMSG_DATA(cmptr) <span style="color:#f92672">=</span> fd;
+    <span class="n">msghdr</span> <span class="n">msg</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_iov</span> <span class="o">=</span> <span class="n">iov</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_iovlen</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_name</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_namelen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_control</span> <span class="o">=</span> <span class="n">cmptr</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_controllen</span> <span class="o">=</span> <span class="n">cmsgsize</span><span class="p">;</span>
+    <span class="o">*</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">CMSG_DATA</span><span class="p">(</span><span class="n">cmptr</span><span class="p">)</span> <span class="o">=</span> <span class="n">fd</span><span class="p">;</span>
     
-    <span style="color:#66d9ef">int</span> ret <span style="color:#f92672">=</span> sendmsg(sock, <span style="color:#f92672">&amp;</span>msg, <span style="color:#ae81ff">0</span>);
-    free(cmptr);
-    <span style="color:#66d9ef">if</span> (ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[send_fd] sendmsg error&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        exit(<span style="color:#ae81ff">1</span>);
-    }
-}
+    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">sendmsg</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">cmptr</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;[send_fd] sendmsg error&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
  
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">recv_fd</span>(<span style="color:#66d9ef">int</span> sock)
-{
-    <span style="color:#66d9ef">int</span> cmsgsize <span style="color:#f92672">=</span> CMSG_LEN(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>));
-    cmsghdr<span style="color:#f92672">*</span> cmptr <span style="color:#f92672">=</span> (cmsghdr<span style="color:#f92672">*</span>)malloc(cmsgsize);
+<span class="kt">int</span> <span class="nf">recv_fd</span><span class="p">(</span><span class="kt">int</span> <span class="n">sock</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">cmsgsize</span> <span class="o">=</span> <span class="n">CMSG_LEN</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">cmsghdr</span><span class="o">*</span> <span class="n">cmptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">cmsghdr</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">cmsgsize</span><span class="p">);</span>
     
-    <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">32</span>]; <span style="color:#75715e">// the max buf in msg.
-</span><span style="color:#75715e"></span>    iovec iov[<span style="color:#ae81ff">1</span>];
-    iov[<span style="color:#ae81ff">0</span>].iov_base <span style="color:#f92672">=</span> buf;
-    iov[<span style="color:#ae81ff">0</span>].iov_len <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(buf);
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span> <span class="c1">// the max buf in msg.
+</span><span class="c1"></span>    <span class="n">iovec</span> <span class="n">iov</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n">iov</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">iov_base</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+    <span class="n">iov</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">iov_len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
     
-    msghdr msg;
-    msg.msg_iov <span style="color:#f92672">=</span> iov;
-    msg.msg_iovlen  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    msg.msg_name <span style="color:#f92672">=</span> NULL;
-    msg.msg_namelen <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    msg.msg_control <span style="color:#f92672">=</span> cmptr;
-    msg.msg_controllen <span style="color:#f92672">=</span> cmsgsize;
+    <span class="n">msghdr</span> <span class="n">msg</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_iov</span> <span class="o">=</span> <span class="n">iov</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_iovlen</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_name</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_namelen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_control</span> <span class="o">=</span> <span class="n">cmptr</span><span class="p">;</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">msg_controllen</span> <span class="o">=</span> <span class="n">cmsgsize</span><span class="p">;</span>
     
-    <span style="color:#66d9ef">int</span> ret <span style="color:#f92672">=</span> recvmsg(sock, <span style="color:#f92672">&amp;</span>msg, <span style="color:#ae81ff">0</span>);
-    <span style="color:#75715e">// free(cmptr);
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[recv_fd] recvmsg error&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        exit(<span style="color:#ae81ff">1</span>);
-    }
+    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">recvmsg</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">// free(cmptr);
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;[recv_fd] recvmsg error&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
     
-    <span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>)CMSG_DATA(cmptr);
-    cout<span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;接收的fd为&#34;</span><span style="color:#f92672">&lt;&lt;</span> fd <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">CMSG_DATA</span><span class="p">(</span><span class="n">cmptr</span><span class="p">);</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&#34;接收的fd为&#34;</span><span class="o">&lt;&lt;</span> <span class="n">fd</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     
-    <span style="color:#66d9ef">return</span> fd;
+    <span class="k">return</span> <span class="n">fd</span><span class="p">;</span>
 
-    <span style="color:#75715e">// int nfd = dup(fd);
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// return nfd;
-</span><span style="color:#75715e"></span>}
+    <span class="c1">// int nfd = dup(fd);
+</span><span class="c1"></span>    <span class="c1">// return nfd;
+</span><span class="c1"></span><span class="p">}</span>
  
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">master_process_cycle</span>(<span style="color:#66d9ef">int</span> fds[<span style="color:#ae81ff">2</span>]){
-    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;master process #&#34;</span> <span style="color:#f92672">&lt;&lt;</span> getpid() <span style="color:#f92672">&lt;&lt;</span> endl;
+<span class="kt">void</span> <span class="nf">master_process_cycle</span><span class="p">(</span><span class="kt">int</span> <span class="n">fds</span><span class="p">[</span><span class="mi">2</span><span class="p">]){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;master process #&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">getpid</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     
-    <span style="color:#75715e">// master use fds[0], and close fds[1]
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> fds[<span style="color:#ae81ff">0</span>];
-    close(fds[<span style="color:#ae81ff">1</span>]);
-    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;channel: #&#34;</span> <span style="color:#f92672">&lt;&lt;</span> fds[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, #&#34;</span> <span style="color:#f92672">&lt;&lt;</span> fds[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, fd=#&#34;</span> <span style="color:#f92672">&lt;&lt;</span> fd <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span class="c1">// master use fds[0], and close fds[1]
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">fds</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;channel: #&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;, #&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">fds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;, fd=#&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">fd</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
 
-    <span style="color:#66d9ef">int</span> listenFD <span style="color:#f92672">=</span> tcpServer();
-    <span style="color:#66d9ef">if</span> (listenFD <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>){
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;tcp server fail&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-    }
+    <span class="kt">int</span> <span class="n">listenFD</span> <span class="o">=</span> <span class="n">tcpServer</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">listenFD</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;tcp server fail&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    send_fd(fd, listenFD);
+    <span class="n">send_fd</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">listenFD</span><span class="p">);</span>
 
     
-   <span style="color:#66d9ef">for</span>(;;){
-        sleep(<span style="color:#ae81ff">1</span>);
-        <span style="color:#75715e">// pause();
-</span><span style="color:#75715e"></span>    }
-}
+   <span class="k">for</span><span class="p">(;;){</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="c1">// pause();
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
  
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">worker_process_cycle</span>(<span style="color:#66d9ef">int</span> fds[<span style="color:#ae81ff">2</span>]){
-    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;worker process #&#34;</span> <span style="color:#f92672">&lt;&lt;</span> getpid() <span style="color:#f92672">&lt;&lt;</span> endl;
-    <span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> fds[<span style="color:#ae81ff">1</span>];
+<span class="kt">void</span> <span class="nf">worker_process_cycle</span><span class="p">(</span><span class="kt">int</span> <span class="n">fds</span><span class="p">[</span><span class="mi">2</span><span class="p">]){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;worker process #&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">getpid</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">fds</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
             
-    <span style="color:#66d9ef">int</span> file <span style="color:#f92672">=</span> recv_fd(fd);
-    <span style="color:#66d9ef">if</span>(file <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>){
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[worker] invalid fd! &#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        exit(<span style="color:#ae81ff">1</span>);
-    }
-      <span style="color:#66d9ef">for</span>(;;){
-        sleep(<span style="color:#ae81ff">1</span>);
-    }
-}
+    <span class="kt">int</span> <span class="n">file</span> <span class="o">=</span> <span class="n">recv_fd</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">file</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;[worker] invalid fd! &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+      <span class="k">for</span><span class="p">(;;){</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
  
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argv){
-    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;current pid: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> getpid() <span style="color:#f92672">&lt;&lt;</span> endl;
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;current pid: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">getpid</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     
-    <span style="color:#66d9ef">int</span> fds[<span style="color:#ae81ff">2</span>];
-    <span style="color:#66d9ef">if</span>(socketpair(AF_UNIX, SOCK_STREAM, <span style="color:#ae81ff">0</span>, fds) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;failed to create domain socket by socketpair&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        exit(<span style="color:#ae81ff">1</span>);
-    }
+    <span class="kt">int</span> <span class="n">fds</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">socketpair</span><span class="p">(</span><span class="n">AF_UNIX</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fds</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;failed to create domain socket by socketpair&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;create domain socket by socketpair success&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;create domain socket by socketpair success&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     
-    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;create progress to communicate over domain socket&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-    pid_t pid <span style="color:#f92672">=</span> fork();
-    <span style="color:#66d9ef">if</span>(pid <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>){
-        worker_process_cycle(fds);
-    }
-    <span style="color:#66d9ef">else</span>{
-        master_process_cycle(fds);
-    }
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;create progress to communicate over domain socket&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">worker_process_cycle</span><span class="p">(</span><span class="n">fds</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">master_process_cycle</span><span class="p">(</span><span class="n">fds</span><span class="p">);</span>
+    <span class="p">}</span>
     
-    <span style="color:#66d9ef">for</span>(;;){
-        sleep(<span style="color:#ae81ff">1</span>);
-        <span style="color:#75715e">// pause();
-</span><span style="color:#75715e"></span>    }
-}
+    <span class="k">for</span><span class="p">(;;){</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="c1">// pause();
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
 
 
- <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">tcpServer</span>() {
-    <span style="color:#66d9ef">int</span> listenFD;
-    <span style="color:#66d9ef">int</span> on <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-    socklen_t addrLen <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    pid_t pid, pid_child, pid_send;
-    <span style="color:#66d9ef">struct</span> sockaddr_in server_addr;
-    <span style="color:#66d9ef">struct</span> sockaddr_in client_addr;
+ <span class="kt">int</span> <span class="nf">tcpServer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">listenFD</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">on</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">socklen_t</span> <span class="n">addrLen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">pid_t</span> <span class="n">pid</span><span class="p">,</span> <span class="n">pid_child</span><span class="p">,</span> <span class="n">pid_send</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">server_addr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">client_addr</span><span class="p">;</span>
 
 
-    <span style="color:#66d9ef">if</span> ((listenFD <span style="color:#f92672">=</span> socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
-        printf(<span style="color:#e6db74">&#34;create socket err </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-    }
+    <span class="k">if</span> <span class="p">((</span><span class="n">listenFD</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">PF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="n">IPPROTO_TCP</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;create socket err </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span style="color:#75715e">/*设置服务端地址*/</span>
-    addrLen <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> sockaddr_in);
-    memset(<span style="color:#f92672">&amp;</span>server_addr, <span style="color:#ae81ff">0</span>, addrLen);
-    server_addr.sin_family <span style="color:#f92672">=</span> AF_INET;
-    server_addr.sin_addr.s_addr <span style="color:#f92672">=</span> inet_addr(<span style="color:#e6db74">&#34;127.0.0.1&#34;</span>);
-    server_addr.sin_port <span style="color:#f92672">=</span> htons(<span style="color:#ae81ff">6666</span>);
+    <span class="cm">/*设置服务端地址*/</span>
+    <span class="n">addrLen</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr_in</span><span class="p">);</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">server_addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">addrLen</span><span class="p">);</span>
+    <span class="n">server_addr</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">server_addr</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">inet_addr</span><span class="p">(</span><span class="s">&#34;127.0.0.1&#34;</span><span class="p">);</span>
+    <span class="n">server_addr</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="n">htons</span><span class="p">(</span><span class="mi">6666</span><span class="p">);</span>
 
 
-    <span style="color:#75715e">/*绑定地址结构到套接字描述符*/</span>
-    <span style="color:#66d9ef">if</span> (bind(listenFD, (<span style="color:#66d9ef">struct</span> sockaddr <span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>server_addr, <span style="color:#66d9ef">sizeof</span>(server_addr)) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;bind fail&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-    }
+    <span class="cm">/*绑定地址结构到套接字描述符*/</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">listenFD</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">server_addr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">server_addr</span><span class="p">))</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;bind fail&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span style="color:#66d9ef">if</span> (listen(listenFD, <span style="color:#ae81ff">100</span>) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
-        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;listen fail&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-    }
-    <span style="color:#66d9ef">return</span> listenFD;
-}
+    <span class="k">if</span> <span class="p">(</span><span class="n">listen</span><span class="p">(</span><span class="n">listenFD</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;listen fail&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">listenFD</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></div><p><img src="/images/socket/1.png" alt="Linux 使用率"></p>
 <p>测试不两个进程同时拥有socket的测试代码，按需求自己打开注释</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-<span style="color:#f92672">import</span> (
-	<span style="color:#e6db74">&#34;fmt&#34;</span>
-	<span style="color:#e6db74">&#34;net&#34;</span>
-	<span style="color:#e6db74">&#34;os&#34;</span>
-	<span style="color:#e6db74">&#34;syscall&#34;</span>
-	<span style="color:#e6db74">&#34;time&#34;</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;net&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+	<span class="s">&#34;syscall&#34;</span>
+	<span class="s">&#34;time&#34;</span>
 
-	<span style="color:#e6db74">&#34;golang.org/x/sys/unix&#34;</span>
-)
+	<span class="s">&#34;golang.org/x/sys/unix&#34;</span>
+<span class="p">)</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-	<span style="color:#a6e22e">tcpSrv</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewTcpSrv</span>()
-	<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Args</span>) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span> {
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tcpSrv</span>.<span style="color:#a6e22e">Init</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;tcp srv init fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span>
-		}
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tcpSrv</span>.<span style="color:#a6e22e">Start</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;tcp srv start fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span>
-		}
-		<span style="color:#75715e">//// 迁移listen
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//if err := tcpSrv.SendListenerWithUnixSocket(); err != nil {
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//	fmt.Println(&#34;send listener with unix socket fail, err is&#34;, err)
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//	return
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//}
-</span><span style="color:#75715e"></span>
-		<span style="color:#75715e">// 迁移conn
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tcpSrv</span>.<span style="color:#a6e22e">SendConnWithUnixSocket</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;send listener with unix socket fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span>
-		}
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">tcpSrv</span> <span class="o">:=</span> <span class="nf">NewTcpSrv</span><span class="p">()</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tcpSrv</span><span class="p">.</span><span class="nf">Init</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;tcp srv init fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tcpSrv</span><span class="p">.</span><span class="nf">Start</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;tcp srv start fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+		<span class="c1">//// 迁移listen
+</span><span class="c1"></span>		<span class="c1">//if err := tcpSrv.SendListenerWithUnixSocket(); err != nil {
+</span><span class="c1"></span>		<span class="c1">//	fmt.Println(&#34;send listener with unix socket fail, err is&#34;, err)
+</span><span class="c1"></span>		<span class="c1">//	return
+</span><span class="c1"></span>		<span class="c1">//}
+</span><span class="c1"></span>
+		<span class="c1">// 迁移conn
+</span><span class="c1"></span>		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tcpSrv</span><span class="p">.</span><span class="nf">SendConnWithUnixSocket</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;send listener with unix socket fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
 
-	} <span style="color:#66d9ef">else</span> {
-		<span style="color:#75715e">//// 迁移listen
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//if err := tcpSrv.RecvListenerFromUnixSocket(); err != nil {
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//	fmt.Println(&#34;recv listener with unix socket fail, err is&#34;, err)
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//	return
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//}
-</span><span style="color:#75715e"></span>
-		<span style="color:#75715e">// 迁移conn
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tcpSrv</span>.<span style="color:#a6e22e">RecvConnFromUnixSocket</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;recv listener with unix socket fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span>
-		}
-	}
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="c1">//// 迁移listen
+</span><span class="c1"></span>		<span class="c1">//if err := tcpSrv.RecvListenerFromUnixSocket(); err != nil {
+</span><span class="c1"></span>		<span class="c1">//	fmt.Println(&#34;recv listener with unix socket fail, err is&#34;, err)
+</span><span class="c1"></span>		<span class="c1">//	return
+</span><span class="c1"></span>		<span class="c1">//}
+</span><span class="c1"></span>
+		<span class="c1">// 迁移conn
+</span><span class="c1"></span>		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tcpSrv</span><span class="p">.</span><span class="nf">RecvConnFromUnixSocket</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;recv listener with unix socket fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-	<span style="color:#66d9ef">select</span> {}
-}
+	<span class="k">select</span> <span class="p">{}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TcpSrv</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#a6e22e">listener</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPListener</span>
-	<span style="color:#a6e22e">conns</span>    <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPConn</span>
-}
+<span class="kd">type</span> <span class="nx">TcpSrv</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">listener</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPListener</span>
+	<span class="nx">conns</span>    <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewTcpSrv</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span> {
-	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">TcpSrv</span>{
-		<span style="color:#a6e22e">conns</span>: make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPConn</span>),
-	}
-}
+<span class="kd">func</span> <span class="nf">NewTcpSrv</span><span class="p">()</span> <span class="o">*</span><span class="nx">TcpSrv</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">TcpSrv</span><span class="p">{</span>
+		<span class="nx">conns</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span><span class="p">),</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">Init</span>() <span style="color:#66d9ef">error</span> {
-	<span style="color:#a6e22e">listener</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Listen</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#e6db74">&#34;:7000&#34;</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">Init</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7000&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
 
-	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">listener</span> = <span style="color:#a6e22e">listener</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPListener</span>)
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-}
+	<span class="nx">t</span><span class="p">.</span><span class="nx">listener</span> <span class="p">=</span> <span class="nx">listener</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPListener</span><span class="p">)</span>
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">Start</span>() <span style="color:#66d9ef">error</span> {
-	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-		<span style="color:#66d9ef">for</span> {
-			<span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">Accept</span>()
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;accept fail, err msg is&#34;</span>, <span style="color:#a6e22e">err</span>)
-				<span style="color:#66d9ef">continue</span>
-			}
-			<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">clientSrv</span>(<span style="color:#a6e22e">conn</span>)
-			<span style="color:#a6e22e">storeConn</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPConn</span>)
-			<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">conns</span>[<span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">RemoteAddr</span>().<span style="color:#a6e22e">String</span>()] = <span style="color:#a6e22e">storeConn</span>
-		}
-	}()
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">Start</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;accept fail, err msg is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+				<span class="k">continue</span>
+			<span class="p">}</span>
+			<span class="k">go</span> <span class="nx">t</span><span class="p">.</span><span class="nf">clientSrv</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+			<span class="nx">storeConn</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span><span class="p">)</span>
+			<span class="nx">t</span><span class="p">.</span><span class="nx">conns</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nf">RemoteAddr</span><span class="p">().</span><span class="nf">String</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">storeConn</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">StartWithListenSocket</span>(<span style="color:#a6e22e">listener</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPListener</span>) <span style="color:#66d9ef">error</span> {
-	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-		<span style="color:#66d9ef">for</span> {
-			<span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">Accept</span>()
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;accept fail, err msg is&#34;</span>, <span style="color:#a6e22e">err</span>)
-				<span style="color:#66d9ef">continue</span>
-			}
-			<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">clientSrv</span>(<span style="color:#a6e22e">c</span>)
-		}
-	}()
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">StartWithListenSocket</span><span class="p">(</span><span class="nx">listener</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPListener</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="nx">c</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;accept fail, err msg is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+				<span class="k">continue</span>
+			<span class="p">}</span>
+			<span class="k">go</span> <span class="nx">t</span><span class="p">.</span><span class="nf">clientSrv</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">clientSrv</span>(<span style="color:#a6e22e">conn</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Conn</span>) {
-	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Close</span>()
-	<span style="color:#a6e22e">buf</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">1024</span>)
-	<span style="color:#66d9ef">for</span> {
-		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">clientSrv</span><span class="p">(</span><span class="nx">conn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="nx">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 
-		<span style="color:#a6e22e">nRead</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">buf</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;read msg fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span>
-		}
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;recv msg is&#34;</span>, string(<span style="color:#a6e22e">buf</span>[:<span style="color:#a6e22e">nRead</span>]))
+		<span class="nx">nRead</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;read msg fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;recv msg is&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:</span><span class="nx">nRead</span><span class="p">]))</span>
 
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>(<span style="color:#a6e22e">buf</span>[:<span style="color:#a6e22e">nRead</span>]); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;write msg fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span>
-		}
-	}
-}
+		<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:</span><span class="nx">nRead</span><span class="p">]);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;write msg fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">SendListenerWithUnixSocket</span>() <span style="color:#66d9ef">error</span> {
-	<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Remove</span>(<span style="color:#e6db74">&#34;/tmp/unix_socket_tcp&#34;</span>)
-	<span style="color:#a6e22e">addr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUnixAddr</span>(<span style="color:#e6db74">&#34;unix&#34;</span>, <span style="color:#e6db74">&#34;/tmp/unix_socket_tcp&#34;</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cannot resolve unix addr: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">SendListenerWithUnixSocket</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="s">&#34;/tmp/unix_socket_tcp&#34;</span><span class="p">)</span>
+	<span class="nx">addr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ResolveUnixAddr</span><span class="p">(</span><span class="s">&#34;unix&#34;</span><span class="p">,</span> <span class="s">&#34;/tmp/unix_socket_tcp&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Cannot resolve unix addr: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
 
-	<span style="color:#a6e22e">listener</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ListenUnix</span>(<span style="color:#e6db74">&#34;unix&#34;</span>, <span style="color:#a6e22e">addr</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cannot listen to unix domain socket: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Listening on&#34;</span>, <span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">Addr</span>())
+	<span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ListenUnix</span><span class="p">(</span><span class="s">&#34;unix&#34;</span><span class="p">,</span> <span class="nx">addr</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Cannot listen to unix domain socket: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Listening on&#34;</span><span class="p">,</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Addr</span><span class="p">())</span>
 
-	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-		<span style="color:#66d9ef">for</span> {
-			<span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">Accept</span>()
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Accept: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-				<span style="color:#66d9ef">return</span>
-			}
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="nx">c</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Accept: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+				<span class="k">return</span>
+			<span class="p">}</span>
 
-			<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">File</span>()
-			<span style="color:#a6e22e">buf</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">1</span>)
-			<span style="color:#a6e22e">buf</span>[<span style="color:#ae81ff">0</span>] = <span style="color:#ae81ff">0</span>
-			<span style="color:#a6e22e">rights</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">syscall</span>.<span style="color:#a6e22e">UnixRights</span>(int(<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Fd</span>()))
-			<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">c</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">UnixConn</span>).<span style="color:#a6e22e">WriteMsgUnix</span>(<span style="color:#a6e22e">buf</span>, <span style="color:#a6e22e">rights</span>, <span style="color:#66d9ef">nil</span>)
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;同步listen socket fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			}
-		}
-	}()
+			<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">listener</span><span class="p">.</span><span class="nf">File</span><span class="p">()</span>
+			<span class="nx">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+			<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span>
+			<span class="nx">rights</span> <span class="o">:=</span> <span class="nx">syscall</span><span class="p">.</span><span class="nf">UnixRights</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nf">Fd</span><span class="p">()))</span>
+			<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">UnixConn</span><span class="p">).</span><span class="nf">WriteMsgUnix</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">rights</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;同步listen socket fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
 
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-}
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">RecvListenerFromUnixSocket</span>() <span style="color:#66d9ef">error</span> {
-	<span style="color:#a6e22e">connInterface</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Dial</span>(<span style="color:#e6db74">&#34;unix&#34;</span>, <span style="color:#e6db74">&#34;/tmp/unix_socket_tcp&#34;</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;net dial unix fail&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
-	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
-		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">connInterface</span>.<span style="color:#a6e22e">Close</span>()
-	}()
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">RecvListenerFromUnixSocket</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">connInterface</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;unix&#34;</span><span class="p">,</span> <span class="s">&#34;/tmp/unix_socket_tcp&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;net dial unix fail&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">_</span> <span class="p">=</span> <span class="nx">connInterface</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="p">}()</span>
 
-	<span style="color:#a6e22e">unixConn</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">connInterface</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">UnixConn</span>)
+	<span class="nx">unixConn</span> <span class="o">:=</span> <span class="nx">connInterface</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">UnixConn</span><span class="p">)</span>
 
-	<span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">1</span>)
-	<span style="color:#a6e22e">oob</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">32</span>)
-	<span style="color:#66d9ef">for</span> {
-		<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">unixConn</span>.<span style="color:#a6e22e">SetWriteDeadline</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>))
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">oobn</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">unixConn</span>.<span style="color:#a6e22e">ReadMsgUnix</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">oob</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">b</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd type error: %d\n&#34;</span>, <span style="color:#a6e22e">n</span>)
-			} <span style="color:#66d9ef">else</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;init finish&#34;</span>)
-			}
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
+	<span class="nx">b</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="nx">oob</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">err</span> <span class="p">=</span> <span class="nx">unixConn</span><span class="p">.</span><span class="nf">SetWriteDeadline</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">n</span><span class="p">,</span> <span class="nx">oobn</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">unixConn</span><span class="p">.</span><span class="nf">ReadMsgUnix</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">oob</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nx">n</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">||</span> <span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="nx">n</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd type error: %d\n&#34;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;init finish&#34;</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
 
-		<span style="color:#a6e22e">scms</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">ParseSocketControlMessage</span>(<span style="color:#a6e22e">oob</span>[<span style="color:#ae81ff">0</span>:<span style="color:#a6e22e">oobn</span>])
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">scms</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd num != 1 : %d\n&#34;</span>, len(<span style="color:#a6e22e">scms</span>))
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">fds</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">ParseUnixRights</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">scms</span>[<span style="color:#ae81ff">0</span>])
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">fds</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd num != 1 : %d\n&#34;</span>, len(<span style="color:#a6e22e">fds</span>))
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd %d\n&#34;</span>, <span style="color:#a6e22e">fds</span>[<span style="color:#ae81ff">0</span>])
-		<span style="color:#75715e">// 这里需要把file close， 不然每次重启都会多复制一个socket
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">file</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">NewFile</span>(uintptr(<span style="color:#a6e22e">fds</span>[<span style="color:#ae81ff">0</span>]), <span style="color:#e6db74">&#34;fd-from-old&#34;</span>)
-		<span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">FileListener</span>(<span style="color:#a6e22e">file</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Close</span>()
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">conn</span>)
+		<span class="nx">scms</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">unix</span><span class="p">.</span><span class="nf">ParseSocketControlMessage</span><span class="p">(</span><span class="nx">oob</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nx">oobn</span><span class="p">])</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">scms</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd num != 1 : %d\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">scms</span><span class="p">))</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">fds</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">unix</span><span class="p">.</span><span class="nf">ParseUnixRights</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">scms</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">fds</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd num != 1 : %d\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">fds</span><span class="p">))</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd %d\n&#34;</span><span class="p">,</span> <span class="nx">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="c1">// 这里需要把file close， 不然每次重启都会多复制一个socket
+</span><span class="c1"></span>		<span class="nx">file</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">NewFile</span><span class="p">(</span><span class="nb">uintptr</span><span class="p">(</span><span class="nx">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">&#34;fd-from-old&#34;</span><span class="p">)</span>
+		<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">FileListener</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">_</span> <span class="p">=</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
 
-		<span style="color:#a6e22e">lc</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">TCPListener</span>)
-		<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">StartWithListenSocket</span>(<span style="color:#a6e22e">lc</span>)
-	}
-}
+		<span class="nx">lc</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPListener</span><span class="p">)</span>
+		<span class="k">go</span> <span class="nx">t</span><span class="p">.</span><span class="nf">StartWithListenSocket</span><span class="p">(</span><span class="nx">lc</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">SendConnWithUnixSocket</span>() <span style="color:#66d9ef">error</span> {
-	<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Remove</span>(<span style="color:#e6db74">&#34;/tmp/unix_socket_tcp&#34;</span>)
-	<span style="color:#a6e22e">addr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUnixAddr</span>(<span style="color:#e6db74">&#34;unix&#34;</span>, <span style="color:#e6db74">&#34;/tmp/unix_socket_tcp&#34;</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cannot resolve unix addr: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">SendConnWithUnixSocket</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="s">&#34;/tmp/unix_socket_tcp&#34;</span><span class="p">)</span>
+	<span class="nx">addr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ResolveUnixAddr</span><span class="p">(</span><span class="s">&#34;unix&#34;</span><span class="p">,</span> <span class="s">&#34;/tmp/unix_socket_tcp&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Cannot resolve unix addr: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
 
-	<span style="color:#a6e22e">listener</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ListenUnix</span>(<span style="color:#e6db74">&#34;unix&#34;</span>, <span style="color:#a6e22e">addr</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cannot listen to unix domain socket: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Listening on&#34;</span>, <span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">Addr</span>())
+	<span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ListenUnix</span><span class="p">(</span><span class="s">&#34;unix&#34;</span><span class="p">,</span> <span class="nx">addr</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Cannot listen to unix domain socket: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Listening on&#34;</span><span class="p">,</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Addr</span><span class="p">())</span>
 
-	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-		<span style="color:#66d9ef">for</span> {
-			<span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">listener</span>.<span style="color:#a6e22e">Accept</span>()
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Accept: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-				<span style="color:#66d9ef">return</span>
-			}
-			<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">conn</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">conns</span> {
-				<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">File</span>()
-				<span style="color:#a6e22e">buf</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">1</span>)
-				<span style="color:#a6e22e">buf</span>[<span style="color:#ae81ff">0</span>] = <span style="color:#ae81ff">0</span>
-				<span style="color:#a6e22e">rights</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">syscall</span>.<span style="color:#a6e22e">UnixRights</span>(int(<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Fd</span>()))
-				<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">c</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">UnixConn</span>).<span style="color:#a6e22e">WriteMsgUnix</span>(<span style="color:#a6e22e">buf</span>, <span style="color:#a6e22e">rights</span>, <span style="color:#66d9ef">nil</span>)
-				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-					<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;同步listen socket fail, err is&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-				}
-			}
-		}
-	}()
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="nx">c</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Accept: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+				<span class="k">return</span>
+			<span class="p">}</span>
+			<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">conn</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">conns</span> <span class="p">{</span>
+				<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">File</span><span class="p">()</span>
+				<span class="nx">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+				<span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span>
+				<span class="nx">rights</span> <span class="o">:=</span> <span class="nx">syscall</span><span class="p">.</span><span class="nf">UnixRights</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nf">Fd</span><span class="p">()))</span>
+				<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">UnixConn</span><span class="p">).</span><span class="nf">WriteMsgUnix</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">rights</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+				<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+					<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;同步listen socket fail, err is&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
 
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-}
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TcpSrv</span>) <span style="color:#a6e22e">RecvConnFromUnixSocket</span>() <span style="color:#66d9ef">error</span> {
-	<span style="color:#a6e22e">connInterface</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Dial</span>(<span style="color:#e6db74">&#34;unix&#34;</span>, <span style="color:#e6db74">&#34;/tmp/unix_socket_tcp&#34;</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;net dial unix fail&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
-	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
-		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">connInterface</span>.<span style="color:#a6e22e">Close</span>()
-	}()
+<span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TcpSrv</span><span class="p">)</span> <span class="nf">RecvConnFromUnixSocket</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">connInterface</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;unix&#34;</span><span class="p">,</span> <span class="s">&#34;/tmp/unix_socket_tcp&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;net dial unix fail&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">_</span> <span class="p">=</span> <span class="nx">connInterface</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="p">}()</span>
 
-	<span style="color:#a6e22e">unixConn</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">connInterface</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">UnixConn</span>)
+	<span class="nx">unixConn</span> <span class="o">:=</span> <span class="nx">connInterface</span><span class="p">.(</span><span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">UnixConn</span><span class="p">)</span>
 
-	<span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">1</span>)
-	<span style="color:#a6e22e">oob</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#ae81ff">32</span>)
-	<span style="color:#66d9ef">for</span> {
-		<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">unixConn</span>.<span style="color:#a6e22e">SetWriteDeadline</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>))
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">oobn</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">unixConn</span>.<span style="color:#a6e22e">ReadMsgUnix</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">oob</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">b</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
-			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd type error: %d\n&#34;</span>, <span style="color:#a6e22e">n</span>)
-			} <span style="color:#66d9ef">else</span> {
-				<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;init finish&#34;</span>)
-			}
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
+	<span class="nx">b</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="nx">oob</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">err</span> <span class="p">=</span> <span class="nx">unixConn</span><span class="p">.</span><span class="nf">SetWriteDeadline</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">n</span><span class="p">,</span> <span class="nx">oobn</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">unixConn</span><span class="p">.</span><span class="nf">ReadMsgUnix</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">oob</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nx">n</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">||</span> <span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="nx">n</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd type error: %d\n&#34;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;init finish&#34;</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
 
-		<span style="color:#a6e22e">scms</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">ParseSocketControlMessage</span>(<span style="color:#a6e22e">oob</span>[<span style="color:#ae81ff">0</span>:<span style="color:#a6e22e">oobn</span>])
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">scms</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd num != 1 : %d\n&#34;</span>, len(<span style="color:#a6e22e">scms</span>))
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">fds</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">ParseUnixRights</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">scms</span>[<span style="color:#ae81ff">0</span>])
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">fds</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd num != 1 : %d\n&#34;</span>, len(<span style="color:#a6e22e">fds</span>))
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;recv fd %d\n&#34;</span>, <span style="color:#a6e22e">fds</span>[<span style="color:#ae81ff">0</span>])
-		<span style="color:#75715e">// 这里需要把file close， 不然每次重启都会多复制一个socket
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">file</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">NewFile</span>(uintptr(<span style="color:#a6e22e">fds</span>[<span style="color:#ae81ff">0</span>]), <span style="color:#e6db74">&#34;fd-from-old&#34;</span>)
-		<span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">FileConn</span>(<span style="color:#a6e22e">file</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Close</span>()
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">conn</span>)
-		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">clientSrv</span>(<span style="color:#a6e22e">conn</span>)
-	}
-}
+		<span class="nx">scms</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">unix</span><span class="p">.</span><span class="nf">ParseSocketControlMessage</span><span class="p">(</span><span class="nx">oob</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nx">oobn</span><span class="p">])</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">scms</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd num != 1 : %d\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">scms</span><span class="p">))</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">fds</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">unix</span><span class="p">.</span><span class="nf">ParseUnixRights</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">scms</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">fds</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd num != 1 : %d\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">fds</span><span class="p">))</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv fd %d\n&#34;</span><span class="p">,</span> <span class="nx">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="c1">// 这里需要把file close， 不然每次重启都会多复制一个socket
+</span><span class="c1"></span>		<span class="nx">file</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">NewFile</span><span class="p">(</span><span class="nb">uintptr</span><span class="p">(</span><span class="nx">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">&#34;fd-from-old&#34;</span><span class="p">)</span>
+		<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">FileConn</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">_</span> <span class="p">=</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">clientSrv</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
       </article>
     </div>
@@ -908,7 +954,7 @@ Published At</span><time>2020-12-15 19:15 CST</time>
 Tagged with</span>
         <ul class="tags">
         
-          <li class="hashed-tag"><a href="http://cong.im/tags/linux">linux</a></li>
+          <li class="hashed-tag"><a href="https://example.com/tags/linux">linux</a></li>
         
         </ul>
       </div>
@@ -943,7 +989,7 @@ Share with</span>
         title="share to reddit"
         rel="noopener noreferrer"
         aria-label="share 跨进程复制socket on reddit"
-        href="https://reddit.com/submit?url=http%3a%2f%2fcong.im%2fpost%2flinux%2f%25E8%25B7%25A8%25E8%25BF%259B%25E7%25A8%258B%25E5%25A4%258D%25E5%2588%25B6socket%2f&title=%e8%b7%a8%e8%bf%9b%e7%a8%8b%e5%a4%8d%e5%88%b6socket">
+        href="https://reddit.com/submit?url=https%3a%2f%2fexample.com%2fpost%2flinux%2f%25E8%25B7%25A8%25E8%25BF%259B%25E7%25A8%258B%25E5%25A4%258D%25E5%2588%25B6socket%2f&title=%e8%b7%a8%e8%bf%9b%e7%a8%8b%e5%a4%8d%e5%88%b6socket">
         
 
 
@@ -969,7 +1015,7 @@ Share with</span>
         title="share to twitter"
         rel="noopener noreferrer"
         aria-label="share 跨进程复制socket on twitter"
-        href="https://twitter.com/intent/tweet/?text=%e8%b7%a8%e8%bf%9b%e7%a8%8b%e5%a4%8d%e5%88%b6socket&amp;url=http%3a%2f%2fcong.im%2fpost%2flinux%2f%25E8%25B7%25A8%25E8%25BF%259B%25E7%25A8%258B%25E5%25A4%258D%25E5%2588%25B6socket%2f&amp;hashtags=linux">
+        href="https://twitter.com/intent/tweet/?text=%e8%b7%a8%e8%bf%9b%e7%a8%8b%e5%a4%8d%e5%88%b6socket&amp;url=https%3a%2f%2fexample.com%2fpost%2flinux%2f%25E8%25B7%25A8%25E8%25BF%259B%25E7%25A8%258B%25E5%25A4%258D%25E5%2588%25B6socket%2f&amp;hashtags=linux">
         
 
 
@@ -995,7 +1041,7 @@ Share with</span>
         title="share to facebook"
         rel="noopener noreferrer"
         aria-label="share 跨进程复制socket on facebook"
-        href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fcong.im%2fpost%2flinux%2f%25E8%25B7%25A8%25E8%25BF%259B%25E7%25A8%258B%25E5%25A4%258D%25E5%2588%25B6socket%2f">
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fpost%2flinux%2f%25E8%25B7%25A8%25E8%25BF%259B%25E7%25A8%258B%25E5%25A4%258D%25E5%2588%25B6socket%2f">
         
 
 
@@ -1020,6 +1066,7 @@ Share with</span>
 
     
 </div>
+
     
 
     
@@ -1032,7 +1079,7 @@ Share with</span>
     <ul class="links">
       
       <li>
-        <a class="nav-link navbar-button" href="http://cong.im/index.xml" type="application/rss+xml">RSS</a>
+        <a class="nav-link navbar-button" href="https://example.com/index.xml" type="application/rss+xml">RSS</a>
       </li>
       <li>
         <a
@@ -1059,7 +1106,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://cong.im/js/main.min.7685c4d03abca7fd02a772a2e64c7a8aa3a7031024bbab70a17975e8928cb004.js" integrity="sha256-doXE0Dq8p/0Cp3Ki5kx6iqOnAxAku6twoXl16JKMsAQ=" crossorigin="anonymous" async></script>
+<script defer src="https://example.com/js/main.min.7685c4d03abca7fd02a772a2e64c7a8aa3a7031024bbab70a17975e8928cb004.js" integrity="sha256-doXE0Dq8p/0Cp3Ki5kx6iqOnAxAku6twoXl16JKMsAQ=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

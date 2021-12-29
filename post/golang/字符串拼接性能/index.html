@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html
- lang="zh-cn"
+ lang="en-us"
   prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
 >
   
 
 
 
+  
+  
 
 
-<head lang="zh-cn">
+<head lang="en-us">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="HandheldFriendly" content="True" />
@@ -17,10 +19,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
   <meta name="description" content="" />
-  <meta name="author" content="">
+  <meta name="author" content="Cong">
   <meta name="keywords" content="golang">
   <title>golang字符串拼接性能对比 | 聪少</title>
-  <link rel="canonical" href="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
+  <link rel="canonical" href="https://example.com/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
   
 
   
@@ -29,8 +31,8 @@
   <meta property="og:title" content="golang字符串拼接性能对比" />
   <meta property="og:site_name" content="聪少" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
-  <meta property="og:locale" content="zh-cn" />
+  <meta property="og:url" content="https://example.com/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
+  <meta property="og:locale" content="en-us" />
 
   
     <meta property="article:published_time" content="2021-11-30" />
@@ -44,7 +46,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="golang字符串拼接性能对比 | 聪少" />
   <meta name="twitter:description" content="" />
-  <meta name="twitter:domain" content="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
+  <meta name="twitter:domain" content="https://example.com/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/" />
 
   
   
@@ -63,7 +65,7 @@
 
   
     
-    <link rel="stylesheet" href="http://cong.im/style.min.24dece96ebe77a911ff4af20cffc54f5b46ee96ad7e33f168e1af342b043ec26.css" integrity="sha256-JN7OluvnepEf9K8gz/xU9bRu6WrX4z8WjhrzQrBD7CY=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://example.com/style.min.c960935d8d4f104620049788ddc6687727237973b8603ffd305918dd3c5e9535.css" integrity="sha256-yWCTXY1PEEYgBJeI3cZodycjeXO4YD/9MFkY3TxelTU=" rel="preload stylesheet" as="style"/>
   
 
   
@@ -104,13 +106,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://cong.im/" title="聪少">
+        <a class="logo navbar-button" href="https://example.com" title="聪少">
           <span>聪少</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/post/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/post/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -149,17 +175,17 @@
   
 
 <li >
-  <a href="http://cong.im/">Home</a>
+  <a href="https://example.com/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://cong.im/post/">Posts</a>
+  <a href="https://example.com/post/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/">golang字符串拼接性能对比</a>
+  <a href="https://example.com/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/">golang字符串拼接性能对比</a>
 </li>
 
 </ol>
@@ -218,105 +244,125 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Cong</span>
+        
         
         
           <span>post </span>
         
       </div>
       <article class="post-entry content">
-        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+        <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kn">package</span> <span class="nx">main</span>
 
-<span style="color:#f92672">import</span> (
-	<span style="color:#e6db74">&#34;bytes&#34;</span>
-	<span style="color:#e6db74">&#34;fmt&#34;</span>
-	<span style="color:#e6db74">&#34;strings&#34;</span>
-	<span style="color:#e6db74">&#34;testing&#34;</span>
-)
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;bytes&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;strings&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
 
-<span style="color:#75715e">// 大量字符串拼接性能测试
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">// fmt.Printf
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkFmtSprintfMore</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">s</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s%s&#34;</span>, <span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>)
-	}
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">s</span>)
-}
+<span class="c1">// 大量字符串拼接性能测试
+</span><span class="c1"></span>
+<span class="c1">// fmt.Printf
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">BenchmarkFmtSprintfMore</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="kt">string</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">s</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s%s&#34;</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">,</span> <span class="s">&#34;world&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span style="color:#75715e">// 加号 拼接
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkAddMore</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">s</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;hello&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;world&#34;</span>
-	}
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">s</span>)
-}
+<span class="c1">// 加号 拼接
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">BenchmarkAddMore</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="kt">string</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">s</span> <span class="o">+=</span> <span class="s">&#34;hello&#34;</span> <span class="o">+</span> <span class="s">&#34;world&#34;</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span style="color:#75715e">// strings.Join
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkStringsJoinMore</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">s</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Join</span>([]<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>}, <span style="color:#e6db74">&#34;&#34;</span>)
-	}
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">s</span>)
-}
+<span class="c1">// strings.Join
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">BenchmarkStringsJoinMore</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="kt">string</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">s</span> <span class="o">+=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;hello&#34;</span><span class="p">,</span> <span class="s">&#34;world&#34;</span><span class="p">},</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span style="color:#75715e">// bytes.Buffer
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkBufferMore</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#a6e22e">buffer</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Buffer</span>{}
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">buffer</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#e6db74">&#34;hello&#34;</span>)
-		<span style="color:#a6e22e">buffer</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#e6db74">&#34;world&#34;</span>)
-	}
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">buffer</span>.<span style="color:#a6e22e">String</span>())
-}
+<span class="c1">// bytes.Buffer
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">BenchmarkBufferMore</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">buffer</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">{}</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">buffer</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">)</span>
+		<span class="nx">buffer</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">buffer</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+<span class="p">}</span>
 
-<span style="color:#75715e">// 单次字符串拼接性能测试
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkFmtSprintf</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s%s&#34;</span>, <span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>)
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">s</span>)
-	}
-}
+<span class="c1">// 单次字符串拼接性能测试
+</span><span class="c1"></span>
+<span class="kd">func</span> <span class="nf">BenchmarkFmtSprintf</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s%s&#34;</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">,</span> <span class="s">&#34;world&#34;</span><span class="p">)</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkAdd</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;world&#34;</span>
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">s</span>)
-	}
-}
+<span class="kd">func</span> <span class="nf">BenchmarkAdd</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;hello&#34;</span> <span class="o">+</span> <span class="s">&#34;world&#34;</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkStringsJoin</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Join</span>([]<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>}, <span style="color:#e6db74">&#34;&#34;</span>)
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">s</span>)
-	}
-}
+<span class="kd">func</span> <span class="nf">BenchmarkStringsJoin</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">s</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;hello&#34;</span><span class="p">,</span> <span class="s">&#34;world&#34;</span><span class="p">},</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BenchmarkBuffer</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">B</span>) {
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Buffer</span>{}
-		<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#e6db74">&#34;hello&#34;</span>)
-		<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#e6db74">&#34;world&#34;</span>)
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">String</span>())
-	}
-}
+<span class="kd">func</span> <span class="nf">BenchmarkBuffer</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">b</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">{}</span>
+		<span class="nx">b</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">)</span>
+		<span class="nx">b</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">)</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go test -bench<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ go <span class="nb">test</span> -bench<span class="o">=</span><span class="s2">&#34;.&#34;</span>
 goos: darwin
 goarch: amd64
 pkg: github.com/congim/testCode
-cpu: Intel<span style="color:#f92672">(</span>R<span style="color:#f92672">)</span> Core<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> i5-8257U CPU @ 1.40GHz
-BenchmarkFmtSprintfMore-8         <span style="color:#ae81ff">124717</span>             <span style="color:#ae81ff">66195</span> ns/op
-BenchmarkAddMore-8                <span style="color:#ae81ff">200688</span>            <span style="color:#ae81ff">101945</span> ns/op
-BenchmarkStringsJoinMore-8        <span style="color:#ae81ff">207854</span>            <span style="color:#ae81ff">104328</span> ns/op
-BenchmarkBufferMore-8           <span style="color:#ae81ff">28937617</span>                59.37 ns/op
-BenchmarkFmtSprintf-8            <span style="color:#ae81ff">6131094</span>               191.7 ns/op
-BenchmarkAdd-8                  <span style="color:#ae81ff">13491847</span>                89.77 ns/op
-BenchmarkStringsJoin-8           <span style="color:#ae81ff">9086439</span>               137.9 ns/op
-BenchmarkBuffer-8                <span style="color:#ae81ff">8177436</span>               158.0 ns/op
+cpu: Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i5-8257U CPU @ 1.40GHz
+BenchmarkFmtSprintfMore-8         <span class="m">124717</span>             <span class="m">66195</span> ns/op
+BenchmarkAddMore-8                <span class="m">200688</span>            <span class="m">101945</span> ns/op
+BenchmarkStringsJoinMore-8        <span class="m">207854</span>            <span class="m">104328</span> ns/op
+BenchmarkBufferMore-8           <span class="m">28937617</span>                59.37 ns/op
+BenchmarkFmtSprintf-8            <span class="m">6131094</span>               191.7 ns/op
+BenchmarkAdd-8                  <span class="m">13491847</span>                89.77 ns/op
+BenchmarkStringsJoin-8           <span class="m">9086439</span>               137.9 ns/op
+BenchmarkBuffer-8                <span class="m">8177436</span>               158.0 ns/op
 PASS
 ok      github.com/congim/testCode      59.921s
 </code></pre></div><ul>
@@ -379,7 +425,7 @@ Published At</span><time>2021-11-30 21:53 CST</time>
 Tagged with</span>
         <ul class="tags">
         
-          <li class="hashed-tag"><a href="http://cong.im/tags/golang">golang</a></li>
+          <li class="hashed-tag"><a href="https://example.com/tags/golang">golang</a></li>
         
         </ul>
       </div>
@@ -414,7 +460,7 @@ Share with</span>
         title="share to reddit"
         rel="noopener noreferrer"
         aria-label="share golang字符串拼接性能对比 on reddit"
-        href="https://reddit.com/submit?url=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&title=golang%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd%e5%af%b9%e6%af%94">
+        href="https://reddit.com/submit?url=https%3a%2f%2fexample.com%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&title=golang%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd%e5%af%b9%e6%af%94">
         
 
 
@@ -440,7 +486,7 @@ Share with</span>
         title="share to twitter"
         rel="noopener noreferrer"
         aria-label="share golang字符串拼接性能对比 on twitter"
-        href="https://twitter.com/intent/tweet/?text=golang%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd%e5%af%b9%e6%af%94&amp;url=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&amp;hashtags=golang">
+        href="https://twitter.com/intent/tweet/?text=golang%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%8b%bc%e6%8e%a5%e6%80%a7%e8%83%bd%e5%af%b9%e6%af%94&amp;url=https%3a%2f%2fexample.com%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f&amp;hashtags=golang">
         
 
 
@@ -466,7 +512,7 @@ Share with</span>
         title="share to facebook"
         rel="noopener noreferrer"
         aria-label="share golang字符串拼接性能对比 on facebook"
-        href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fcong.im%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f">
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fpost%2fgolang%2f%25E5%25AD%2597%25E7%25AC%25A6%25E4%25B8%25B2%25E6%258B%25BC%25E6%258E%25A5%25E6%2580%25A7%25E8%2583%25BD%2f">
         
 
 
@@ -491,6 +537,7 @@ Share with</span>
 
     
 </div>
+
     
 
     
@@ -503,7 +550,7 @@ Share with</span>
     <ul class="links">
       
       <li>
-        <a class="nav-link navbar-button" href="http://cong.im/index.xml" type="application/rss+xml">RSS</a>
+        <a class="nav-link navbar-button" href="https://example.com/index.xml" type="application/rss+xml">RSS</a>
       </li>
       <li>
         <a
@@ -530,7 +577,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://cong.im/js/main.min.7685c4d03abca7fd02a772a2e64c7a8aa3a7031024bbab70a17975e8928cb004.js" integrity="sha256-doXE0Dq8p/0Cp3Ki5kx6iqOnAxAku6twoXl16JKMsAQ=" crossorigin="anonymous" async></script>
+<script defer src="https://example.com/js/main.min.7685c4d03abca7fd02a772a2e64c7a8aa3a7031024bbab70a17975e8928cb004.js" integrity="sha256-doXE0Dq8p/0Cp3Ki5kx6iqOnAxAku6twoXl16JKMsAQ=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

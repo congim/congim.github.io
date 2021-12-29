@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nosql on 聪少</title>
-    <link>http://cong.im/tags/nosql/</link>
+    <link>https://example.com/tags/nosql/</link>
     <description>Recent content in nosql on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Mon, 15 Nov 2021 11:05:21 +0800</lastBuildDate><atom:link href="http://cong.im/tags/nosql/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Nov 2021 11:05:21 +0800</lastBuildDate><atom:link href="https://example.com/tags/nosql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis知识点</title>
-      <link>http://cong.im/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <link>https://example.com/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
       <pubDate>Mon, 15 Nov 2021 11:05:21 +0800</pubDate>
       
-      <guid>http://cong.im/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <guid>https://example.com/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hbase安装</title>
-      <link>http://cong.im/post/nosql/hbase%E5%AE%89%E8%A3%85/</link>
+      <link>https://example.com/post/nosql/hbase%E5%AE%89%E8%A3%85/</link>
       <pubDate>Wed, 15 Jul 2020 10:31:39 +0000</pubDate>
       
-      <guid>http://cong.im/post/nosql/hbase%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://example.com/post/nosql/hbase%E5%AE%89%E8%A3%85/</guid>
       <description>&lt;h3 id=&#34;准备工作&#34;&gt;准备工作&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;hadoop-2.8.0.tar.gz&lt;/li&gt;
@@ -33,10 +33,10 @@
     
     <item>
       <title>centos7安装cassandra</title>
-      <link>http://cong.im/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</link>
+      <link>https://example.com/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</link>
       <pubDate>Wed, 15 Jul 2020 10:26:25 +0000</pubDate>
       
-      <guid>http://cong.im/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
+      <guid>https://example.com/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
       <description></description>
     </item>
     
