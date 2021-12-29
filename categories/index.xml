@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Cong&#39;s Blog</title>
+    <title>Categories on 聪少</title>
     <link>http://cong.im/categories/</link>
-    <description>Recent content in Categories on Cong&#39;s Blog</description>
+    <description>Recent content in Categories on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>聪少</copyright><atom:link href="http://cong.im/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="http://cong.im/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

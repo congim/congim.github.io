@@ -1,225 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>cpu性能分析 - Cong&#39;s Blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="聪少" /><meta name="description" content=" 面对问题束手无策 面对“系统”、“底层”发怵 遇到根源复杂的性能问题既不懂怎么去分析，也不能抽丝剥茧的找到瓶颈 随遇而安，认为遇到问题上网查就行了。有可能解决问题，但是懒得研究为何有效 " /><meta name="keywords" content="Hugo, theme, even" />
+<html
+ lang="zh-cn"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
 
 
 
 
 
-
-<meta name="generator" content="Hugo 0.88.1 with theme even" />
-
-
-<link rel="canonical" href="http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="cpu性能分析" />
-<meta property="og:description" content="
+<head lang="zh-cn">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="
 面对问题束手无策
 面对“系统”、“底层”发怵
 遇到根源复杂的性能问题既不懂怎么去分析，也不能抽丝剥茧的找到瓶颈
 随遇而安，认为遇到问题上网查就行了。有可能解决问题，但是懒得研究为何有效
 " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-12-08T20:21:15+00:00" />
-<meta property="article:modified_time" content="2020-12-08T20:21:15+00:00" />
+  <meta name="author" content="">
+  <meta name="keywords" content="linux">
+  <title>cpu性能分析 | 聪少</title>
+  <link rel="canonical" href="http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" />
+  
 
-<meta itemprop="name" content="cpu性能分析">
-<meta itemprop="description" content="
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="
 面对问题束手无策
 面对“系统”、“底层”发怵
 遇到根源复杂的性能问题既不懂怎么去分析，也不能抽丝剥茧的找到瓶颈
 随遇而安，认为遇到问题上网查就行了。有可能解决问题，但是懒得研究为何有效
-"><meta itemprop="datePublished" content="2020-12-08T20:21:15+00:00" />
-<meta itemprop="dateModified" content="2020-12-08T20:21:15+00:00" />
-<meta itemprop="wordCount" content="11300">
-<meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="cpu性能分析"/>
-<meta name="twitter:description" content="
+" />
+  <meta property="og:title" content="cpu性能分析" />
+  <meta property="og:site_name" content="聪少" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" />
+  <meta property="og:locale" content="zh-cn" />
+
+  
+    <meta property="article:published_time" content="2020-12-08" />
+    <meta property="article:modified_time" content="2020-12-08" />
+     
+      <meta property="article:tag" content="linux" />
+     
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="cpu性能分析 | 聪少" />
+  <meta name="twitter:description" content="
 面对问题束手无策
 面对“系统”、“底层”发怵
 遇到根源复杂的性能问题既不懂怎么去分析，也不能抽丝剥茧的找到瓶颈
 随遇而安，认为遇到问题上网查就行了。有可能解决问题，但是懒得研究为何有效
-"/>
+" />
+  <meta name="twitter:domain" content="http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" />
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
+  
+  
+  
+  
+  
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize@1.0.0/modern-normalize.min.css">
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">Cong</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
+  
+  
+  
 
   
 
-
-</nav>
-
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">Cong</a>
-</div>
-
-
-
-
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
+  
     
-    <header class="post-header">
-      <h1 class="post-title">cpu性能分析</h1>
+    <link rel="stylesheet" href="http://cong.im/style.min.24dece96ebe77a911ff4af20cffc54f5b46ee96ad7e33f168e1af342b043ec26.css" integrity="sha256-JN7OluvnepEf9K8gz/xU9bRu6WrX4z8WjhrzQrBD7CY=" rel="preload stylesheet" as="style"/>
+  
 
-      <div class="post-meta">
-        <span class="post-time"> 2020-12-08 </span>
+  
+  
+    
+  
+</head>
+
+  <body>
+    <script>
+  const currentTheme = window.localStorage.getItem('theme')
+  if (currentTheme === "dark") {
+    document.body.classList.toggle("theme-dark");
+  } else if (currentTheme == "light") {
+    document.body.classList.toggle("theme-light");
+  }
+</script>
+<header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://cong.im/" title="聪少">
+          <span>聪少</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    <div class="container has-padding">
+      <div class="breadcrumb">
         
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://cong.im/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://cong.im/post/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">cpu性能分析</a>
+</li>
+
+</ol>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</header>
+
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">cpu性能分析</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2020-12-08T20:21:15Z class="date">December 08, 2020</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+18 mins to read</span>
+        
+        
+        
+          <span>post </span>
         
       </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#性能和性能分析">性能和性能分析</a></li>
-    <li><a href="#理解平均负载">理解平均负载</a>
-      <ul>
-        <li><a href="#平均负载多少合理">平均负载多少合理</a></li>
-        <li><a href="#平均负载与cpu使用率">平均负载与CPU使用率</a></li>
-        <li><a href="#场景分析">场景分析</a>
-          <ul>
-            <li><a href="#准备">准备</a></li>
-          </ul>
-        </li>
-        <li><a href="#cpu密集型进程">CPU密集型进程</a></li>
-        <li><a href="#io密集型">IO密集型</a></li>
-        <li><a href="#大量进程">大量进程</a></li>
-        <li><a href="#cpu寄存器程序计数器cpu上下文">CPU寄存器、程序计数器：CPU上下文</a></li>
-      </ul>
-    </li>
-    <li><a href="#cpu上下文切换">CPU上下文切换</a>
-      <ul>
-        <li><a href="#进程上下文切换">进程上下文切换</a></li>
-        <li><a href="#进程调度和系统调用区别">进程调度和系统调用区别</a></li>
-        <li><a href="#什么时候会进行上下文切换">什么时候会进行上下文切换</a></li>
-        <li><a href="#线程上下文切换">线程上下文切换</a></li>
-        <li><a href="#中断上下文切换">中断上下文切换</a></li>
-        <li><a href="#查看系统上下文切换">查看系统上下文切换</a>
-          <ul>
-            <li><a href="#procs进程">Procs（进程）：</a></li>
-            <li><a href="#memory内存">Memory（内存）：</a></li>
-            <li><a href="#swap">Swap：</a></li>
-            <li><a href="#io现在的linux版本块的大小为1024bytes">IO：（现在的Linux版本块的大小为1024bytes）</a></li>
-            <li><a href="#系统">系统：</a></li>
-            <li><a href="#cpu以百分比表示">CPU（以百分比表示）：</a></li>
-            <li><a href="#查看每个进程上下文切换的情况">查看每个进程上下文切换的情况</a></li>
-            <li><a href="#例子">例子</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#cpu-100之后该怎么办">CPU 100%之后该怎么办</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#案例分析">案例分析</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#软中断">软中断</a></li>
-    <li><a href="#cpu缓存">CPU缓存</a>
-      <ul>
-        <li><a href="#cpu缓存的意义">CPU缓存的意义</a></li>
-        <li><a href="#带有高速缓存cpu执行计算的流程">带有高速缓存CPU执行计算的流程</a></li>
-        <li><a href="#cpu缓存一致性协议-mesi">CPU缓存一致性协议-MESI</a>
-          <ul>
-            <li><a href="#mesi状态">MESI状态</a></li>
-            <li><a href="#多核缓存协同操作">多核缓存协同操作</a></li>
-            <li><a href="#cpu-存储模型简介">CPU 存储模型简介</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <ul>
+      <article class="post-entry content">
+        <ul>
 <li>面对问题束手无策</li>
 <li>面对“系统”、“底层”发怵</li>
 <li>遇到根源复杂的性能问题既不懂怎么去分析，也不能抽丝剥茧的找到瓶颈</li>
@@ -241,31 +261,13 @@
 </ul>
 <h1 id="理解平均负载">理解平均负载</h1>
 <p>当发现系统变慢的时候，我们通常做的第一件事就是执行<code>top</code>或者<code>uptime</code>来观察系统负载情况。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># uptime</span>
- 10:26:33 up <span class="m">26</span> days, 17:10,  <span class="m">2</span> users,  load average: 0.02, 0.04, 0.05
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> 10:26:33                           // 当前时间
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># uptime</span>
+ 10:26:33 up <span style="color:#ae81ff">26</span> days, 17:10,  <span style="color:#ae81ff">2</span> users,  load average: 0.02, 0.04, 0.05
+</code></pre></div><pre tabindex="0"><code class="language-conf" data-lang="conf"> 10:26:33                           // 当前时间
  up 26 days                         // 系统运行时间
  2 users                            // 正在登陆用户
  load average: 0.02, 0.04, 0.05     // 依次则是过去 1 分钟、5 分钟、15 分钟的平均负载
-</code></pre></td></tr></table>
-</div>
-</div><p>理解平均负载之前我们先了解以下两种状态</p>
+</code></pre><p>理解平均负载之前我们先了解以下两种状态</p>
 <ul>
 <li>可运行状态: 所谓可运行状态的进程，是指正在使用CPU或者正在等待CPU的进程，也就是我们常用ps命令看到的，处于R状态（Running 或 Runnable）的进程。</li>
 <li>不可中断状态: 不可中断状态的进程则是正处于内核态关键流程中的进程，并且这些流程是不可打断的，比如最常见的是等待硬件设备的I/O响应，也就是我们在ps命令中看到的D状态（Uninterruptible Sleep，也称为 Disk Sleep）的进程。</li>
@@ -279,17 +281,9 @@
 </ul>
 <h2 id="平均负载多少合理">平均负载多少合理</h2>
 <p>回答这个问题之前我们需要知道系统有几个CPU，可以通过top或者从文件/proc/cpuinfi中读取</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># grep &#39;model name&#39; /proc/cpuinfo | wc -l</span>
-<span class="m">4</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>有了CPU个数就可以判断出当平均负载比CPU个数还打当时候，系统已经出现了过载。那么平均负载的三个数值理解如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># grep &#39;model name&#39; /proc/cpuinfo | wc -l</span>
+<span style="color:#ae81ff">4</span>
+</code></pre></div><p>有了CPU个数就可以判断出当平均负载比CPU个数还打当时候，系统已经出现了过载。那么平均负载的三个数值理解如下：</p>
 <ul>
 <li>如果1、5、15的三个数值基本相同，或者相差不大，那么说明系统负载很平稳</li>
 <li>如果1的值远小于15分钟的值，说明系统最近1分钟负载在减少，过去15分钟内负载很高，反之同理</li>
@@ -314,400 +308,163 @@
 <li>sysstat 包含了常用的Linux性能工具，用来监控和分析系统性能。mpstat用来实时查看每个CPU的性能指标，以及所有CPU的平均指标。pidstat是一个进程性能分析工具，用来实时查看进程的CPU、内存、I/O以及上下文切换等性能指标</li>
 </ul>
 <h2 id="cpu密集型进程">CPU密集型进程</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 测试之前的数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># uptime</span>
- 19:59:55 up <span class="m">27</span> days,  2:43,  <span class="m">7</span> users,  load average: 0.05, 0.07, 0.11
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 模拟两个CPU使用率100%</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># stress --cpu 2 --timeout 600</span>
-stress: info: <span class="o">[</span>12880<span class="o">]</span> dispatching hogs: <span class="m">2</span> cpu, <span class="m">0</span> io, <span class="m">0</span> vm, <span class="m">0</span> hdd
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># uptime查看平均负载变化情况</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># watch -d uptime</span>
-Every 2.0s: uptime                                                                                                     Tue Nov <span class="m">24</span> 20:03:27 <span class="m">2020</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 测试之前的数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># uptime</span>
+ 19:59:55 up <span style="color:#ae81ff">27</span> days,  2:43,  <span style="color:#ae81ff">7</span> users,  load average: 0.05, 0.07, 0.11
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 模拟两个CPU使用率100%</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># stress --cpu 2 --timeout 600</span>
+stress: info: <span style="color:#f92672">[</span>12880<span style="color:#f92672">]</span> dispatching hogs: <span style="color:#ae81ff">2</span> cpu, <span style="color:#ae81ff">0</span> io, <span style="color:#ae81ff">0</span> vm, <span style="color:#ae81ff">0</span> hdd
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># uptime查看平均负载变化情况</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># watch -d uptime</span>
+Every 2.0s: uptime                                                                                                     Tue Nov <span style="color:#ae81ff">24</span> 20:03:27 <span style="color:#ae81ff">2020</span>
 
- 20:03:27 up <span class="m">27</span> days,  2:47,  <span class="m">7</span> users,  load average: 1.98, 0.97, 0.45
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># mpstat查看CPU使用情况  -P ALL 表示监控所有CPU，后面数字5表示间隔5秒后输出一组数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 sysstat-11.6.5<span class="o">]</span><span class="c1"># ./mpstat -P ALL  5</span>
-Linux 3.10.0-1127.19.1.el7.x86_64 <span class="o">(</span>test-monitor-alert-1<span class="o">)</span> 	11/25/2020 	_x86_64_	<span class="o">(</span><span class="m">4</span> CPU<span class="o">)</span>
+ 20:03:27 up <span style="color:#ae81ff">27</span> days,  2:47,  <span style="color:#ae81ff">7</span> users,  load average: 1.98, 0.97, 0.45
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># mpstat查看CPU使用情况  -P ALL 表示监控所有CPU，后面数字5表示间隔5秒后输出一组数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 sysstat-11.6.5<span style="color:#f92672">]</span><span style="color:#75715e"># ./mpstat -P ALL  5</span>
+Linux 3.10.0-1127.19.1.el7.x86_64 <span style="color:#f92672">(</span>test-monitor-alert-1<span style="color:#f92672">)</span> 	11/25/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span> CPU<span style="color:#f92672">)</span>
 
 09:26:34 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
 09:26:39 AM  all    0.35    0.00    2.17   81.48    0.00    0.00    0.00    0.00    0.00   15.99
-09:26:39 AM    <span class="m">0</span>    0.40    0.00    1.82   57.17    0.00    0.00    0.00    0.00    0.00   40.61
-09:26:39 AM    <span class="m">1</span>    0.40    0.00    4.23   83.30    0.00    0.00    0.00    0.00    0.00   12.07
-09:26:39 AM    <span class="m">2</span>    0.40    0.00    1.01   90.30    0.00    0.00    0.00    0.00    0.00    8.28
-09:26:39 AM    <span class="m">3</span>    0.20    0.00    1.41   95.35    0.00    0.00    0.00    0.00    0.00    3.03
+09:26:39 AM    <span style="color:#ae81ff">0</span>    0.40    0.00    1.82   57.17    0.00    0.00    0.00    0.00    0.00   40.61
+09:26:39 AM    <span style="color:#ae81ff">1</span>    0.40    0.00    4.23   83.30    0.00    0.00    0.00    0.00    0.00   12.07
+09:26:39 AM    <span style="color:#ae81ff">2</span>    0.40    0.00    1.01   90.30    0.00    0.00    0.00    0.00    0.00    8.28
+09:26:39 AM    <span style="color:#ae81ff">3</span>    0.20    0.00    1.41   95.35    0.00    0.00    0.00    0.00    0.00    3.03
 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 到底是哪个进程导致了 CPU 使用率为 100% 呢？你可以使用 pidstat 来查询：</span>
-<span class="c1"># 间隔5秒后输出一组数据</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 到底是哪个进程导致了 CPU 使用率为 100% 呢？你可以使用 pidstat 来查询：</span>
+<span style="color:#75715e"># 间隔5秒后输出一组数据</span>
 
-<span class="o">[</span>root@test-monitor-farseer-1 sysstat-11.6.5<span class="o">]</span><span class="c1"># dstat --top-io -d --top-bio -l</span>
+<span style="color:#f92672">[</span>root@test-monitor-farseer-1 sysstat-11.6.5<span style="color:#f92672">]</span><span style="color:#75715e"># dstat --top-io -d --top-bio -l</span>
 ----most-expensive---- -dsk/total- ----most-expensive---- ---load-avg---
-     i/o process      <span class="p">|</span> <span class="nb">read</span>  writ<span class="p">|</span>  block i/o process   <span class="p">|</span> 1m   5m  15m
-docker-cont4376B 1002k<span class="p">|</span>  16k   99k<span class="p">|</span>systemd    9524B   58k<span class="p">|</span>0.18 0.70 0.59
+     i/o process      | read  writ|  block i/o process   | 1m   5m  15m
+docker-cont4376B 1002k|  16k   99k|systemd    9524B   58k|0.18 0.70 0.59
 
-prometheus   11k   11k<span class="p">|</span>   <span class="m">0</span>  1196k<span class="p">|</span>prometheus    <span class="m">0</span>  8192B<span class="p">|</span>0.18 0.70 0.59
-barad_agent  42k   10k<span class="p">|</span>8192B    <span class="m">0</span> <span class="p">|</span>barad_agent   <span class="m">0</span>    12k<span class="p">|</span>0.16 0.69 0.59
-process-exp1462k   16k<span class="p">|</span>  24k  320k<span class="p">|</span>systemd-jou   <span class="m">0</span>   260k<span class="p">|</span>0.16 0.69 0.59
-stress-ng     <span class="m">0</span>   744M<span class="p">|</span>4792k  114M<span class="p">|</span>stress-ng     <span class="m">0</span>   744M<span class="p">|</span>0.16 0.69 0.59
-stress-ng  1024M  281M<span class="p">|</span>8192B  106M<span class="p">|</span>stress-ng     <span class="m">0</span>   280M<span class="p">|</span>0.16 0.69 0.59
-barad_agent  23k 2367B<span class="p">|</span>8192B  114M<span class="p">|</span>prometheus    <span class="m">0</span>  4096B<span class="p">|</span>0.16 0.69 0.59
-YDService  9524B 1447B<span class="p">|</span>  12k  111M<span class="p">|</span>jbd2/vda1-8   <span class="m">0</span>    28k<span class="p">|</span>0.63 0.78 0.62
-systemd-jou  31k    <span class="m">0</span> <span class="p">|</span>  12k   96M<span class="p">|</span>systemd-jou   <span class="m">0</span>   172k<span class="p">|</span>0.63 0.78 0.62
-barad_agent4010B 2535B<span class="p">|</span>  12k  111M<span class="p">|</span>barad_agent   <span class="m">0</span>  4096B<span class="p">|</span>0.63 0.78 0.62
-YDService  6380B    <span class="m">0</span> <span class="p">|</span>4096B  115M<span class="p">|</span>jbd2/vda1-8   <span class="m">0</span>    16k<span class="p">|</span>0.63 0.78 0.62
-prometheus   11k   11k<span class="p">|</span>  20k  104M<span class="p">|</span>YDService    12k    <span class="m">0</span> <span class="p">|</span>0.63 0.78 0.62
-barad_agent  42k   10k<span class="p">|</span>8192B  107M<span class="p">|</span>YDService    12k    <span class="m">0</span> <span class="p">|</span>0.90 0.83 0.64
-stress-ng  1024M 1024M<span class="p">|</span>  24k  108M<span class="p">|</span>stress-ng     <span class="m">0</span>  1024M<span class="p">|</span>0.90 0.83 0.64
-YDService  4971B  164B<span class="p">|</span>8192B  104M<span class="p">|</span>prometheus    <span class="m">0</span>  4096B<span class="p">|</span>0.90 0.83 0.64
-systemd-jou6478B    <span class="m">0</span> <span class="p">|</span>4096B  107M<span class="p">|</span>systemd-jou   <span class="m">0</span>    56k<span class="p">|</span>0.90 0.83 0.64
-node_export  44k   11k<span class="p">|</span>  16k  108M<span class="p">|</span>jbd2/vda1-8   <span class="m">0</span>   136k<span class="p">|</span>0.90 0.83 0.64
+prometheus   11k   11k|   <span style="color:#ae81ff">0</span>  1196k|prometheus    <span style="color:#ae81ff">0</span>  8192B|0.18 0.70 0.59
+barad_agent  42k   10k|8192B    <span style="color:#ae81ff">0</span> |barad_agent   <span style="color:#ae81ff">0</span>    12k|0.16 0.69 0.59
+process-exp1462k   16k|  24k  320k|systemd-jou   <span style="color:#ae81ff">0</span>   260k|0.16 0.69 0.59
+stress-ng     <span style="color:#ae81ff">0</span>   744M|4792k  114M|stress-ng     <span style="color:#ae81ff">0</span>   744M|0.16 0.69 0.59
+stress-ng  1024M  281M|8192B  106M|stress-ng     <span style="color:#ae81ff">0</span>   280M|0.16 0.69 0.59
+barad_agent  23k 2367B|8192B  114M|prometheus    <span style="color:#ae81ff">0</span>  4096B|0.16 0.69 0.59
+YDService  9524B 1447B|  12k  111M|jbd2/vda1-8   <span style="color:#ae81ff">0</span>    28k|0.63 0.78 0.62
+systemd-jou  31k    <span style="color:#ae81ff">0</span> |  12k   96M|systemd-jou   <span style="color:#ae81ff">0</span>   172k|0.63 0.78 0.62
+barad_agent4010B 2535B|  12k  111M|barad_agent   <span style="color:#ae81ff">0</span>  4096B|0.63 0.78 0.62
+YDService  6380B    <span style="color:#ae81ff">0</span> |4096B  115M|jbd2/vda1-8   <span style="color:#ae81ff">0</span>    16k|0.63 0.78 0.62
+prometheus   11k   11k|  20k  104M|YDService    12k    <span style="color:#ae81ff">0</span> |0.63 0.78 0.62
+barad_agent  42k   10k|8192B  107M|YDService    12k    <span style="color:#ae81ff">0</span> |0.90 0.83 0.64
+stress-ng  1024M 1024M|  24k  108M|stress-ng     <span style="color:#ae81ff">0</span>  1024M|0.90 0.83 0.64
+YDService  4971B  164B|8192B  104M|prometheus    <span style="color:#ae81ff">0</span>  4096B|0.90 0.83 0.64
+systemd-jou6478B    <span style="color:#ae81ff">0</span> |4096B  107M|systemd-jou   <span style="color:#ae81ff">0</span>    56k|0.90 0.83 0.64
+node_export  44k   11k|  16k  108M|jbd2/vda1-8   <span style="color:#ae81ff">0</span>   136k|0.90 0.83 0.64
 
-<span class="c1"># pidsta版本问题，抓不出io wait</span>
-<span class="o">[</span>root@test-monitor-farseer-1 sysstat-11.6.5<span class="o">]</span><span class="c1"># ./pidstat -u 5 1</span>
-Linux 3.10.0-1127.19.1.el7.x86_64 <span class="o">(</span>test-monitor-farseer-1<span class="o">)</span> 	12/01/2020 	_x86_64_	<span class="o">(</span><span class="m">4</span> CPU<span class="o">)</span>
+<span style="color:#75715e"># pidsta版本问题，抓不出io wait</span>
+<span style="color:#f92672">[</span>root@test-monitor-farseer-1 sysstat-11.6.5<span style="color:#f92672">]</span><span style="color:#75715e"># ./pidstat -u 5 1</span>
+Linux 3.10.0-1127.19.1.el7.x86_64 <span style="color:#f92672">(</span>test-monitor-farseer-1<span style="color:#f92672">)</span> 	12/01/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span> CPU<span style="color:#f92672">)</span>
 
 03:42:58 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
-03:43:03 PM     <span class="m">0</span>         <span class="m">9</span>    0.00    0.20    0.00    0.20    0.20     <span class="m">1</span>  rcu_sched
-03:43:03 PM     <span class="m">0</span>        <span class="m">14</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">1</span>  ksoftirqd/1
-03:43:03 PM     <span class="m">0</span>        <span class="m">24</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">3</span>  ksoftirqd/3
-03:43:03 PM     <span class="m">0</span>       <span class="m">184</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">1</span>  kauditd
-03:43:03 PM     <span class="m">0</span>      <span class="m">1347</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">1</span>  dockerd
-03:43:03 PM  <span class="m">1000</span>      <span class="m">2066</span>    1.20    1.20    0.00    0.00    2.40     <span class="m">0</span>  java
-03:43:03 PM <span class="m">65534</span>      <span class="m">2525</span>    0.20    0.00    0.00    0.00    0.20     <span class="m">1</span>  prometheus
-03:43:03 PM     <span class="m">0</span>      <span class="m">4926</span>    0.20    0.00    0.00    0.00    0.20     <span class="m">2</span>  docker-proxy
-03:43:03 PM     <span class="m">0</span>      <span class="m">4950</span>    0.00    0.40    0.00    0.00    0.40     <span class="m">3</span>  etcd
-03:43:03 PM     <span class="m">0</span>      <span class="m">5317</span>    0.00    0.20    0.00    0.20    0.20     <span class="m">1</span>  fs-monitor
-03:43:03 PM     <span class="m">0</span>      <span class="m">9761</span>  100.00    0.00    0.00    0.00  100.00     <span class="m">0</span>  stress
-03:43:03 PM     <span class="m">0</span>      <span class="m">9762</span>   99.80    0.00    0.00    0.00   99.80     <span class="m">2</span>  stress
-03:43:03 PM     <span class="m">0</span>      <span class="m">9780</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">3</span>  pidstat
-03:43:03 PM     <span class="m">0</span>     <span class="m">26236</span>    0.20    0.20    0.00    0.00    0.40     <span class="m">0</span>  barad_agent
-03:43:03 PM     <span class="m">0</span>     <span class="m">28925</span>    0.00    0.40    0.00    0.00    0.40     <span class="m">1</span>  YDService
-03:43:03 PM     <span class="m">0</span>     <span class="m">28985</span>    0.20    0.20    0.00    0.00    0.40     <span class="m">3</span>  YDEdr
-<span class="c1"># 从这里可以明显看到，stress 进程的 CPU 使用率为 100%。</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="io密集型">IO密集型</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 测试之前的数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># uptime</span>
- 09:25:35 up <span class="m">27</span> days,  3:21,  <span class="m">8</span> users,  load average: 0.35, 0.94, 0.60
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 模拟IO打满</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1">#  stress-ng -i 1 --hdd 1 --timeout 600</span>
-stress-ng: info:  <span class="o">[</span>4710<span class="o">]</span> dispatching hogs: <span class="m">1</span> hdd, <span class="m">1</span> io
+03:43:03 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">9</span>    0.00    0.20    0.00    0.20    0.20     <span style="color:#ae81ff">1</span>  rcu_sched
+03:43:03 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">14</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  ksoftirqd/1
+03:43:03 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">24</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">3</span>  ksoftirqd/3
+03:43:03 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">184</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  kauditd
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">1347</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  dockerd
+03:43:03 PM  <span style="color:#ae81ff">1000</span>      <span style="color:#ae81ff">2066</span>    1.20    1.20    0.00    0.00    2.40     <span style="color:#ae81ff">0</span>  java
+03:43:03 PM <span style="color:#ae81ff">65534</span>      <span style="color:#ae81ff">2525</span>    0.20    0.00    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  prometheus
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">4926</span>    0.20    0.00    0.00    0.00    0.20     <span style="color:#ae81ff">2</span>  docker-proxy
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">4950</span>    0.00    0.40    0.00    0.00    0.40     <span style="color:#ae81ff">3</span>  etcd
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">5317</span>    0.00    0.20    0.00    0.20    0.20     <span style="color:#ae81ff">1</span>  fs-monitor
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9761</span>  100.00    0.00    0.00    0.00  100.00     <span style="color:#ae81ff">0</span>  stress
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9762</span>   99.80    0.00    0.00    0.00   99.80     <span style="color:#ae81ff">2</span>  stress
+03:43:03 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9780</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">3</span>  pidstat
+03:43:03 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">26236</span>    0.20    0.20    0.00    0.00    0.40     <span style="color:#ae81ff">0</span>  barad_agent
+03:43:03 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">28925</span>    0.00    0.40    0.00    0.00    0.40     <span style="color:#ae81ff">1</span>  YDService
+03:43:03 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">28985</span>    0.20    0.20    0.00    0.00    0.40     <span style="color:#ae81ff">3</span>  YDEdr
+<span style="color:#75715e"># 从这里可以明显看到，stress 进程的 CPU 使用率为 100%。</span>
+</code></pre></div><h2 id="io密集型">IO密集型</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 测试之前的数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># uptime</span>
+ 09:25:35 up <span style="color:#ae81ff">27</span> days,  3:21,  <span style="color:#ae81ff">8</span> users,  load average: 0.35, 0.94, 0.60
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 模拟IO打满</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e">#  stress-ng -i 1 --hdd 1 --timeout 600</span>
+stress-ng: info:  <span style="color:#f92672">[</span>4710<span style="color:#f92672">]</span> dispatching hogs: <span style="color:#ae81ff">1</span> hdd, <span style="color:#ae81ff">1</span> io
 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># uptime查看平均负载变化情况</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># watch -d uptime</span>
-Every 2.0s: uptime                                                                                                     Wed Nov <span class="m">25</span> 09:25:38 <span class="m">2020</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># uptime查看平均负载变化情况</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># watch -d uptime</span>
+Every 2.0s: uptime                                                                                                     Wed Nov <span style="color:#ae81ff">25</span> 09:25:38 <span style="color:#ae81ff">2020</span>
 
- 09:25:38 up <span class="m">27</span> days, 16:09,  <span class="m">4</span> users,  load average: 2.49, 0.69, 0.27
+ 09:25:38 up <span style="color:#ae81ff">27</span> days, 16:09,  <span style="color:#ae81ff">4</span> users,  load average: 2.49, 0.69, 0.27
 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># mpstat查看CPU使用情况  -P ALL 表示监控所有CPU，后面数字5表示间隔5秒后输出一组数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># mpstat -P ALL  5</span>
-Linux 3.10.0-1127.19.1.el7.x86_64 <span class="o">(</span>test-monitor-alert-1<span class="o">)</span> 	11/24/2020 	_x86_64_	<span class="o">(</span><span class="m">4</span> CPU<span class="o">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># mpstat查看CPU使用情况  -P ALL 表示监控所有CPU，后面数字5表示间隔5秒后输出一组数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># mpstat -P ALL  5</span>
+Linux 3.10.0-1127.19.1.el7.x86_64 <span style="color:#f92672">(</span>test-monitor-alert-1<span style="color:#f92672">)</span> 	11/24/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span> CPU<span style="color:#f92672">)</span>
 
 08:45:14 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
 08:45:19 PM  all    0.75    0.00    1.86   89.53    0.00    0.00    0.00    0.00    0.00    7.85
-08:45:19 PM    <span class="m">0</span>    0.61    0.00    2.42   91.92    0.00    0.00    0.00    0.00    0.00    5.05
-08:45:19 PM    <span class="m">1</span>    0.80    0.00    2.20   76.15    0.00    0.00    0.00    0.00    0.00   20.84
-08:45:19 PM    <span class="m">2</span>    0.81    0.00    1.21   92.74    0.00    0.00    0.00    0.00    0.00    5.24
-08:45:19 PM    <span class="m">3</span>    0.80    0.00    1.41   97.59    0.00    0.00    0.00    0.00    0.00    0.20
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 使用 pidstat 来查询到底是哪个进程导致了iowait这么高</span>
-<span class="c1"># 间隔5秒后输出一组数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 sysstat-11.6.5<span class="o">]</span><span class="c1"># ./pidstat -u 5 1</span>
-Linux 3.10.0-1127.19.1.el7.x86_64 <span class="o">(</span>test-monitor-alert-1<span class="o">)</span> 	11/25/2020 	_x86_64_	<span class="o">(</span><span class="m">4</span> CPU<span class="o">)</span>
+08:45:19 PM    <span style="color:#ae81ff">0</span>    0.61    0.00    2.42   91.92    0.00    0.00    0.00    0.00    0.00    5.05
+08:45:19 PM    <span style="color:#ae81ff">1</span>    0.80    0.00    2.20   76.15    0.00    0.00    0.00    0.00    0.00   20.84
+08:45:19 PM    <span style="color:#ae81ff">2</span>    0.81    0.00    1.21   92.74    0.00    0.00    0.00    0.00    0.00    5.24
+08:45:19 PM    <span style="color:#ae81ff">3</span>    0.80    0.00    1.41   97.59    0.00    0.00    0.00    0.00    0.00    0.20
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 使用 pidstat 来查询到底是哪个进程导致了iowait这么高</span>
+<span style="color:#75715e"># 间隔5秒后输出一组数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 sysstat-11.6.5<span style="color:#f92672">]</span><span style="color:#75715e"># ./pidstat -u 5 1</span>
+Linux 3.10.0-1127.19.1.el7.x86_64 <span style="color:#f92672">(</span>test-monitor-alert-1<span style="color:#f92672">)</span> 	11/25/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span> CPU<span style="color:#f92672">)</span>
 
 Average:      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
-Average:        <span class="m">0</span>       <span class="m">275</span>    0.00    0.60    0.00    0.00    0.60     -  kworker/0:1H
-Average:        <span class="m">0</span>       <span class="m">292</span>    0.00    2.60    0.00    0.00    2.60     -  jbd2/vda1-8
-Average:        <span class="m">0</span>      <span class="m">1347</span>    0.20    0.20    0.00    0.00    0.40     -  dockerd
-Average:        <span class="m">0</span>      <span class="m">1472</span>    0.40    0.20    0.00    0.00    0.60     -  node_exporter
-Average:        <span class="m">0</span>      <span class="m">1598</span>    0.00    0.20    0.00    0.00    0.20     -  docker-containe
-Average:     <span class="m">1000</span>      <span class="m">2066</span>    1.00    1.40    0.00    0.00    2.40     -  java
-Average:        <span class="m">0</span>      <span class="m">4950</span>    0.00    0.80    0.00    0.00    0.80     -  etcd
-Average:        <span class="m">0</span>      <span class="m">5885</span>    0.00   17.00    0.00    0.00   17.00     -  stress-ng-hdd
-Average:        <span class="m">0</span>      <span class="m">5886</span>    0.00    0.40    0.00    0.00    0.40     -  stress-ng-io
-Average:        <span class="m">0</span>      <span class="m">5887</span>    0.00    0.20    0.00    0.00    0.20     -  stress-ng-io
-Average:        <span class="m">0</span>      <span class="m">8118</span>    0.20    0.00    0.00    0.00    0.20     -  java
-Average:        <span class="m">0</span>      <span class="m">8449</span>    0.00    1.80    0.00    0.20    1.80     -  kworker/u8:0
-Average:        <span class="m">0</span>      <span class="m">8458</span>    0.20    0.20    0.00    0.00    0.40     -  java
-Average:        <span class="m">0</span>     <span class="m">17111</span>    0.00    0.20    0.00    0.20    0.20     -  kworker/3:0
-Average:        <span class="m">0</span>     <span class="m">26173</span>    0.00    0.20    0.00    0.00    0.20     -  notify
-Average:        <span class="m">0</span>     <span class="m">26236</span>    0.00    0.20    0.00    0.00    0.20     -  barad_agent
-Average:        <span class="m">0</span>     <span class="m">28985</span>    0.00    1.60    0.00    0.00    1.60     -  YDEdr
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="大量进程">大量进程</h2>
+Average:        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">275</span>    0.00    0.60    0.00    0.00    0.60     -  kworker/0:1H
+Average:        <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">292</span>    0.00    2.60    0.00    0.00    2.60     -  jbd2/vda1-8
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">1347</span>    0.20    0.20    0.00    0.00    0.40     -  dockerd
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">1472</span>    0.40    0.20    0.00    0.00    0.60     -  node_exporter
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">1598</span>    0.00    0.20    0.00    0.00    0.20     -  docker-containe
+Average:     <span style="color:#ae81ff">1000</span>      <span style="color:#ae81ff">2066</span>    1.00    1.40    0.00    0.00    2.40     -  java
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">4950</span>    0.00    0.80    0.00    0.00    0.80     -  etcd
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">5885</span>    0.00   17.00    0.00    0.00   17.00     -  stress-ng-hdd
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">5886</span>    0.00    0.40    0.00    0.00    0.40     -  stress-ng-io
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">5887</span>    0.00    0.20    0.00    0.00    0.20     -  stress-ng-io
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">8118</span>    0.20    0.00    0.00    0.00    0.20     -  java
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">8449</span>    0.00    1.80    0.00    0.20    1.80     -  kworker/u8:0
+Average:        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">8458</span>    0.20    0.20    0.00    0.00    0.40     -  java
+Average:        <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">17111</span>    0.00    0.20    0.00    0.20    0.20     -  kworker/3:0
+Average:        <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">26173</span>    0.00    0.20    0.00    0.00    0.20     -  notify
+Average:        <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">26236</span>    0.00    0.20    0.00    0.00    0.20     -  barad_agent
+Average:        <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">28985</span>    0.00    1.60    0.00    0.00    1.60     -  YDEdr
+</code></pre></div><h2 id="大量进程">大量进程</h2>
 <p>当系统中运行进程超出 CPU 运行能力时，就会出现等待 CPU 的进程。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 测试之前的数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># uptime</span>
- 09:44:17 up <span class="m">27</span> days, 16:28,  <span class="m">4</span> users,  load average: 0.02, 1.90, 2.54
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 测试之前的数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># uptime</span>
+ 09:44:17 up <span style="color:#ae81ff">27</span> days, 16:28,  <span style="color:#ae81ff">4</span> users,  load average: 0.02, 1.90, 2.54
 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 模拟多进程</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># stress -c 8 --timeout 600</span>
-stress: info: <span class="o">[</span>9683<span class="o">]</span> dispatching hogs: <span class="m">8</span> cpu, <span class="m">0</span> io, <span class="m">0</span> vm, <span class="m">0</span> hdd
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># uptime查看平均负载变化情况</span>
-<span class="c1"># 由于系统只有 4 个 CPU，明显比 8 个进程要少得多，因而，系统的 CPU 处于严重过载状态，平均负载高达 8.08</span>
-<span class="o">[</span>root@test-monitor-alert-1 ~<span class="o">]</span><span class="c1"># watch -d uptime</span>
-Every 2.0s: uptime                                                                                                     Wed Nov <span class="m">25</span> 09:47:07 <span class="m">2020</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 模拟多进程</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># stress -c 8 --timeout 600</span>
+stress: info: <span style="color:#f92672">[</span>9683<span style="color:#f92672">]</span> dispatching hogs: <span style="color:#ae81ff">8</span> cpu, <span style="color:#ae81ff">0</span> io, <span style="color:#ae81ff">0</span> vm, <span style="color:#ae81ff">0</span> hdd
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># uptime查看平均负载变化情况</span>
+<span style="color:#75715e"># 由于系统只有 4 个 CPU，明显比 8 个进程要少得多，因而，系统的 CPU 处于严重过载状态，平均负载高达 8.08</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># watch -d uptime</span>
+Every 2.0s: uptime                                                                                                     Wed Nov <span style="color:#ae81ff">25</span> 09:47:07 <span style="color:#ae81ff">2020</span>
 
- 09:47:08 up <span class="m">27</span> days, 16:31,  <span class="m">4</span> users,  load average: 8.08, 3.72, 3.05
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 使用 pidstat 来看一下进程的情况</span>
-<span class="c1"># 间隔5秒后输出一组数据</span>
-<span class="o">[</span>root@test-monitor-alert-1 sysstat-11.6.5<span class="o">]</span><span class="c1"># ./pidstat -u 5 1</span>
-Linux 3.10.0-1127.19.1.el7.x86_64 <span class="o">(</span>test-monitor-alert-1<span class="o">)</span> 	11/25/2020 	_x86_64_	<span class="o">(</span><span class="m">4</span> CPU<span class="o">)</span>
+ 09:47:08 up <span style="color:#ae81ff">27</span> days, 16:31,  <span style="color:#ae81ff">4</span> users,  load average: 8.08, 3.72, 3.05
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 使用 pidstat 来看一下进程的情况</span>
+<span style="color:#75715e"># 间隔5秒后输出一组数据</span>
+<span style="color:#f92672">[</span>root@test-monitor-alert-1 sysstat-11.6.5<span style="color:#f92672">]</span><span style="color:#75715e"># ./pidstat -u 5 1</span>
+Linux 3.10.0-1127.19.1.el7.x86_64 <span style="color:#f92672">(</span>test-monitor-alert-1<span style="color:#f92672">)</span> 	11/25/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span> CPU<span style="color:#f92672">)</span>
 
 09:47:44 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
-09:47:49 AM  <span class="m">1000</span>      <span class="m">2066</span>    1.59    0.20    0.00    0.00    1.79     <span class="m">0</span>  java
-09:47:49 AM <span class="m">65534</span>      <span class="m">2525</span>    0.20    0.00    0.00    0.00    0.20     <span class="m">1</span>  prometheus
-09:47:49 AM     <span class="m">0</span>      <span class="m">4950</span>    0.20    0.20    0.00    1.39    0.40     <span class="m">2</span>  etcd
-09:47:49 AM     <span class="m">0</span>      <span class="m">8118</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">0</span>  java
-09:47:49 AM     <span class="m">0</span>      <span class="m">8458</span>    0.20    0.00    0.00    0.00    0.20     <span class="m">1</span>  java
-09:47:49 AM     <span class="m">0</span>      <span class="m">9290</span>    0.20    0.00    0.00    0.20    0.20     <span class="m">3</span>  watch
-09:47:49 AM     <span class="m">0</span>      <span class="m">9684</span>   64.94    0.00    0.00   34.66   64.94     <span class="m">2</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9685</span>   40.24    0.00    0.00   59.56   40.24     <span class="m">1</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9686</span>   44.02    0.00    0.00   55.58   44.02     <span class="m">2</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9687</span>   46.81    0.00    0.00   52.79   46.81     <span class="m">0</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9688</span>   41.43    0.00    0.00   58.37   41.43     <span class="m">1</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9689</span>   49.00    0.00    0.00   50.20   49.00     <span class="m">0</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9690</span>   55.58    0.00    0.00   44.42   55.58     <span class="m">3</span>  stress
-09:47:49 AM     <span class="m">0</span>      <span class="m">9691</span>   52.59    0.00    0.00   47.41   52.59     <span class="m">2</span>  stress
-09:47:49 AM     <span class="m">0</span>     <span class="m">26155</span>    0.00    0.20    0.00    0.00    0.20     <span class="m">0</span>  docker-containe
-09:47:49 AM     <span class="m">0</span>     <span class="m">26236</span>    0.20    0.20    0.00    0.00    0.40     <span class="m">2</span>  barad_agent
-09:47:49 AM   <span class="m">999</span>     <span class="m">28742</span>    0.20    0.00    0.00    0.00    0.20     <span class="m">1</span>  mysqld
+09:47:49 AM  <span style="color:#ae81ff">1000</span>      <span style="color:#ae81ff">2066</span>    1.59    0.20    0.00    0.00    1.79     <span style="color:#ae81ff">0</span>  java
+09:47:49 AM <span style="color:#ae81ff">65534</span>      <span style="color:#ae81ff">2525</span>    0.20    0.00    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  prometheus
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">4950</span>    0.20    0.20    0.00    1.39    0.40     <span style="color:#ae81ff">2</span>  etcd
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">8118</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">0</span>  java
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">8458</span>    0.20    0.00    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  java
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9290</span>    0.20    0.00    0.00    0.20    0.20     <span style="color:#ae81ff">3</span>  watch
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9684</span>   64.94    0.00    0.00   34.66   64.94     <span style="color:#ae81ff">2</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9685</span>   40.24    0.00    0.00   59.56   40.24     <span style="color:#ae81ff">1</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9686</span>   44.02    0.00    0.00   55.58   44.02     <span style="color:#ae81ff">2</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9687</span>   46.81    0.00    0.00   52.79   46.81     <span style="color:#ae81ff">0</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9688</span>   41.43    0.00    0.00   58.37   41.43     <span style="color:#ae81ff">1</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9689</span>   49.00    0.00    0.00   50.20   49.00     <span style="color:#ae81ff">0</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9690</span>   55.58    0.00    0.00   44.42   55.58     <span style="color:#ae81ff">3</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">9691</span>   52.59    0.00    0.00   47.41   52.59     <span style="color:#ae81ff">2</span>  stress
+09:47:49 AM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">26155</span>    0.00    0.20    0.00    0.00    0.20     <span style="color:#ae81ff">0</span>  docker-containe
+09:47:49 AM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">26236</span>    0.20    0.20    0.00    0.00    0.40     <span style="color:#ae81ff">2</span>  barad_agent
+09:47:49 AM   <span style="color:#ae81ff">999</span>     <span style="color:#ae81ff">28742</span>    0.20    0.00    0.00    0.00    0.20     <span style="color:#ae81ff">1</span>  mysqld
 
-<span class="c1"># 可以看出，8 个进程在争抢 4 个 CPU，每个进程等待 CPU 的时间（也就是代码块中的 %wait 列）高达 50%。这些超出 CPU 计算能力的进程，最终导致 CPU 过载。</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>平均负载高有可能是 CPU 密集型进程导致的；
+<span style="color:#75715e"># 可以看出，8 个进程在争抢 4 个 CPU，每个进程等待 CPU 的时间（也就是代码块中的 %wait 列）高达 50%。这些超出 CPU 计算能力的进程，最终导致 CPU 过载。</span>
+</code></pre></div><pre><code>平均负载高有可能是 CPU 密集型进程导致的；
 平均负载高并不一定代表 CPU 使用率高，还有可能是 I/O 更繁忙了；
 当发现负载高的时候，可以使用 mpstat、pidstat 等工具，辅助分析负载的来源
 </code></pre>
@@ -764,27 +521,14 @@ Linux 是一个多任务操作系统，它支持远大于 CPU 数量的任务同
 <p>中断是为了快速响应硬件的事件，中断的优先级比进程高，对被打断对进程来说，需要将当前状态保存下来，以便之后进程恢复运行。
 和进程上下文不同，中断上下文切换并不涉及到进程的用户态。所以，即便中断过程打断了一个正处在用户态的进程，也不需要保存和恢复这个进程的虚拟内存、全局变量等用户态资源。中断上下文，其实只包括内核态中断服务程序执行所必需的状态，包括CPU寄存器、内核堆栈、硬件中断参数等。</p>
 <h2 id="查看系统上下文切换">查看系统上下文切换</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 每隔5秒输出1组数据</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># vmstat 5</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 每隔5秒输出1组数据</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># vmstat 5</span>
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
- <span class="m">0</span>  <span class="m">1</span>      <span class="m">0</span> <span class="m">16538480</span> <span class="m">238900</span> <span class="m">12508012</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">5</span>   <span class="m">166</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">6</span>  <span class="m">6</span> <span class="m">88</span>  <span class="m">0</span>  <span class="m">0</span>
- <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16540000</span> <span class="m">238900</span> <span class="m">12508004</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">258</span> <span class="m">11200</span> <span class="m">18214</span>  <span class="m">6</span>  <span class="m">2</span> <span class="m">92</span>  <span class="m">0</span>  <span class="m">0</span>
- <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16542944</span> <span class="m">238900</span> <span class="m">12508124</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">273</span> <span class="m">11778</span> <span class="m">19454</span>  <span class="m">7</span>  <span class="m">2</span> <span class="m">92</span>  <span class="m">0</span>  <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+ <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16538480</span> <span style="color:#ae81ff">238900</span> <span style="color:#ae81ff">12508012</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">166</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">88</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+ <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16540000</span> <span style="color:#ae81ff">238900</span> <span style="color:#ae81ff">12508004</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">258</span> <span style="color:#ae81ff">11200</span> <span style="color:#ae81ff">18214</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">92</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+ <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16542944</span> <span style="color:#ae81ff">238900</span> <span style="color:#ae81ff">12508124</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">273</span> <span style="color:#ae81ff">11778</span> <span style="color:#ae81ff">19454</span>  <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">92</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+</code></pre></div><ul>
 <li>cs（context switch）是每秒上下文切换的次数</li>
 <li>in（interrupt）则是每秒中断的次数</li>
 <li>r（Running or Runnable）是就绪队列的长度，也就是正在运行和等待 CPU 的进程数</li>
@@ -825,400 +569,188 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 <li>wa: 等待IO时间</li>
 </ul>
 <h3 id="查看每个进程上下文切换的情况">查看每个进程上下文切换的情况</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 每隔5秒输出1组数据</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># pidstat -w 5</span>
-Linux 4.14.105-19-0012 <span class="o">(</span>test-tke-node-k21<span class="o">)</span> 	11/30/2020 	_x86_64_	<span class="o">(</span><span class="m">16</span> CPU<span class="o">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 每隔5秒输出1组数据</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># pidstat -w 5</span>
+Linux 4.14.105-19-0012 <span style="color:#f92672">(</span>test-tke-node-k21<span style="color:#f92672">)</span> 	11/30/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">16</span> CPU<span style="color:#f92672">)</span>
 
 08:26:23 PM   UID       PID   cswch/s nvcswch/s  Command
-08:26:28 PM     <span class="m">0</span>         <span class="m">1</span>      1.39      0.00  systemd
-08:26:28 PM     <span class="m">0</span>       <span class="m">408</span>      2.39      0.00  jbd2/vda1-8
-08:26:28 PM     <span class="m">0</span>       <span class="m">821</span>      1.00      0.00  auditd
-08:26:28 PM    <span class="m">81</span>       <span class="m">851</span>      2.19      0.00  dbus-daemon
-08:26:28 PM     <span class="m">0</span>       <span class="m">854</span>     81.67      0.00  systemd-logind
-08:26:28 PM     <span class="m">0</span>      <span class="m">2603</span>     17.73      0.00  xfsaild/vdb
-08:26:28 PM     <span class="m">0</span>      <span class="m">5856</span>      0.40      0.00  ip-masq-agent
-08:26:28 PM     <span class="m">0</span>    <span class="m">176333</span>      0.20      0.00  docker-containe
-08:26:28 PM    <span class="m">99</span>    <span class="m">247899</span>      1.39      0.00  dnsmasq
-08:26:28 PM  <span class="m">1000</span>    <span class="m">818340</span>      1.79      0.00  php-fpm
-08:26:28 PM  <span class="m">1000</span>    <span class="m">818678</span>      0.20      0.00  php-fpm
-08:26:28 PM     <span class="m">0</span>    <span class="m">879677</span>      1.99      0.00  wukong-go
-08:26:28 PM     <span class="m">0</span>    <span class="m">879734</span>      0.40      0.00  wukong-go
-08:26:28 PM     <span class="m">0</span>   <span class="m">1133084</span>      0.20      0.00  docker-containe
-08:26:28 PM     <span class="m">0</span>   <span class="m">1322604</span>     79.68      4.58  kube-proxy
-08:26:28 PM     <span class="m">0</span>   <span class="m">1396221</span>      0.20      0.00  log-collector
-08:26:28 PM     <span class="m">0</span>   <span class="m">1396237</span>      1.99      0.00  fluentd
-08:26:28 PM     <span class="m">0</span>   <span class="m">1396247</span>      3.19      0.00  ruby
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+08:26:28 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">1</span>      1.39      0.00  systemd
+08:26:28 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">408</span>      2.39      0.00  jbd2/vda1-8
+08:26:28 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">821</span>      1.00      0.00  auditd
+08:26:28 PM    <span style="color:#ae81ff">81</span>       <span style="color:#ae81ff">851</span>      2.19      0.00  dbus-daemon
+08:26:28 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">854</span>     81.67      0.00  systemd-logind
+08:26:28 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">2603</span>     17.73      0.00  xfsaild/vdb
+08:26:28 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">5856</span>      0.40      0.00  ip-masq-agent
+08:26:28 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">176333</span>      0.20      0.00  docker-containe
+08:26:28 PM    <span style="color:#ae81ff">99</span>    <span style="color:#ae81ff">247899</span>      1.39      0.00  dnsmasq
+08:26:28 PM  <span style="color:#ae81ff">1000</span>    <span style="color:#ae81ff">818340</span>      1.79      0.00  php-fpm
+08:26:28 PM  <span style="color:#ae81ff">1000</span>    <span style="color:#ae81ff">818678</span>      0.20      0.00  php-fpm
+08:26:28 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">879677</span>      1.99      0.00  wukong-go
+08:26:28 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">879734</span>      0.40      0.00  wukong-go
+08:26:28 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1133084</span>      0.20      0.00  docker-containe
+08:26:28 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1322604</span>     79.68      4.58  kube-proxy
+08:26:28 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1396221</span>      0.20      0.00  log-collector
+08:26:28 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1396237</span>      1.99      0.00  fluentd
+08:26:28 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1396247</span>      3.19      0.00  ruby
+</code></pre></div><ul>
 <li>cswch表示每秒自愿上下文切换（voluntary context switches）的次数(自愿上下文切换，指进程无法获取所需资源，导致的上下文切换。比如说， I/O、内存等系统资源不足时，就会发生自愿上下文切换。（当某一任务处于阻塞等待时等等）)</li>
 <li>nvcswch表示每秒非自愿上下文切换（non voluntary context switches）的次数（非自愿上下文切换，则是指进程由于时间片已到等原因，被系统强制调度，进而发生的上下文切换。比如说，大量进程都在争抢 CPU 时，就容易发生非自愿上下文切换）</li>
 </ul>
 <h3 id="例子">例子</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 间隔1秒后输出1组数据</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># vmstat 1 1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 间隔1秒后输出1组数据</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># vmstat 1 1</span>
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
- <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16466196</span> <span class="m">238908</span> <span class="m">12583356</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">5</span>   <span class="m">166</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">6</span>  <span class="m">6</span> <span class="m">88</span>  <span class="m">0</span>  <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 以10个线程运行5分钟的基准测试，模拟多线程切换的问题</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># sysbench --threads=10 --max-time=300 threads run</span>
+ <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16466196</span> <span style="color:#ae81ff">238908</span> <span style="color:#ae81ff">12583356</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">166</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">88</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 以10个线程运行5分钟的基准测试，模拟多线程切换的问题</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># sysbench --threads=10 --max-time=300 threads run</span>
 WARNING: --max-time is deprecated, use --time instead
-sysbench 1.0.17 <span class="o">(</span>using system LuaJIT 2.0.4<span class="o">)</span>
+sysbench 1.0.17 <span style="color:#f92672">(</span>using system LuaJIT 2.0.4<span style="color:#f92672">)</span>
 
-Running the <span class="nb">test</span> with following options:
-Number of threads: <span class="m">10</span>
-Initializing random number generator from current <span class="nb">time</span>
+Running the test with following options:
+Number of threads: <span style="color:#ae81ff">10</span>
+Initializing random number generator from current time
 
 
 Initializing worker threads...
 
 Threads started!
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># vmstat 1</span>
-<span class="c1"># 每隔1秒输出1组数据</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># vmstat 1</span>
+<span style="color:#75715e"># 每隔1秒输出1组数据</span>
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
-<span class="m">14</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16321480</span> <span class="m">239636</span> <span class="m">12712368</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">5</span>   <span class="m">166</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">6</span>  <span class="m">6</span> <span class="m">88</span>  <span class="m">0</span>  <span class="m">0</span>
- <span class="m">9</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16322324</span> <span class="m">239636</span> <span class="m">12712316</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">180878</span> <span class="m">783183</span> <span class="m">16</span> <span class="m">36</span> <span class="m">48</span>  <span class="m">0</span>  <span class="m">0</span>
-<span class="m">10</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16322848</span> <span class="m">239636</span> <span class="m">12712316</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">524</span> <span class="m">95575</span> <span class="m">820357</span> <span class="m">16</span> <span class="m">35</span> <span class="m">49</span>  <span class="m">0</span>  <span class="m">0</span>
-<span class="m">10</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16322512</span> <span class="m">239636</span> <span class="m">12712500</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">488</span> <span class="m">101780</span> <span class="m">821691</span> <span class="m">14</span> <span class="m">37</span> <span class="m">49</span>  <span class="m">0</span>  <span class="m">0</span>
-<span class="m">12</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16322304</span> <span class="m">239636</span> <span class="m">12712332</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">116</span> <span class="m">118060</span> <span class="m">804412</span> <span class="m">20</span> <span class="m">36</span> <span class="m">44</span>  <span class="m">0</span>  <span class="m">0</span>
- <span class="m">9</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16322612</span> <span class="m">239636</span> <span class="m">12712408</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">159525</span> <span class="m">754018</span> <span class="m">22</span> <span class="m">36</span> <span class="m">42</span>  <span class="m">0</span>  <span class="m">0</span>
-<span class="m">11</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16307728</span> <span class="m">239636</span> <span class="m">12712464</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>   <span class="m">524</span> <span class="m">88452</span> <span class="m">829684</span> <span class="m">15</span> <span class="m">36</span> <span class="m">49</span>  <span class="m">0</span>  <span class="m">0</span>
- <span class="m">8</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">16324056</span> <span class="m">239636</span> <span class="m">12712364</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">96059</span> <span class="m">826541</span> <span class="m">15</span> <span class="m">36</span> <span class="m">49</span>  <span class="m">0</span>  <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">
-<span class="c1"># 每隔1秒输出1组数据（需要 Ctrl+C 才结束）</span>
-<span class="c1"># -w参数表示输出进程切换指标，而-u参数则表示输出CPU使用指标</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># pidstat -w -u 1</span>
-Linux 4.14.105-19-0012 <span class="o">(</span>test-tke-node-k21<span class="o">)</span> 	11/30/2020 	_x86_64_	<span class="o">(</span><span class="m">16</span> CPU<span class="o">)</span>
+<span style="color:#ae81ff">14</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16321480</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712368</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">166</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">88</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+ <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16322324</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712316</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">180878</span> <span style="color:#ae81ff">783183</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">48</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">10</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16322848</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712316</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">524</span> <span style="color:#ae81ff">95575</span> <span style="color:#ae81ff">820357</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">35</span> <span style="color:#ae81ff">49</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">10</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16322512</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712500</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">488</span> <span style="color:#ae81ff">101780</span> <span style="color:#ae81ff">821691</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">37</span> <span style="color:#ae81ff">49</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">12</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16322304</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712332</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">116</span> <span style="color:#ae81ff">118060</span> <span style="color:#ae81ff">804412</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">44</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+ <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16322612</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712408</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">159525</span> <span style="color:#ae81ff">754018</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">42</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">11</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16307728</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712464</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">524</span> <span style="color:#ae81ff">88452</span> <span style="color:#ae81ff">829684</span> <span style="color:#ae81ff">15</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">49</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+ <span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">16324056</span> <span style="color:#ae81ff">239636</span> <span style="color:#ae81ff">12712364</span>    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">96059</span> <span style="color:#ae81ff">826541</span> <span style="color:#ae81ff">15</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">49</span>  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+<span style="color:#75715e"># 每隔1秒输出1组数据（需要 Ctrl+C 才结束）</span>
+<span style="color:#75715e"># -w参数表示输出进程切换指标，而-u参数则表示输出CPU使用指标</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># pidstat -w -u 1</span>
+Linux 4.14.105-19-0012 <span style="color:#f92672">(</span>test-tke-node-k21<span style="color:#f92672">)</span> 	11/30/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">16</span> CPU<span style="color:#f92672">)</span>
 
 09:04:51 PM   UID       PID    %usr %system  %guest    %CPU   CPU  Command
-09:04:52 PM     <span class="m">0</span>         <span class="m">1</span>    0.00    0.98    0.00    0.98    <span class="m">15</span>  systemd
-09:04:52 PM     <span class="m">0</span>       <span class="m">854</span>    0.98    0.00    0.00    0.98     <span class="m">6</span>  systemd-logind
-09:04:52 PM     <span class="m">0</span>      <span class="m">3475</span>    1.96    0.00    0.00    1.96     <span class="m">8</span>  dockerd
-09:04:52 PM     <span class="m">0</span>      <span class="m">3488</span>    0.00    0.98    0.00    0.98    <span class="m">14</span>  docker-containe
-09:04:52 PM     <span class="m">0</span>      <span class="m">3581</span>    2.94    0.00    0.00    2.94     <span class="m">6</span>  kubelet
-09:04:52 PM     <span class="m">0</span>    <span class="m">153780</span>  100.00  100.00    0.00  100.00    <span class="m">11</span>  sysbench
-09:04:52 PM     <span class="m">0</span>    <span class="m">154330</span>    0.00    1.96    0.00    1.96     <span class="m">7</span>  pidstat
-09:04:52 PM     <span class="m">0</span>   <span class="m">1741126</span>    0.00    0.98    0.00    0.98     <span class="m">9</span>  wukong-go
-09:04:52 PM     <span class="m">0</span>   <span class="m">1847481</span>    0.98    0.00    0.00    0.98     <span class="m">7</span>  wukong-go
-09:04:52 PM     <span class="m">0</span>   <span class="m">1968378</span>    0.98    0.00    0.00    0.98     <span class="m">8</span>  wukong-go
-09:04:52 PM     <span class="m">0</span>   <span class="m">2035882</span>    0.98    0.00    0.00    0.98     <span class="m">7</span>  YDEdr
-09:04:52 PM     <span class="m">0</span>   <span class="m">2245987</span>    0.00    0.98    0.00    0.98    <span class="m">10</span>  wukong-go
-09:04:52 PM     <span class="m">0</span>   <span class="m">2491812</span>    0.98    0.00    0.00    0.98     <span class="m">7</span>  barad_agent
-09:04:52 PM     <span class="m">0</span>   <span class="m">2726307</span>    0.98    0.00    0.00    0.98     <span class="m">1</span>  wukong-go
-09:04:52 PM     <span class="m">0</span>   <span class="m">2726406</span>    0.00    0.98    0.00    0.98     <span class="m">9</span>  docker-containe
-09:04:52 PM     <span class="m">0</span>   <span class="m">3205475</span>    5.88    0.00    0.00    5.88     <span class="m">9</span>  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">1</span>    0.00    0.98    0.00    0.98    <span style="color:#ae81ff">15</span>  systemd
+09:04:52 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">854</span>    0.98    0.00    0.00    0.98     <span style="color:#ae81ff">6</span>  systemd-logind
+09:04:52 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">3475</span>    1.96    0.00    0.00    1.96     <span style="color:#ae81ff">8</span>  dockerd
+09:04:52 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">3488</span>    0.00    0.98    0.00    0.98    <span style="color:#ae81ff">14</span>  docker-containe
+09:04:52 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">3581</span>    2.94    0.00    0.00    2.94     <span style="color:#ae81ff">6</span>  kubelet
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">153780</span>  100.00  100.00    0.00  100.00    <span style="color:#ae81ff">11</span>  sysbench
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">154330</span>    0.00    1.96    0.00    1.96     <span style="color:#ae81ff">7</span>  pidstat
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1741126</span>    0.00    0.98    0.00    0.98     <span style="color:#ae81ff">9</span>  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1847481</span>    0.98    0.00    0.00    0.98     <span style="color:#ae81ff">7</span>  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1968378</span>    0.98    0.00    0.00    0.98     <span style="color:#ae81ff">8</span>  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2035882</span>    0.98    0.00    0.00    0.98     <span style="color:#ae81ff">7</span>  YDEdr
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2245987</span>    0.00    0.98    0.00    0.98    <span style="color:#ae81ff">10</span>  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2491812</span>    0.98    0.00    0.00    0.98     <span style="color:#ae81ff">7</span>  barad_agent
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2726307</span>    0.98    0.00    0.00    0.98     <span style="color:#ae81ff">1</span>  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2726406</span>    0.00    0.98    0.00    0.98     <span style="color:#ae81ff">9</span>  docker-containe
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">3205475</span>    5.88    0.00    0.00    5.88     <span style="color:#ae81ff">9</span>  wukong-go
 
 09:04:51 PM   UID       PID   cswch/s nvcswch/s  Command
-09:04:52 PM     <span class="m">0</span>         <span class="m">1</span>      1.96      0.00  systemd
-09:04:52 PM     <span class="m">0</span>         <span class="m">7</span>      6.86      0.00  ksoftirqd/0
-09:04:52 PM     <span class="m">0</span>         <span class="m">8</span>    128.43      0.00  rcu_sched
-09:04:52 PM     <span class="m">0</span>        <span class="m">10</span>      0.98      0.00  migration/0
-09:04:52 PM     <span class="m">0</span>        <span class="m">11</span>      0.98      0.00  watchdog/0
-09:04:52 PM     <span class="m">0</span>        <span class="m">14</span>      0.98      0.00  watchdog/1
-09:04:52 PM     <span class="m">0</span>        <span class="m">16</span>      2.94      0.00  ksoftirqd/1
-09:04:52 PM     <span class="m">0</span>        <span class="m">20</span>      0.98      0.00  watchdog/2
-09:04:52 PM     <span class="m">0</span>        <span class="m">22</span>      0.98      0.00  ksoftirqd/2
-09:04:52 PM     <span class="m">0</span>        <span class="m">26</span>      0.98      0.00  watchdog/3
-09:04:52 PM     <span class="m">0</span>        <span class="m">28</span>      0.98      0.00  ksoftirqd/3
-09:04:52 PM     <span class="m">0</span>        <span class="m">32</span>      0.98      0.00  watchdog/4
-09:04:52 PM     <span class="m">0</span>        <span class="m">33</span>      0.98      0.00  migration/4
-09:04:52 PM     <span class="m">0</span>        <span class="m">38</span>      0.98      0.00  watchdog/5
-09:04:52 PM     <span class="m">0</span>        <span class="m">44</span>      0.98      0.00  watchdog/6
-09:04:52 PM     <span class="m">0</span>        <span class="m">46</span>      0.98      0.00  ksoftirqd/6
-09:04:52 PM     <span class="m">0</span>        <span class="m">50</span>      0.98      0.00  watchdog/7
-09:04:52 PM     <span class="m">0</span>        <span class="m">56</span>      0.98      0.00  watchdog/8
-09:04:52 PM     <span class="m">0</span>        <span class="m">58</span>      0.98      0.00  ksoftirqd/8
-09:04:52 PM     <span class="m">0</span>        <span class="m">64</span>      0.98      0.00  ksoftirqd/9
-09:04:52 PM     <span class="m">0</span>        <span class="m">70</span>      0.98      0.00  ksoftirqd/10
-09:04:52 PM     <span class="m">0</span>        <span class="m">76</span>      1.96      0.00  ksoftirqd/11
-09:04:52 PM     <span class="m">0</span>        <span class="m">88</span>     11.76      0.00  ksoftirqd/13
-09:04:52 PM     <span class="m">0</span>        <span class="m">94</span>     14.71      0.00  ksoftirqd/14
-09:04:52 PM     <span class="m">0</span>       <span class="m">100</span>      4.90      0.00  ksoftirqd/15
-09:04:52 PM   <span class="m">998</span>       <span class="m">846</span>      0.98      0.00  lsmd
-09:04:52 PM    <span class="m">81</span>       <span class="m">851</span>      1.96      0.00  dbus-daemon
-09:04:52 PM     <span class="m">0</span>       <span class="m">854</span>     82.35      0.00  systemd-logind
-09:04:52 PM     <span class="m">0</span>      <span class="m">2603</span>     17.65      0.00  xfsaild/vdb
-09:04:52 PM     <span class="m">0</span>      <span class="m">5856</span>      0.98      0.00  ip-masq-agent
-09:04:52 PM     <span class="m">0</span>     <span class="m">40848</span>      1.96      0.00  kworker/9:0
-09:04:52 PM     <span class="m">0</span>     <span class="m">54827</span>      3.92      0.00  kworker/8:3
-09:04:52 PM     <span class="m">0</span>     <span class="m">63763</span>      1.96      0.00  kworker/13:1
-09:04:52 PM     <span class="m">0</span>     <span class="m">77632</span>      1.96      0.00  kworker/2:0
-09:04:52 PM     <span class="m">0</span>     <span class="m">90968</span>      4.90      0.00  kworker/11:2
-09:04:52 PM     <span class="m">0</span>     <span class="m">95640</span>      1.96      0.00  kworker/4:1
-09:04:52 PM     <span class="m">0</span>    <span class="m">109150</span>      0.98      0.00  kworker/6:1
-09:04:52 PM     <span class="m">0</span>    <span class="m">109261</span>      2.94      0.00  kworker/12:1
-09:04:52 PM     <span class="m">0</span>    <span class="m">113800</span>      3.92      0.00  kworker/5:3
-09:04:52 PM     <span class="m">0</span>    <span class="m">116666</span>      2.94      0.00  kworker/1:0
-09:04:52 PM     <span class="m">0</span>    <span class="m">125144</span>      9.80      0.00  kworker/3:1
-09:04:52 PM     <span class="m">0</span>    <span class="m">127807</span>      4.90      0.00  kworker/7:0
-09:04:52 PM     <span class="m">0</span>    <span class="m">132114</span>      8.82      0.00  kworker/0:1
-09:04:52 PM     <span class="m">0</span>    <span class="m">141303</span>      6.86      0.00  kworker/15:0
-09:04:52 PM    <span class="m">89</span>    <span class="m">146085</span>      0.98      0.00  trivial-rewrite
-09:04:52 PM     <span class="m">0</span>    <span class="m">146091</span>      1.96      0.00  kworker/14:0
-09:04:52 PM     <span class="m">0</span>    <span class="m">149169</span>      8.82      0.00  kworker/10:1
-09:04:52 PM     <span class="m">0</span>    <span class="m">154330</span>      0.98      0.00  pidstat
-09:04:52 PM    <span class="m">99</span>    <span class="m">247899</span>      1.96      0.00  dnsmasq
-09:04:52 PM  <span class="m">1000</span>    <span class="m">818340</span>      0.98      0.00  php-fpm
-09:04:52 PM     <span class="m">0</span>   <span class="m">1396237</span>      1.96      0.00  fluentd
-09:04:52 PM     <span class="m">0</span>   <span class="m">1396247</span>      2.94      0.00  ruby
-09:04:52 PM     <span class="m">0</span>   <span class="m">2035882</span>      0.98      0.00  YDEdr
-09:04:52 PM     <span class="m">0</span>   <span class="m">2491811</span>      2.94      0.00  barad_agent
-09:04:52 PM     <span class="m">0</span>   <span class="m">2522357</span>      4.90      0.00  wukong-go
-09:04:52 PM     <span class="m">0</span>   <span class="m">2726406</span>      0.98      0.00  docker-containe
+09:04:52 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">1</span>      1.96      0.00  systemd
+09:04:52 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">7</span>      6.86      0.00  ksoftirqd/0
+09:04:52 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">8</span>    128.43      0.00  rcu_sched
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">10</span>      0.98      0.00  migration/0
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">11</span>      0.98      0.00  watchdog/0
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">14</span>      0.98      0.00  watchdog/1
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">16</span>      2.94      0.00  ksoftirqd/1
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">20</span>      0.98      0.00  watchdog/2
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">22</span>      0.98      0.00  ksoftirqd/2
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">26</span>      0.98      0.00  watchdog/3
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">28</span>      0.98      0.00  ksoftirqd/3
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">32</span>      0.98      0.00  watchdog/4
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">33</span>      0.98      0.00  migration/4
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">38</span>      0.98      0.00  watchdog/5
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">44</span>      0.98      0.00  watchdog/6
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">46</span>      0.98      0.00  ksoftirqd/6
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">50</span>      0.98      0.00  watchdog/7
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">56</span>      0.98      0.00  watchdog/8
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">58</span>      0.98      0.00  ksoftirqd/8
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">64</span>      0.98      0.00  ksoftirqd/9
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">70</span>      0.98      0.00  ksoftirqd/10
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">76</span>      1.96      0.00  ksoftirqd/11
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">88</span>     11.76      0.00  ksoftirqd/13
+09:04:52 PM     <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">94</span>     14.71      0.00  ksoftirqd/14
+09:04:52 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">100</span>      4.90      0.00  ksoftirqd/15
+09:04:52 PM   <span style="color:#ae81ff">998</span>       <span style="color:#ae81ff">846</span>      0.98      0.00  lsmd
+09:04:52 PM    <span style="color:#ae81ff">81</span>       <span style="color:#ae81ff">851</span>      1.96      0.00  dbus-daemon
+09:04:52 PM     <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">854</span>     82.35      0.00  systemd-logind
+09:04:52 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">2603</span>     17.65      0.00  xfsaild/vdb
+09:04:52 PM     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">5856</span>      0.98      0.00  ip-masq-agent
+09:04:52 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">40848</span>      1.96      0.00  kworker/9:0
+09:04:52 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">54827</span>      3.92      0.00  kworker/8:3
+09:04:52 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">63763</span>      1.96      0.00  kworker/13:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">77632</span>      1.96      0.00  kworker/2:0
+09:04:52 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">90968</span>      4.90      0.00  kworker/11:2
+09:04:52 PM     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">95640</span>      1.96      0.00  kworker/4:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">109150</span>      0.98      0.00  kworker/6:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">109261</span>      2.94      0.00  kworker/12:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">113800</span>      3.92      0.00  kworker/5:3
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">116666</span>      2.94      0.00  kworker/1:0
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">125144</span>      9.80      0.00  kworker/3:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">127807</span>      4.90      0.00  kworker/7:0
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">132114</span>      8.82      0.00  kworker/0:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">141303</span>      6.86      0.00  kworker/15:0
+09:04:52 PM    <span style="color:#ae81ff">89</span>    <span style="color:#ae81ff">146085</span>      0.98      0.00  trivial-rewrite
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">146091</span>      1.96      0.00  kworker/14:0
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">149169</span>      8.82      0.00  kworker/10:1
+09:04:52 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">154330</span>      0.98      0.00  pidstat
+09:04:52 PM    <span style="color:#ae81ff">99</span>    <span style="color:#ae81ff">247899</span>      1.96      0.00  dnsmasq
+09:04:52 PM  <span style="color:#ae81ff">1000</span>    <span style="color:#ae81ff">818340</span>      0.98      0.00  php-fpm
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1396237</span>      1.96      0.00  fluentd
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1396247</span>      2.94      0.00  ruby
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2035882</span>      0.98      0.00  YDEdr
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2491811</span>      2.94      0.00  barad_agent
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2522357</span>      4.90      0.00  wukong-go
+09:04:52 PM     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">2726406</span>      0.98      0.00  docker-containe
 
-<span class="c1"># -wt 参数表示输出线程的上下文切换指标</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># pidstat -wt -u 1 | grep sysbench</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># pidstat -wt -u 1</span>
-Linux 4.14.105-19-0012 <span class="o">(</span>test-tke-node-k21<span class="o">)</span> 	11/30/2020 	_x86_64_	<span class="o">(</span><span class="m">16</span> CPU<span class="o">)</span>
+<span style="color:#75715e"># -wt 参数表示输出线程的上下文切换指标</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># pidstat -wt -u 1 | grep sysbench</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># pidstat -wt -u 1</span>
+Linux 4.14.105-19-0012 <span style="color:#f92672">(</span>test-tke-node-k21<span style="color:#f92672">)</span> 	11/30/2020 	_x86_64_	<span style="color:#f92672">(</span><span style="color:#ae81ff">16</span> CPU<span style="color:#f92672">)</span>
 
 10:31:49 PM   UID      TGID       TID    %usr %system  %guest    %CPU   CPU  Command
-10:31:50 PM     <span class="m">0</span>         <span class="m">1</span>         -    0.90    0.00    0.00    0.90     <span class="m">1</span>  systemd
-10:31:50 PM     <span class="m">0</span>    <span class="m">548753</span>         -  100.00  100.00    0.00  100.00    <span class="m">11</span>  sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548754</span>   27.03   64.86    0.00   91.89    <span class="m">10</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548755</span>   27.93   63.96    0.00   91.89     <span class="m">5</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548756</span>   32.43   60.36    0.00   92.79     <span class="m">2</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548757</span>   23.42   68.47    0.00   91.89    <span class="m">11</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548758</span>   25.23   67.57    0.00   92.79     <span class="m">6</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548759</span>   24.32   67.57    0.00   91.89     <span class="m">7</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548760</span>   24.32   67.57    0.00   91.89    <span class="m">13</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548761</span>   27.03   65.77    0.00   92.79     <span class="m">4</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548762</span>   23.42   68.47    0.00   91.89    <span class="m">12</span>  <span class="p">|</span>__sysbench
-10:31:50 PM     <span class="m">0</span>         -    <span class="m">548763</span>   25.23   65.77    0.00   90.99     <span class="m">3</span>  <span class="p">|</span>__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">1</span>         -    0.90    0.00    0.00    0.90     <span style="color:#ae81ff">1</span>  systemd
+10:31:50 PM     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">548753</span>         -  100.00  100.00    0.00  100.00    <span style="color:#ae81ff">11</span>  sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548754</span>   27.03   64.86    0.00   91.89    <span style="color:#ae81ff">10</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548755</span>   27.93   63.96    0.00   91.89     <span style="color:#ae81ff">5</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548756</span>   32.43   60.36    0.00   92.79     <span style="color:#ae81ff">2</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548757</span>   23.42   68.47    0.00   91.89    <span style="color:#ae81ff">11</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548758</span>   25.23   67.57    0.00   92.79     <span style="color:#ae81ff">6</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548759</span>   24.32   67.57    0.00   91.89     <span style="color:#ae81ff">7</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548760</span>   24.32   67.57    0.00   91.89    <span style="color:#ae81ff">13</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548761</span>   27.03   65.77    0.00   92.79     <span style="color:#ae81ff">4</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548762</span>   23.42   68.47    0.00   91.89    <span style="color:#ae81ff">12</span>  |__sysbench
+10:31:50 PM     <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548763</span>   25.23   65.77    0.00   90.99     <span style="color:#ae81ff">3</span>  |__sysbench
 
 Average:      UID      TGID       TID   cswch/s nvcswch/s  Command
-Average:        <span class="m">0</span>         -    <span class="m">548754</span>  37902.70     15.32  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548755</span>  39209.01     27.93  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548756</span>  38840.54     26.13  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548757</span>  41057.66      8.11  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548758</span>  38201.80     15.32  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548759</span>  41139.64      6.31  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548760</span>  37354.05     69.37  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548761</span>  39441.44     17.12  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548762</span>  38177.48     28.83  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>         -    <span class="m">548763</span>  41107.21     40.54  <span class="p">|</span>__sysbench
-Average:        <span class="m">0</span>    <span class="m">549036</span>         -      0.90      1.80  pidstat
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548754</span>  37902.70     15.32  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548755</span>  39209.01     27.93  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548756</span>  38840.54     26.13  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548757</span>  41057.66      8.11  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548758</span>  38201.80     15.32  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548759</span>  41139.64      6.31  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548760</span>  37354.05     69.37  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548761</span>  39441.44     17.12  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548762</span>  38177.48     28.83  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>         -    <span style="color:#ae81ff">548763</span>  41107.21     40.54  |__sysbench
+Average:        <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">549036</span>         -      0.90      1.80  pidstat
 
-<span class="c1"># ....</span>
+<span style="color:#75715e"># ....</span>
 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 观察中断的变化情况</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># watch -d cat /proc/interrupts</span>
-<span class="c1"># cat /proc/interrupts</span>
-<span class="c1"># 从左至右：中断号   中断次数  中断设备名称</span>
-<span class="c1"># 如下图</span>
-<span class="c1"># ...</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 观察中断的变化情况</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># watch -d cat /proc/interrupts</span>
+<span style="color:#75715e"># cat /proc/interrupts</span>
+<span style="color:#75715e"># 从左至右：中断号   中断次数  中断设备名称</span>
+<span style="color:#75715e"># 如下图</span>
+<span style="color:#75715e"># ...</span>
 
-</code></pre></td></tr></table>
-</div>
-</div><p><img src="/images/cpu/interrupts.jpg" alt="中断观察"></p>
+</code></pre></div><p><img src="/images/cpu/interrupts.jpg" alt="中断观察"></p>
 <p>重调度中断（RES），这个中断类型表示，唤醒空闲状态的 CPU 来调度新的任务运行。这是多处理器系统（SMP）中，调度器用来分散任务到不同 CPU 的机制，通常也被称为处理器间中断（Inter-Processor Interrupts，IPI）。</p>
 <ul>
 <li>自愿上下文切换变多了，说明进程都在等待资源，有可能发生了 I/O 等其他问题</li>
@@ -1226,196 +758,69 @@ Average:        <span class="m">0</span>    <span class="m">549036</span>       
 <li>中断次数变多了，说明 CPU 被中断处理程序占用，还需要通过查看 /proc/interrupts 文件来分析具体的中断类型。</li>
 </ul>
 <h1 id="cpu-100之后该怎么办">CPU 100%之后该怎么办</h1>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 能够实时显示占用 CPU 时钟最多的函数或者指令，因此可以用来查找热点函数</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># perf top</span>
-<span class="c1">#  perf top -g 开启调用关系的采样，方便根据调用链来分析性能问题</span>
-Samples: 157K of event <span class="s1">&#39;cpu-clock&#39;</span>, Event count <span class="o">(</span>approx.<span class="o">)</span>: <span class="m">35995554317</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 能够实时显示占用 CPU 时钟最多的函数或者指令，因此可以用来查找热点函数</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># perf top</span>
+<span style="color:#75715e">#  perf top -g 开启调用关系的采样，方便根据调用链来分析性能问题</span>
+Samples: 157K of event <span style="color:#e6db74">&#39;cpu-clock&#39;</span>, Event count <span style="color:#f92672">(</span>approx.<span style="color:#f92672">)</span>: <span style="color:#ae81ff">35995554317</span>
 Overhead  Shared Object           Symbol                                                                                                    ◆
-  18.11%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> _raw_spin_unlock_irqrestore                                                                           ▒
-  14.61%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> __sched_text_start                                                                                    ▒
-  12.29%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> do_syscall_64                                                                                         ▒
-   9.64%  libc-2.17.so            <span class="o">[</span>.<span class="o">]</span> __sched_yield                                                                                         ▒
-   7.43%  libpthread-2.17.so      <span class="o">[</span>.<span class="o">]</span> pthread_mutex_unlock                                                                                  ▒
-   7.34%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> finish_task_switch                                                                                    ▒
-   2.41%  libpthread-2.17.so      <span class="o">[</span>.<span class="o">]</span> pthread_mutex_lock                                                                                    ▒
-   1.64%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> tick_nohz_idle_enter                                                                                  ▒
-   1.41%  libpthread-2.17.so      <span class="o">[</span>.<span class="o">]</span> __lll_lock_wait                                                                                       ▒
-   1.32%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> __audit_syscall_exit                                                                                  ▒
-   1.21%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> __pv_queued_spin_lock_slowpath                                                                        ▒
-   0.96%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> tick_nohz_idle_exit                                                                                   ▒
-   0.91%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> __audit_syscall_entry                                                                                 ▒
-   0.90%  libpthread-2.17.so      <span class="o">[</span>.<span class="o">]</span> __lll_unlock_wake                                                                                     ▒
-   0.67%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> futex_wake                                                                                            ▒
-   0.65%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> syscall_trace_enter                                                                                   ▒
-   0.65%  kubelet                 <span class="o">[</span>.<span class="o">]</span> _start                                                                                                ▒
-   0.65%  <span class="o">[</span>kernel<span class="o">]</span>                <span class="o">[</span>k<span class="o">]</span> do_idle                                                                                               ▒
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+  18.11%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> _raw_spin_unlock_irqrestore                                                                           ▒
+  14.61%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> __sched_text_start                                                                                    ▒
+  12.29%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> do_syscall_64                                                                                         ▒
+   9.64%  libc-2.17.so            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> __sched_yield                                                                                         ▒
+   7.43%  libpthread-2.17.so      <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> pthread_mutex_unlock                                                                                  ▒
+   7.34%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> finish_task_switch                                                                                    ▒
+   2.41%  libpthread-2.17.so      <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> pthread_mutex_lock                                                                                    ▒
+   1.64%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> tick_nohz_idle_enter                                                                                  ▒
+   1.41%  libpthread-2.17.so      <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> __lll_lock_wait                                                                                       ▒
+   1.32%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> __audit_syscall_exit                                                                                  ▒
+   1.21%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> __pv_queued_spin_lock_slowpath                                                                        ▒
+   0.96%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> tick_nohz_idle_exit                                                                                   ▒
+   0.91%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> __audit_syscall_entry                                                                                 ▒
+   0.90%  libpthread-2.17.so      <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> __lll_unlock_wake                                                                                     ▒
+   0.67%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> futex_wake                                                                                            ▒
+   0.65%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> syscall_trace_enter                                                                                   ▒
+   0.65%  kubelet                 <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> _start                                                                                                ▒
+   0.65%  <span style="color:#f92672">[</span>kernel<span style="color:#f92672">]</span>                <span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> do_idle                                                                                               ▒
+</code></pre></div><ul>
 <li>Overhead ，是该符号的性能事件在所有采样中的比例，用百分比来表示</li>
 <li>Shared ，是该函数或指令所在的动态共享对象（Dynamic Shared Object），如内核、进程名、动态链接库名、内核模块名等</li>
 <li>Object ，是动态共享对象的类型。比如 [.] 表示用户空间的可执行程序、或者动态链接库，而 [k] 则表示内核空间</li>
 <li>Symbol 是符号名，也就是函数名。当函数名未知时，用十六进制的地址来表示</li>
 </ul>
 <h3 id="案例分析">案例分析</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 运行测试服务</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># docker run --name nginx -p 10000:80 -itd feisky/nginx</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># docker run --name phpfpm -itd --network container:nginx feisky/php-fpm</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 运行测试服务</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># docker run --name nginx -p 10000:80 -itd feisky/nginx</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># docker run --name phpfpm -itd --network container:nginx feisky/php-fpm</span>
 
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># top</span>
-top - 11:07:07 up <span class="m">127</span> days, 20:52,  <span class="m">2</span> users,  load average: 1.92, 1.42, 1.55
-Tasks: <span class="m">450</span> total,   <span class="m">6</span> running, <span class="m">318</span> sleeping,   <span class="m">0</span> stopped,   <span class="m">0</span> zombie
-%Cpu<span class="o">(</span>s<span class="o">)</span>: 41.0 us,  3.6 sy,  0.0 ni, 53.8 id,  0.0 wa,  0.0 hi,  1.6 si,  0.0 st
-KiB Mem : <span class="m">32412656</span> total, <span class="m">15455832</span> free,  <span class="m">3158432</span> used, <span class="m">13798392</span> buff/cache
-KiB Swap:        <span class="m">0</span> total,        <span class="m">0</span> free,        <span class="m">0</span> used. <span class="m">29064108</span> avail Mem
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># top</span>
+top - 11:07:07 up <span style="color:#ae81ff">127</span> days, 20:52,  <span style="color:#ae81ff">2</span> users,  load average: 1.92, 1.42, 1.55
+Tasks: <span style="color:#ae81ff">450</span> total,   <span style="color:#ae81ff">6</span> running, <span style="color:#ae81ff">318</span> sleeping,   <span style="color:#ae81ff">0</span> stopped,   <span style="color:#ae81ff">0</span> zombie
+%Cpu<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: 41.0 us,  3.6 sy,  0.0 ni, 53.8 id,  0.0 wa,  0.0 hi,  1.6 si,  0.0 st
+KiB Mem : <span style="color:#ae81ff">32412656</span> total, <span style="color:#ae81ff">15455832</span> free,  <span style="color:#ae81ff">3158432</span> used, <span style="color:#ae81ff">13798392</span> buff/cache
+KiB Swap:        <span style="color:#ae81ff">0</span> total,        <span style="color:#ae81ff">0</span> free,        <span style="color:#ae81ff">0</span> used. <span style="color:#ae81ff">29064108</span> avail Mem
 
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
-<span class="m">1322604</span> root      <span class="m">20</span>   <span class="m">0</span>  <span class="m">212268</span>  <span class="m">78780</span>      <span class="m">0</span> S 189.9  0.2  54644:05 kube-proxy
-<span class="m">3973285</span> bin       <span class="m">20</span>   <span class="m">0</span>  <span class="m">336696</span>  <span class="m">16352</span>   <span class="m">8664</span> R  98.7  0.1   0:08.04 php-fpm
-<span class="m">3973319</span> bin       <span class="m">20</span>   <span class="m">0</span>  <span class="m">336696</span>  <span class="m">13200</span>   <span class="m">5520</span> R  98.7  0.0   0:07.96 php-fpm
-<span class="m">3973320</span> bin       <span class="m">20</span>   <span class="m">0</span>  <span class="m">336696</span>  <span class="m">13136</span>   <span class="m">5456</span> R  98.7  0.0   0:07.95 php-fpm
-<span class="m">3973321</span> bin       <span class="m">20</span>   <span class="m">0</span>  <span class="m">336696</span>  <span class="m">13076</span>   <span class="m">5396</span> R  98.7  0.0   0:07.88 php-fpm
-<span class="m">3973322</span> bin       <span class="m">20</span>   <span class="m">0</span>  <span class="m">336696</span>  <span class="m">13140</span>   <span class="m">5460</span> R  98.7  0.0   0:07.88 php-fpm
-   <span class="m">3581</span> root      <span class="m">20</span>   <span class="m">0</span> <span class="m">2122004</span> <span class="m">160940</span>  <span class="m">18672</span> S  11.4  0.5   7908:01 kubelet
-<span class="m">2962155</span> root      <span class="m">20</span>   <span class="m">0</span>  <span class="m">729632</span>  <span class="m">55472</span>  <span class="m">12772</span> S  10.1  0.2 102:22.64 wukong-go
-   <span class="m">3475</span> root      <span class="m">20</span>   <span class="m">0</span> <span class="m">2384864</span> <span class="m">144036</span>  <span class="m">18664</span> S   3.8  0.4  18601:39 dockerd
-<span class="m">2035882</span> root      <span class="m">20</span>   <span class="m">0</span>  <span class="m">841168</span>  <span class="m">17044</span>  <span class="m">11040</span> S   2.5  0.1 151:47.57 YDEdr
-<span class="m">3971722</span> root      <span class="m">20</span>   <span class="m">0</span>   <span class="m">12568</span>   <span class="m">6140</span>   <span class="m">1476</span> S   2.5  0.0   0:00.26 docker-proxy
-      <span class="m">1</span> root      <span class="m">20</span>   <span class="m">0</span>  <span class="m">192996</span>   <span class="m">7132</span>   <span class="m">3692</span> S   1.3  0.0 620:19.81 systemd
+<span style="color:#ae81ff">1322604</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">212268</span>  <span style="color:#ae81ff">78780</span>      <span style="color:#ae81ff">0</span> S 189.9  0.2  54644:05 kube-proxy
+<span style="color:#ae81ff">3973285</span> bin       <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">336696</span>  <span style="color:#ae81ff">16352</span>   <span style="color:#ae81ff">8664</span> R  98.7  0.1   0:08.04 php-fpm
+<span style="color:#ae81ff">3973319</span> bin       <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">336696</span>  <span style="color:#ae81ff">13200</span>   <span style="color:#ae81ff">5520</span> R  98.7  0.0   0:07.96 php-fpm
+<span style="color:#ae81ff">3973320</span> bin       <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">336696</span>  <span style="color:#ae81ff">13136</span>   <span style="color:#ae81ff">5456</span> R  98.7  0.0   0:07.95 php-fpm
+<span style="color:#ae81ff">3973321</span> bin       <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">336696</span>  <span style="color:#ae81ff">13076</span>   <span style="color:#ae81ff">5396</span> R  98.7  0.0   0:07.88 php-fpm
+<span style="color:#ae81ff">3973322</span> bin       <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">336696</span>  <span style="color:#ae81ff">13140</span>   <span style="color:#ae81ff">5460</span> R  98.7  0.0   0:07.88 php-fpm
+   <span style="color:#ae81ff">3581</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2122004</span> <span style="color:#ae81ff">160940</span>  <span style="color:#ae81ff">18672</span> S  11.4  0.5   7908:01 kubelet
+<span style="color:#ae81ff">2962155</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">729632</span>  <span style="color:#ae81ff">55472</span>  <span style="color:#ae81ff">12772</span> S  10.1  0.2 102:22.64 wukong-go
+   <span style="color:#ae81ff">3475</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2384864</span> <span style="color:#ae81ff">144036</span>  <span style="color:#ae81ff">18664</span> S   3.8  0.4  18601:39 dockerd
+<span style="color:#ae81ff">2035882</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">841168</span>  <span style="color:#ae81ff">17044</span>  <span style="color:#ae81ff">11040</span> S   2.5  0.1 151:47.57 YDEdr
+<span style="color:#ae81ff">3971722</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">12568</span>   <span style="color:#ae81ff">6140</span>   <span style="color:#ae81ff">1476</span> S   2.5  0.0   0:00.26 docker-proxy
+      <span style="color:#ae81ff">1</span> root      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">192996</span>   <span style="color:#ae81ff">7132</span>   <span style="color:#ae81ff">3692</span> S   1.3  0.0 620:19.81 systemd
 
-<span class="c1"># perf 看出 add_function sqrt 消耗比较大</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># perf top -g -p 3973285</span>
-Samples: 111K of event <span class="s1">&#39;cpu-clock&#39;</span>, Event count <span class="o">(</span>approx.<span class="o">)</span>: <span class="m">14077224392</span>
+<span style="color:#75715e"># perf 看出 add_function sqrt 消耗比较大</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># perf top -g -p 3973285</span>
+Samples: 111K of event <span style="color:#e6db74">&#39;cpu-clock&#39;</span>, Event count <span style="color:#f92672">(</span>approx.<span style="color:#f92672">)</span>: <span style="color:#ae81ff">14077224392</span>
   Overhead  Shared Object                      Symbol                                                                                   ◆
--    5.91%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> add_function                                                                         ▒
+-    5.91%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> add_function                                                                         ▒
    - 5.91% add_function                                                                                                                 ▒
       + 5.14% 0x98dd97                                                                                                                  ▒
--    5.74%  libm-2.24.so                       <span class="o">[</span>.<span class="o">]</span> sqrt                                                                                 ▒
+-    5.74%  libm-2.24.so                       <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> sqrt                                                                                 ▒
      sqrt                                                                                                                               ▒
      0x8c4a7c                                                                                                                           ▒
      execute_ex                                                                                                                         ▒
@@ -1425,61 +830,59 @@ Samples: 111K of event <span class="s1">&#39;cpu-clock&#39;</span>, Event count 
      0x9cb642                                                                                                                           ▒
      __libc_start_main                                                                                                                  ▒
      0x6cb6258d4c544155                                                                                                                 ▒
-+    4.87%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> execute_ex                                                                           ▒
-+    2.45%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> 0x000000000094ede0                                                                   ▒
-+    1.55%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> 0x0000000000681b9d                                                                   ▒
-+    0.95%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> 0x00000000008cd720                                                                   ▒
-+    0.80%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> 0x0000000000681d21                                                                   ▒
-+    0.79%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> 0x0000000000681d1a                                                                   ▒
-+    0.74%  php-fpm                            <span class="o">[</span>.<span class="o">]</span> 0x000000000098dc03
++    4.87%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> execute_ex                                                                           ▒
++    2.45%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> 0x000000000094ede0                                                                   ▒
++    1.55%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> 0x0000000000681b9d                                                                   ▒
++    0.95%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> 0x00000000008cd720                                                                   ▒
++    0.80%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> 0x0000000000681d21                                                                   ▒
++    0.79%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> 0x0000000000681d1a                                                                   ▒
++    0.74%  php-fpm                            <span style="color:#f92672">[</span>.<span style="color:#f92672">]</span> 0x000000000098dc03
 
-<span class="c1"># 导出源码</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># docker cp phpfpm:/app .</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># grep sqrt -r app/</span>
-app/index.php:  <span class="nv">$x</span> +<span class="o">=</span> sqrt<span class="o">(</span><span class="nv">$x</span><span class="o">)</span><span class="p">;</span>
-<span class="c1"># add_function是php内置函数，这里看不到</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># grep add_function -r app/</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span><span class="c1"># cat app/index.php</span>
+<span style="color:#75715e"># 导出源码</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># docker cp phpfpm:/app .</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># grep sqrt -r app/</span>
+app/index.php:  $x +<span style="color:#f92672">=</span> sqrt<span style="color:#f92672">(</span>$x<span style="color:#f92672">)</span>;
+<span style="color:#75715e"># add_function是php内置函数，这里看不到</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># grep add_function -r app/</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span><span style="color:#75715e"># cat app/index.php</span>
 &lt;?php
-// <span class="nb">test</span> only.
-<span class="nv">$x</span> <span class="o">=</span> 0.0001<span class="p">;</span>
-<span class="k">for</span> <span class="o">(</span><span class="nv">$i</span> <span class="o">=</span> 0<span class="p">;</span> <span class="nv">$i</span> &lt;<span class="o">=</span> 1000000<span class="p">;</span> <span class="nv">$i</span>++<span class="o">)</span> <span class="o">{</span>
-  <span class="nv">$x</span> +<span class="o">=</span> sqrt<span class="o">(</span><span class="nv">$x</span><span class="o">)</span><span class="p">;</span>
-<span class="o">}</span>
+// test only.
+$x <span style="color:#f92672">=</span> 0.0001;
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>$i <span style="color:#f92672">=</span> 0; $i &lt;<span style="color:#f92672">=</span> 1000000; $i++<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  $x +<span style="color:#f92672">=</span> sqrt<span style="color:#f92672">(</span>$x<span style="color:#f92672">)</span>;
+<span style="color:#f92672">}</span>
 
-<span class="nb">echo</span> <span class="s2">&#34;It works!&#34;</span>
+echo <span style="color:#e6db74">&#34;It works!&#34;</span>
 
-<span class="c1"># 停止原来的应用</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span> docker rm -f nginx phpfpm
-<span class="c1"># 运行优化后的应用</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span> docker run --name nginx -p 10000:80 -itd feisky/nginx:cpu-fix
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span> docker run --name phpfpm -itd --network container:nginx feisky/php-fpm:cpu-fix
+<span style="color:#75715e"># 停止原来的应用</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span> docker rm -f nginx phpfpm
+<span style="color:#75715e"># 运行优化后的应用</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span> docker run --name nginx -p 10000:80 -itd feisky/nginx:cpu-fix
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span> docker run --name phpfpm -itd --network container:nginx feisky/php-fpm:cpu-fix
 
 
-<span class="c1"># 应用里直接调用了其他二进制程序，这些程序通常运行时间比较短，通过 top 等工具也不容易发现</span>
-<span class="c1"># 应用本身在不停地崩溃重启，而启动过程的资源初始化，很可能会占用相当多的 CPU</span>
-<span class="c1"># 用下面的方式去排查</span>
+<span style="color:#75715e"># 应用里直接调用了其他二进制程序，这些程序通常运行时间比较短，通过 top 等工具也不容易发现</span>
+<span style="color:#75715e"># 应用本身在不停地崩溃重启，而启动过程的资源初始化，很可能会占用相当多的 CPU</span>
+<span style="color:#75715e"># 用下面的方式去排查</span>
 
-<span class="c1"># 记录性能事件，等待大约15秒后按 Ctrl+C 退出</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span> perf record -g
-<span class="c1"># 查看报告</span>
-<span class="o">[</span>root@test-tke-node-k21 ~<span class="o">]</span> perf report
+<span style="color:#75715e"># 记录性能事件，等待大约15秒后按 Ctrl+C 退出</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span> perf record -g
+<span style="color:#75715e"># 查看报告</span>
+<span style="color:#f92672">[</span>root@test-tke-node-k21 ~<span style="color:#f92672">]</span> perf report
 
-<span class="o">[</span>root@test-tke-node-k21 bin<span class="o">]</span><span class="c1"># dstat 1 10</span>
-You did not <span class="k">select</span> any stats, using -cdngy by default.
+<span style="color:#f92672">[</span>root@test-tke-node-k21 bin<span style="color:#f92672">]</span><span style="color:#75715e"># dstat 1 10</span>
+You did not <span style="color:#66d9ef">select</span> any stats, using -cdngy by default.
 ----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
-usr sys idl wai hiq siq<span class="p">|</span> <span class="nb">read</span>  writ<span class="p">|</span> recv  send<span class="p">|</span>  in   out <span class="p">|</span> int   csw
-  <span class="m">6</span>   <span class="m">2</span>  <span class="m">88</span>   <span class="m">0</span>   <span class="m">0</span>   3<span class="p">|</span>  73k 2632k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span>  11k   35k
-  <span class="m">0</span>   <span class="m">0</span>  <span class="m">99</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>4096B  608k<span class="p">|</span> 108k  122k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span><span class="m">7080</span>    12k
-  <span class="m">9</span>   <span class="m">2</span>  <span class="m">89</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>   <span class="m">0</span>   472k<span class="p">|</span> 111k  128k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span><span class="m">8503</span>    13k
-  <span class="m">5</span>   <span class="m">2</span>  <span class="m">93</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>4096B  108k<span class="p">|</span> 125k  231k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span>  10k   16k
-  <span class="m">1</span>   <span class="m">0</span>  <span class="m">99</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>  16k  548k<span class="p">|</span>  92k  102k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span><span class="m">5700</span>  <span class="m">9569</span>
-  <span class="m">2</span>   <span class="m">1</span>  <span class="m">97</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>8192B    <span class="m">0</span> <span class="p">|</span>  87k  158k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span>  15k   25k
-  <span class="m">7</span>   <span class="m">3</span>  <span class="m">90</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>4096B    <span class="m">0</span> <span class="p">|</span> 121k   87k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span>  18k   30kq
- <span class="m">15</span>   <span class="m">3</span>  <span class="m">82</span>   <span class="m">0</span>   <span class="m">0</span>   0<span class="p">|</span>   <span class="m">0</span>   656k<span class="p">|</span>  76k  175k<span class="p">|</span>   <span class="m">0</span>     <span class="m">0</span> <span class="p">|</span>  14k   23k
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="软中断">软中断</h1>
+usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
+  <span style="color:#ae81ff">6</span>   <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">88</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   3|  73k 2632k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |  11k   35k
+  <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">99</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|4096B  608k| 108k  122k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |<span style="color:#ae81ff">7080</span>    12k
+  <span style="color:#ae81ff">9</span>   <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">89</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|   <span style="color:#ae81ff">0</span>   472k| 111k  128k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |<span style="color:#ae81ff">8503</span>    13k
+  <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">93</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|4096B  108k| 125k  231k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |  10k   16k
+  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">99</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|  16k  548k|  92k  102k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |<span style="color:#ae81ff">5700</span>  <span style="color:#ae81ff">9569</span>
+  <span style="color:#ae81ff">2</span>   <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">97</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|8192B    <span style="color:#ae81ff">0</span> |  87k  158k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |  15k   25k
+  <span style="color:#ae81ff">7</span>   <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">90</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|4096B    <span style="color:#ae81ff">0</span> | 121k   87k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |  18k   30kq
+ <span style="color:#ae81ff">15</span>   <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">82</span>   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>   0|   <span style="color:#ae81ff">0</span>   656k|  76k  175k|   <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> |  14k   23k
+</code></pre></div><h1 id="软中断">软中断</h1>
 <p>中断处理程序在响应中断时，还会临时关闭中断。这就会导致上一次中断处理完成之前，其他中断都不能响应，也就是说中断有可能会丢失。
 Linux 将中断处理过程分成了两个阶段上半部和下半部，这样做的原因是<code>为了减少对正常进程运行调度的影响</code>，同时中断处理程序需要尽可能快地运行。</p>
 <ul>
@@ -1499,59 +902,30 @@ Linux 将中断处理过程分成了两个阶段上半部和下半部，这样�
 <li>下半部则是由内核触发，也就是软中断，特点是延迟执行</li>
 </ul>
 <p>实际上，上半部会打断 CPU 正在执行的任务，然后立即执行中断处理程序。而下半部以内核线程的方式执行，并且每个 CPU 都对应一个软中断内核线程，名字为 “ksoftirqd/CPU 编号”，比如说， 0 号 CPU 对应的软中断内核线程的名字就是 ksoftirqd/0。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 软中断内核线程就叫做 ksoftirqd/CPU 编号， 查看方式</span>
-<span class="o">[</span>root@test-monitor-farseer-1 ~<span class="o">]</span><span class="c1"># ps aux | grep softirq</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 软中断内核线程就叫做 ksoftirqd/CPU 编号， 查看方式</span>
+<span style="color:#f92672">[</span>root@test-monitor-farseer-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># ps aux | grep softirq</span>
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         <span class="m">6</span>  0.0  0.0      <span class="m">0</span>     <span class="m">0</span> ?        S    Oct28  19:01 <span class="o">[</span>ksoftirqd/0<span class="o">]</span>
-root        <span class="m">14</span>  0.0  0.0      <span class="m">0</span>     <span class="m">0</span> ?        S    Oct28  18:35 <span class="o">[</span>ksoftirqd/1<span class="o">]</span>
-root        <span class="m">19</span>  0.0  0.0      <span class="m">0</span>     <span class="m">0</span> ?        S    Oct28   7:09 <span class="o">[</span>ksoftirqd/2<span class="o">]</span>
-root        <span class="m">24</span>  0.0  0.0      <span class="m">0</span>     <span class="m">0</span> ?        S    Oct28   7:10 <span class="o">[</span>ksoftirqd/3<span class="o">]</span>
-root     <span class="m">30245</span>  0.0  0.0 <span class="m">112816</span>   <span class="m">968</span> pts/0    S+   14:39   0:00 grep --color<span class="o">=</span>auto softirq
+root         <span style="color:#ae81ff">6</span>  0.0  0.0      <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> ?        S    Oct28  19:01 <span style="color:#f92672">[</span>ksoftirqd/0<span style="color:#f92672">]</span>
+root        <span style="color:#ae81ff">14</span>  0.0  0.0      <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> ?        S    Oct28  18:35 <span style="color:#f92672">[</span>ksoftirqd/1<span style="color:#f92672">]</span>
+root        <span style="color:#ae81ff">19</span>  0.0  0.0      <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> ?        S    Oct28   7:09 <span style="color:#f92672">[</span>ksoftirqd/2<span style="color:#f92672">]</span>
+root        <span style="color:#ae81ff">24</span>  0.0  0.0      <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span> ?        S    Oct28   7:10 <span style="color:#f92672">[</span>ksoftirqd/3<span style="color:#f92672">]</span>
+root     <span style="color:#ae81ff">30245</span>  0.0  0.0 <span style="color:#ae81ff">112816</span>   <span style="color:#ae81ff">968</span> pts/0    S+   14:39   0:00 grep --color<span style="color:#f92672">=</span>auto softirq
 
-<span class="c1"># 各种类型软中断在不同 CPU 上的累积运行次数</span>
-<span class="c1"># TIMER（定时中断）、NET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</span>
-<span class="o">[</span>root@test-monitor-farseer-1 ~<span class="o">]</span><span class="c1"># cat /proc/softirqs</span>
+<span style="color:#75715e"># 各种类型软中断在不同 CPU 上的累积运行次数</span>
+<span style="color:#75715e"># TIMER（定时中断）、NET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</span>
+<span style="color:#f92672">[</span>root@test-monitor-farseer-1 ~<span style="color:#f92672">]</span><span style="color:#75715e"># cat /proc/softirqs</span>
                     CPU0       CPU1       CPU2       CPU3
-          HI:          <span class="m">0</span>          <span class="m">0</span>          <span class="m">1</span>          <span class="m">0</span>
-       TIMER:  <span class="m">292014081</span>  <span class="m">279537013</span>  <span class="m">269216764</span>  <span class="m">281696252</span>
-      NET_TX:       <span class="m">3831</span>       <span class="m">3913</span>       <span class="m">4199</span>       <span class="m">4184</span>
-      NET_RX:  <span class="m">618581709</span>  <span class="m">594412079</span>  <span class="m">267227921</span>  <span class="m">266352263</span>
-       BLOCK:   <span class="m">14715145</span>          <span class="m">0</span>          <span class="m">0</span>          <span class="m">0</span>
-BLOCK_IOPOLL:          <span class="m">0</span>          <span class="m">0</span>          <span class="m">0</span>          <span class="m">0</span>
-     TASKLET:       <span class="m">2443</span>       <span class="m">2477</span>       <span class="m">2541</span>       <span class="m">2794</span>
-       SCHED:   <span class="m">99688071</span>   <span class="m">94729309</span>   <span class="m">93448448</span>  <span class="m">103069610</span>
-     HRTIMER:          <span class="m">0</span>          <span class="m">0</span>          <span class="m">0</span>          <span class="m">0</span>
-         RCU:   <span class="m">78026892</span>   <span class="m">73588176</span>   <span class="m">68355387</span>   <span class="m">69822162</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="cpu缓存">CPU缓存</h1>
+          HI:          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">1</span>          <span style="color:#ae81ff">0</span>
+       TIMER:  <span style="color:#ae81ff">292014081</span>  <span style="color:#ae81ff">279537013</span>  <span style="color:#ae81ff">269216764</span>  <span style="color:#ae81ff">281696252</span>
+      NET_TX:       <span style="color:#ae81ff">3831</span>       <span style="color:#ae81ff">3913</span>       <span style="color:#ae81ff">4199</span>       <span style="color:#ae81ff">4184</span>
+      NET_RX:  <span style="color:#ae81ff">618581709</span>  <span style="color:#ae81ff">594412079</span>  <span style="color:#ae81ff">267227921</span>  <span style="color:#ae81ff">266352263</span>
+       BLOCK:   <span style="color:#ae81ff">14715145</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>
+BLOCK_IOPOLL:          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>
+     TASKLET:       <span style="color:#ae81ff">2443</span>       <span style="color:#ae81ff">2477</span>       <span style="color:#ae81ff">2541</span>       <span style="color:#ae81ff">2794</span>
+       SCHED:   <span style="color:#ae81ff">99688071</span>   <span style="color:#ae81ff">94729309</span>   <span style="color:#ae81ff">93448448</span>  <span style="color:#ae81ff">103069610</span>
+     HRTIMER:          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>
+         RCU:   <span style="color:#ae81ff">78026892</span>   <span style="color:#ae81ff">73588176</span>   <span style="color:#ae81ff">68355387</span>   <span style="color:#ae81ff">69822162</span>
+</code></pre></div><h1 id="cpu缓存">CPU缓存</h1>
 <p>CPU缓存是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU的运算速度要比内存读写速度快很多，这样会使CPU需要等待数据的到来或把数据写入到内存中。
 高速缓存控制器是针对数据块，而不是字节进行操作的。高速缓存其实就是一组称之为缓存行(Cache Line)的固定大小的数据块组成的，典型的一行是64字节。</p>
 <h2 id="cpu缓存的意义">CPU缓存的意义</h2>
@@ -1644,113 +1018,225 @@ CPU缓存的意义满足以下两种局部性原理：</p>
 <h3 id="cpu-存储模型简介">CPU 存储模型简介</h3>
 <p>MESI协议为了保证多个 CPU cache 中共享数据的一致性，定义了 Cache line 的四种状态，而 CPU 对 cache 的4种操作可能会产生不一致状态，因此 cache 控制器监听到本地操作和远程操作的时候，需要对地址一致的 Cache line 状态做出一定的修改，从而保证数据在多个cache之间流转的一致性。</p>
 <p>但是，缓存的一致性消息传递是要时间的，这就使得状态切换会有更多的延迟。某些状态的切换需要特殊的处理，可能会阻塞处理器。这些都将会导致各种各样的稳定性和性能问题。比如你需要修改本地缓存中的一条信息，那么你必须将I（无效）状态通知到其他拥有该缓存数据的CPU缓存中，并且等待确认。等待确认的过程会阻塞处理器，这会降低处理器的性能。因为这个等待远远比一个指令的执行时间长的多。所以，为了为了避免这种阻塞导致时间的浪费，引入了存储缓存(Store Buffer)和无效队列(Invalidate Queue)。</p>
-<!-- 
-### 存储缓存
-
-在没有存储缓存时，CPU 要写入一个量，有以下情况：
-
-- 量不在该 CPU 缓存中，则需要发送 Read Invalidate 信号，再等待此信号返回，之后再写入量到缓存中。
-- 量在该 CPU 缓存中，如果该量的状态是 Exclusive 则直接更改。而如果是 Shared 则需要发送 Invalidate 消息让其它 CPU 感知到这一更改后再更改。
-
-这些情况中，很有可能会触发该 CPU 与其它 CPU 进行通讯，接着需要等待它们回复。这会浪费大量的时钟周期！为了提高效率，可以使用异步的方式去处理：先将值写入到一个 Buffer 中，再发送通讯的信号，等到信号被响应，再应用到 cache 中。并且此 Buffer 能够接受该 CPU 读值。这个 Buffer 就是 Store Buffer。而不须要等待对某个量的赋值指令的完成才继续执行下一条指令，直接去 Store Buffer 中读该量的值，这种优化叫Store Forwarding。
-
-### 无效队列
-
-同理，解决了主动发送信号端的效率问题，那么，接受端 CPU 接受到 Invalidate 信号后如果立即采取相应行动(去其它 CPU 同步值)，再返回响应信号，则时钟周期也太长了，此处也可优化。接受端 CPU 接受到信号后不是立即采取行动，而是将 Invalidate 信号插入到一个队列 Queue 中，立即作出响应。等到合适的时机，再去处理这个 Queue 中的 Invalidate 信号，并作相应处理。这个 Queue 就是Invalidate Queue。 -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><img src="/images/cpu/%E6%A0%B9%E6%8D%AE%E6%8C%87%E6%A0%87%E6%89%BE%E5%B7%A5%E5%85%B7.png" alt="根据指标找工具">
 <img src="/images/cpu/%E9%80%9A%E8%BF%87%E5%B7%A5%E5%85%B7%E6%9F%A5%E6%8C%87%E6%A0%87.png" alt="通过工具查指标">
 <img src="/images/cpu/CPU%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E6%9E%90.png" alt="CPU性能优化分析">
 <img src="/images/cpu/linux%E6%80%A7%E8%83%BD%E5%9B%BE%E8%B0%B1.png" alt="Linux性能图谱"></p>
-<!-- false sharing -->
+<!-- raw HTML omitted -->
+      </article>
     </div>
 
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">聪少</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-12-08
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2020-12-09 04:21 CST</time>
+      
+    </div>
+
+    
+      <div class="row">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M288 16L0 304l176 176 288-288V16zm80 128a32 32 0 1132-32 32 32 0 01-32 32z'/><path d='M480 64v144L216.9 471.1 242 496l270-272V64h-32z'/></svg>
+
+
+
+Tagged with</span>
+        <ul class="tags">
         
-    </span>
-  </p>
-  
-  
-</div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/linux/">linux</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/linux/io%E5%88%86%E6%9E%90/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">io知识</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/">
-            <span class="next-text nav-default">进程小知识</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
+          <li class="hashed-tag"><a href="http://cong.im/tags/linux">linux</a></li>
         
-
-  
-
-  
-
+        </ul>
       </div>
-    </main>
+    
 
-    <footer id="footer" class="footer">
-      <div class="social-links">
-  <a href="http://cong.im/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+    <div class="row social-share">
+      <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+      
+      
+        
+      
+      <a
+        target="_blank"
+        title="share to reddit"
+        rel="noopener noreferrer"
+        aria-label="share cpu性能分析 on reddit"
+        href="https://reddit.com/submit?url=http%3a%2f%2fcong.im%2fpost%2flinux%2fcpu%25E6%2580%25A7%25E8%2583%25BD%25E5%2588%2586%25E6%259E%2590%2f&title=cpu%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90">
+        
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+      </a>
+      <a
+        target="_blank" 
+        title="share to twitter"
+        rel="noopener noreferrer"
+        aria-label="share cpu性能分析 on twitter"
+        href="https://twitter.com/intent/tweet/?text=cpu%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90&amp;url=http%3a%2f%2fcong.im%2fpost%2flinux%2fcpu%25E6%2580%25A7%25E8%2583%25BD%25E5%2588%2586%25E6%259E%2590%2f&amp;hashtags=linux">
+        
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+      </a>
+      <a
+        target="_blank"
+        title="share to facebook"
+        rel="noopener noreferrer"
+        aria-label="share cpu性能分析 on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fcong.im%2fpost%2flinux%2fcpu%25E6%2580%25A7%25E8%2583%25BD%25E5%2588%2586%25E6%259E%2590%2f">
+        
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+      </a>
+    </div>
+
+    
 </div>
+    
 
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
+    
 
-  
+  </div>
+</main>
 
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>聪少</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://cong.im/index.xml" type="application/rss+xml">RSS</a>
+      </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2021 聪少
+      
     </div>
   </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://cong.im/js/main.min.7685c4d03abca7fd02a772a2e64c7a8aa3a7031024bbab70a17975e8928cb004.js" integrity="sha256-doXE0Dq8p/0Cp3Ki5kx6iqOnAxAku6twoXl16JKMsAQ=" crossorigin="anonymous" async></script>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
 
 
 
 
-
-
-
-
-</body>
+  </body>
 </html>
