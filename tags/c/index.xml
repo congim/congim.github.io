@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c on 聪少</title>
-    <link>https://cong.im/tags/c/</link>
-    <description>Recent content in c on 聪少</description>
+    <title>c on Cong&#39;s Blog</title>
+    <link>http://cong.im/tags/c/</link>
+    <description>Recent content in c on Cong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="https://cong.im/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>聪少</copyright>
+    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="http://cong.im/tags/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c 实现的简单的守护进程</title>
-      <link>https://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</link>
+      <link>http://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</link>
       <pubDate>Fri, 03 Dec 2021 15:48:13 +0800</pubDate>
       
-      <guid>https://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</guid>
+      <guid>http://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</guid>
       <description></description>
     </item>
     
