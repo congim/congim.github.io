@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 聪少</title>
-    <link>https://example.com/post/</link>
+    <link>https://cong.im/post/</link>
     <description>Recent content in Posts on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="https://cong.im/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c 实现的简单的守护进程</title>
-      <link>https://example.com/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</link>
+      <link>https://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</link>
       <pubDate>Fri, 03 Dec 2021 15:48:13 +0800</pubDate>
       
-      <guid>https://example.com/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</guid>
+      <guid>https://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker启动mysql(5.7)并挂载本地配置文件、数据目录</title>
-      <link>https://example.com/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <link>https://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
       <pubDate>Thu, 02 Dec 2021 10:52:50 +0800</pubDate>
       
-      <guid>https://example.com/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go Zero一致性hash</title>
-      <link>https://example.com/post/golang/go-zero%E4%B8%80%E8%87%B4%E6%80%A7hash/</link>
+      <link>https://cong.im/post/golang/go-zero%E4%B8%80%E8%87%B4%E6%80%A7hash/</link>
       <pubDate>Wed, 01 Dec 2021 17:40:21 +0800</pubDate>
       
-      <guid>https://example.com/post/golang/go-zero%E4%B8%80%E8%87%B4%E6%80%A7hash/</guid>
+      <guid>https://cong.im/post/golang/go-zero%E4%B8%80%E8%87%B4%E6%80%A7hash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang字符串拼接性能对比</title>
-      <link>https://example.com/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/</link>
+      <link>https://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/</link>
       <pubDate>Tue, 30 Nov 2021 21:53:38 +0800</pubDate>
       
-      <guid>https://example.com/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/</guid>
+      <guid>https://cong.im/post/golang/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%80%A7%E8%83%BD/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redis知识点</title>
-      <link>https://example.com/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <link>https://cong.im/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
       <pubDate>Mon, 15 Nov 2021 11:05:21 +0800</pubDate>
       
-      <guid>https://example.com/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <guid>https://cong.im/post/redis/redis%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
       <description></description>
     </item>
     
     <item>
       <title>栈、队列、优先队列、双端队列</title>
-      <link>https://example.com/post/algo/%E6%A0%88%E9%98%9F%E5%88%97%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</link>
+      <link>https://cong.im/post/algo/%E6%A0%88%E9%98%9F%E5%88%97%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</link>
       <pubDate>Mon, 08 Nov 2021 20:46:20 +0800</pubDate>
       
-      <guid>https://example.com/post/algo/%E6%A0%88%E9%98%9F%E5%88%97%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</guid>
+      <guid>https://cong.im/post/algo/%E6%A0%88%E9%98%9F%E5%88%97%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法-数组、链表</title>
-      <link>https://example.com/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</link>
+      <link>https://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Tue, 02 Nov 2021 19:43:11 +0800</pubDate>
       
-      <guid>https://example.com/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://cong.im/post/algo/%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redo Log、binlog、Undo log</title>
-      <link>https://example.com/post/mysql/redo-logbinlog/</link>
+      <link>https://cong.im/post/mysql/redo-logbinlog/</link>
       <pubDate>Fri, 22 Oct 2021 20:07:09 +0800</pubDate>
       
-      <guid>https://example.com/post/mysql/redo-logbinlog/</guid>
+      <guid>https://cong.im/post/mysql/redo-logbinlog/</guid>
       <description>&lt;p&gt;接触过MySQL有两个词是绝对绕不过的: redo log（重做日志）、binlog（归档日志）。&lt;/p&gt;
 &lt;h2 id=&#34;redo-log&#34;&gt;redo log&lt;/h2&gt;
 &lt;p&gt;当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到 redo log里面，并更新内存，这个时候更新就算完成了。同时，InnoDB 引擎会在适当的时候，&lt;/p&gt;</description>
@@ -83,19 +83,19 @@
     
     <item>
       <title>linux内存管理</title>
-      <link>https://example.com/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
+      <link>https://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
       <pubDate>Mon, 11 Jan 2021 15:39:49 +0000</pubDate>
       
-      <guid>https://example.com/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
+      <guid>https://cong.im/post/linux/linux%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
       <description>&lt;p&gt;内存是计算机系统重要资源之一，为了让多个同时运行的进程可以安全、高效的使用内存。现代操作系统的普遍做法是在进程和物理内存之间抽象了一个概念&lt;em&gt;虚拟内存&lt;/em&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>跨进程复制socket</title>
-      <link>https://example.com/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</link>
+      <link>https://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</link>
       <pubDate>Tue, 15 Dec 2020 11:15:04 +0000</pubDate>
       
-      <guid>https://example.com/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</guid>
+      <guid>https://cong.im/post/linux/%E8%B7%A8%E8%BF%9B%E7%A8%8B%E5%A4%8D%E5%88%B6socket/</guid>
       <description>&lt;h3 id=&#34;linux为什么能跨进程传递socket文件描述符&#34;&gt;linux为什么能跨进程传递socket文件描述符&lt;/h3&gt;
 &lt;p&gt;在Linux中一切皆文件，文件系统是进程所共有的。而socket本身是在网络文件系统空间申请的，socket也是文件一种，所以在同一台主机下，socket是可以跨进程传递的。
 下面仔细跟踪一下socket创建的过程（3.10内核）。&lt;/p&gt;</description>
@@ -103,10 +103,10 @@
     
     <item>
       <title>io知识</title>
-      <link>https://example.com/post/linux/io%E5%88%86%E6%9E%90/</link>
+      <link>https://cong.im/post/linux/io%E5%88%86%E6%9E%90/</link>
       <pubDate>Wed, 09 Dec 2020 16:28:28 +0000</pubDate>
       
-      <guid>https://example.com/post/linux/io%E5%88%86%E6%9E%90/</guid>
+      <guid>https://cong.im/post/linux/io%E5%88%86%E6%9E%90/</guid>
       <description>&lt;h3 id=&#34;linux文件系统&#34;&gt;Linux文件系统&lt;/h3&gt;
 &lt;p&gt;文件系统本身是对存储设备上的文件进行组织管理的机制。组织方式不同就形成不同的文件系统。
 在Linux中一切皆为文件，为了方便管理Linux文件系统为每个文件都分配两个数据结构，索引节点、和目录项。&lt;/p&gt;</description>
@@ -114,10 +114,10 @@
     
     <item>
       <title>cpu性能分析</title>
-      <link>https://example.com/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
+      <link>https://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 08 Dec 2020 20:21:15 +0000</pubDate>
       
-      <guid>https://example.com/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
+      <guid>https://cong.im/post/linux/cpu%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;面对问题束手无策&lt;/li&gt;
 &lt;li&gt;面对“系统”、“底层”发怵&lt;/li&gt;
@@ -128,10 +128,10 @@
     
     <item>
       <title>进程小知识</title>
-      <link>https://example.com/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <link>https://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Mon, 20 Jul 2020 13:08:55 +0000</pubDate>
       
-      <guid>https://example.com/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://cong.im/post/linux/%E8%BF%9B%E7%A8%8B%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h3 id=&#34;什么是进程&#34;&gt;什么是进程&lt;/h3&gt;
 &lt;p&gt;进程就是应用程序启动的实例。进程拥有代码和打开的文件资源、数据资源、独立的内存空间&lt;/p&gt;
 &lt;h4 id=&#34;什么是线程&#34;&gt;什么是线程&lt;/h4&gt;
@@ -140,10 +140,10 @@
     
     <item>
       <title>mysql小知识</title>
-      <link>https://example.com/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <link>https://cong.im/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Mon, 20 Jul 2020 10:19:25 +0000</pubDate>
       
-      <guid>https://example.com/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://cong.im/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h4 id=&#34;事务的基本要素&#34;&gt;事务的基本要素&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;原子性
@@ -153,10 +153,10 @@
     
     <item>
       <title>hbase安装</title>
-      <link>https://example.com/post/nosql/hbase%E5%AE%89%E8%A3%85/</link>
+      <link>https://cong.im/post/nosql/hbase%E5%AE%89%E8%A3%85/</link>
       <pubDate>Wed, 15 Jul 2020 10:31:39 +0000</pubDate>
       
-      <guid>https://example.com/post/nosql/hbase%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://cong.im/post/nosql/hbase%E5%AE%89%E8%A3%85/</guid>
       <description>&lt;h3 id=&#34;准备工作&#34;&gt;准备工作&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;hadoop-2.8.0.tar.gz&lt;/li&gt;
@@ -168,29 +168,29 @@
     
     <item>
       <title>centos7安装cassandra</title>
-      <link>https://example.com/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</link>
+      <link>https://cong.im/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</link>
       <pubDate>Wed, 15 Jul 2020 10:26:25 +0000</pubDate>
       
-      <guid>https://example.com/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
+      <guid>https://cong.im/post/nosql/centos7%E5%AE%89%E8%A3%85cassandra/</guid>
       <description></description>
     </item>
     
     <item>
       <title>如何提升内存分配的效率</title>
-      <link>https://example.com/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</link>
+      <link>https://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</link>
       <pubDate>Wed, 24 Jun 2020 14:48:16 +0000</pubDate>
       
-      <guid>https://example.com/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</guid>
+      <guid>https://cong.im/post/linux/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E6%95%88%E7%8E%87/</guid>
       <description>&lt;p&gt;谈这个底层话题略显唐突，因为大部分开发者并不关心底层，内存分配依赖于各种工具提供的方法，底层具体怎么做的并不关心。如果你也这么想，那么在JVM配置最大内存为8G，并发近百个线程的情况下观察到Java进程占用内存远远超过8G分配内存。如果不了解底层你可能永远不知道为什么会这样。&lt;/p&gt;
 &lt;p&gt;大部分高级语言或多或少都与C语言有&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>网关简介</title>
-      <link>https://example.com/post/apigateway/apigateway/</link>
+      <link>https://cong.im/post/apigateway/apigateway/</link>
       <pubDate>Thu, 21 May 2020 13:33:58 +0000</pubDate>
       
-      <guid>https://example.com/post/apigateway/apigateway/</guid>
+      <guid>https://cong.im/post/apigateway/apigateway/</guid>
       <description>&lt;h3 id=&#34;网关作用&#34;&gt;网关作用&lt;/h3&gt;
 &lt;p&gt;网关分为两类&lt;/p&gt;
 &lt;ul&gt;

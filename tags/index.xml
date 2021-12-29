@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 聪少</title>
-    <link>https://example.com/tags/</link>
+    <link>https://cong.im/tags/</link>
     <description>Recent content in Tags on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="https://cong.im/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c</title>
-      <link>https://example.com/tags/c/</link>
+      <link>https://cong.im/tags/c/</link>
       <pubDate>Fri, 03 Dec 2021 15:48:13 +0800</pubDate>
       
-      <guid>https://example.com/tags/c/</guid>
+      <guid>https://cong.im/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mysql</title>
-      <link>https://example.com/tags/mysql/</link>
+      <link>https://cong.im/tags/mysql/</link>
       <pubDate>Thu, 02 Dec 2021 10:52:50 +0800</pubDate>
       
-      <guid>https://example.com/tags/mysql/</guid>
+      <guid>https://cong.im/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>https://example.com/tags/golang/</link>
+      <link>https://cong.im/tags/golang/</link>
       <pubDate>Wed, 01 Dec 2021 17:40:21 +0800</pubDate>
       
-      <guid>https://example.com/tags/golang/</guid>
+      <guid>https://cong.im/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nosql</title>
-      <link>https://example.com/tags/nosql/</link>
+      <link>https://cong.im/tags/nosql/</link>
       <pubDate>Mon, 15 Nov 2021 11:05:21 +0800</pubDate>
       
-      <guid>https://example.com/tags/nosql/</guid>
+      <guid>https://cong.im/tags/nosql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>algo</title>
-      <link>https://example.com/tags/algo/</link>
+      <link>https://cong.im/tags/algo/</link>
       <pubDate>Mon, 08 Nov 2021 20:46:20 +0800</pubDate>
       
-      <guid>https://example.com/tags/algo/</guid>
+      <guid>https://cong.im/tags/algo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://example.com/tags/linux/</link>
+      <link>https://cong.im/tags/linux/</link>
       <pubDate>Mon, 11 Jan 2021 15:39:49 +0000</pubDate>
       
-      <guid>https://example.com/tags/linux/</guid>
+      <guid>https://cong.im/tags/linux/</guid>
       <description></description>
     </item>
     

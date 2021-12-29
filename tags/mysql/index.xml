@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mysql on 聪少</title>
-    <link>https://example.com/tags/mysql/</link>
+    <link>https://cong.im/tags/mysql/</link>
     <description>Recent content in mysql on 聪少</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Dec 2021 10:52:50 +0800</lastBuildDate><atom:link href="https://example.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 10:52:50 +0800</lastBuildDate><atom:link href="https://cong.im/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker启动mysql(5.7)并挂载本地配置文件、数据目录</title>
-      <link>https://example.com/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <link>https://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
       <pubDate>Thu, 02 Dec 2021 10:52:50 +0800</pubDate>
       
-      <guid>https://example.com/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://cong.im/post/mysql/docker%E5%90%AF%E5%8A%A8mysql%E5%B9%B6%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redo Log、binlog、Undo log</title>
-      <link>https://example.com/post/mysql/redo-logbinlog/</link>
+      <link>https://cong.im/post/mysql/redo-logbinlog/</link>
       <pubDate>Fri, 22 Oct 2021 20:07:09 +0800</pubDate>
       
-      <guid>https://example.com/post/mysql/redo-logbinlog/</guid>
+      <guid>https://cong.im/post/mysql/redo-logbinlog/</guid>
       <description>&lt;p&gt;接触过MySQL有两个词是绝对绕不过的: redo log（重做日志）、binlog（归档日志）。&lt;/p&gt;
 &lt;h2 id=&#34;redo-log&#34;&gt;redo log&lt;/h2&gt;
 &lt;p&gt;当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到 redo log里面，并更新内存，这个时候更新就算完成了。同时，InnoDB 引擎会在适当的时候，&lt;/p&gt;</description>
@@ -29,10 +29,10 @@
     
     <item>
       <title>mysql小知识</title>
-      <link>https://example.com/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
+      <link>https://cong.im/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Mon, 20 Jul 2020 10:19:25 +0000</pubDate>
       
-      <guid>https://example.com/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://cong.im/post/mysql/mysql%E5%B0%8F%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h4 id=&#34;事务的基本要素&#34;&gt;事务的基本要素&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;原子性
