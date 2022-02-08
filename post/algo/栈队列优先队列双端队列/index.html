@@ -49,7 +49,7 @@
 <meta itemprop="name" content="栈、队列、优先队列、双端队列">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-11-08T20:46:20+08:00" />
 <meta itemprop="dateModified" content="2021-11-08T20:46:20+08:00" />
-<meta itemprop="wordCount" content="752">
+<meta itemprop="wordCount" content="957">
 <meta itemprop="keywords" content="algo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="栈、队列、优先队列、双端队列"/>
 <meta name="twitter:description" content=""/>
@@ -457,6 +457,53 @@
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">newList</span><span class="p">.</span><span class="nx">Next</span><span class="p">.</span><span class="nx">Next</span>
 <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://leetcode-cn.com/problems/merge-sorted-array/">合并两个有序数组</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">merge</span><span class="p">(</span><span class="nx">nums1</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">m</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">nums2</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 倒插方式比较简单好理解
+</span><span class="c1"></span>	<span class="c1">// 最后的永远是最大的，所以来比较每个nums里面递减的值，然后放到nums1里面就行了
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">inBack</span> <span class="o">:=</span> <span class="nx">n</span> <span class="o">+</span> <span class="nx">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">inBack</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">inBack</span><span class="o">--</span> <span class="p">{</span>
+		<span class="c1">// n 为0，递减完毕，直接返回
+</span><span class="c1"></span>		<span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+			<span class="k">break</span>
+		<span class="p">}</span>
+		<span class="c1">// 保证m&gt;0的前提下，如果s1 &gt; s2，那么inBack下标放s1的值，反之亦然，同时注意m和n的下标要递减
+</span><span class="c1"></span>		<span class="k">if</span> <span class="nx">m</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">nums2</span><span class="p">[</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
+			<span class="nx">nums1</span><span class="p">[</span><span class="nx">inBack</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+			<span class="nx">m</span><span class="o">--</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">nums1</span><span class="p">[</span><span class="nx">inBack</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums2</span><span class="p">[</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+			<span class="nx">n</span><span class="o">--</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
 </div>
