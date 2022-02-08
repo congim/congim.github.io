@@ -14,7 +14,7 @@
       <pubDate>Tue, 08 Feb 2022 22:27:53 +0800</pubDate>
       
       <guid>http://cong.im/post/algo/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%98%A0%E5%B0%84%E9%9B%86%E5%90%88/</guid>
-      <description>哈希表、映射、集合 有效的字母异位词 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 func isAnagram(s string, t string) bool { if len(s) != len(t) { return false } // 简易hash表 // 不包含大写，所以能缩小范围</description>
+      <description></description>
     </item>
     
     <item>
