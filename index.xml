@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>聪少</copyright>
-    <lastBuildDate>Fri, 03 Dec 2021 15:48:13 +0800</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Feb 2022 22:27:53 +0800</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>哈希表、映射、集合</title>
+      <link>http://cong.im/post/algo/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%98%A0%E5%B0%84%E9%9B%86%E5%90%88/</link>
+      <pubDate>Tue, 08 Feb 2022 22:27:53 +0800</pubDate>
+      
+      <guid>http://cong.im/post/algo/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%98%A0%E5%B0%84%E9%9B%86%E5%90%88/</guid>
+      <description>哈希表、映射、集合 有效的字母异位词 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 func isAnagram(s string, t string) bool { if len(s) != len(t) { return false } // 简易hash表 // 不包含大写，所以能缩小范围</description>
+    </item>
+    
     <item>
       <title>c 实现的简单的守护进程</title>
       <link>http://cong.im/post/c/c%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/</link>
