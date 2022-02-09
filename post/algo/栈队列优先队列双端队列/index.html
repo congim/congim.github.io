@@ -49,7 +49,7 @@
 <meta itemprop="name" content="栈、队列、优先队列、双端队列">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-11-08T20:46:20+08:00" />
 <meta itemprop="dateModified" content="2021-11-08T20:46:20+08:00" />
-<meta itemprop="wordCount" content="1080">
+<meta itemprop="wordCount" content="1328">
 <meta itemprop="keywords" content="algo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="栈、队列、优先队列、双端队列"/>
 <meta name="twitter:description" content=""/>
@@ -563,10 +563,40 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">isAnagram</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span>
+	<span class="p">}</span>
+	<span class="c1">// 简易hash表
+</span><span class="c1"></span>	<span class="c1">// 不包含大写，所以能缩小范围到26（通过-a的方式）
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">a</span> <span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="kt">int</span>
+	<span class="kd">var</span> <span class="nx">b</span> <span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="kt">int</span>
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
+		<span class="nx">a</span><span class="p">[</span><span class="nx">c</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span> <span class="p">{</span>
+		<span class="nx">b</span><span class="p">[</span><span class="nx">c</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -574,10 +604,48 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">groupAnagrams</span><span class="p">(</span><span class="nx">strs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="p">[][]</span><span class="kt">string</span> <span class="p">{</span>
+	<span class="c1">// 没大写字母，压缩到26个数组
+</span><span class="c1"></span>	<span class="nx">cache</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[[</span><span class="mi">26</span><span class="p">]</span><span class="kt">int</span><span class="p">][]</span><span class="kt">string</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">str</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">strs</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">key</span> <span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="kt">int</span>
+		<span class="c1">// 一个循环下来，将相应的字母的计数保存到相应的数组位
+</span><span class="c1"></span>		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">str</span> <span class="p">{</span>
+			<span class="nx">key</span><span class="p">[</span><span class="nx">c</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span>
+		<span class="p">}</span>
+		<span class="c1">// 整个key数组就是map的key，然后将相同key的str append起来
+</span><span class="c1"></span>		<span class="nx">cache</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="nx">key</span><span class="p">],</span> <span class="nx">str</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="kd">var</span> <span class="nx">res</span> <span class="p">[][]</span><span class="kt">string</span>
+	<span class="c1">// 遍历返回即可
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">strings</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">cache</span> <span class="p">{</span>
+		<span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">strings</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div>

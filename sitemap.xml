@@ -3,28 +3,35 @@
   
   <url>
     <loc>http://cong.im/tags/algo/</loc>
-    <lastmod>2022-02-08T22:27:53+08:00</lastmod>
+    <lastmod>2022-02-09T16:03:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://cong.im/</loc>
-    <lastmod>2022-02-08T22:27:53+08:00</lastmod>
+    <lastmod>2022-02-09T16:03:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://cong.im/post/</loc>
-    <lastmod>2022-02-08T22:27:53+08:00</lastmod>
+    <lastmod>2022-02-09T16:03:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://cong.im/tags/</loc>
-    <lastmod>2022-02-08T22:27:53+08:00</lastmod>
+    <lastmod>2022-02-09T16:03:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/algo/%E6%A0%91%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</loc>
+    <lastmod>2022-02-09T16:03:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
