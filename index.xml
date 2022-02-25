@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>聪少</copyright>
-    <lastBuildDate>Wed, 09 Feb 2022 16:03:10 +0800</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Feb 2022 10:24:19 +0800</lastBuildDate><atom:link href="http://cong.im/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>广度优先、深度优先</title>
+      <link>http://cong.im/post/algo/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</link>
+      <pubDate>Fri, 25 Feb 2022 10:24:19 +0800</pubDate>
+      
+      <guid>http://cong.im/post/algo/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>树、二叉树、二叉搜索树</title>
       <link>http://cong.im/post/algo/%E6%A0%91%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</link>
