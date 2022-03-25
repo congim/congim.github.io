@@ -3,34 +3,41 @@
   
   <url>
     <loc>http://cong.im/</loc>
-    <lastmod>2022-03-25T19:41:54+08:00</lastmod>
+    <lastmod>2022-03-25T20:04:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://cong.im/tags/golang/</loc>
-    <lastmod>2022-03-25T19:41:54+08:00</lastmod>
+    <lastmod>2022-03-25T20:04:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://cong.im/post/golang/bitmap/</loc>
-    <lastmod>2022-03-25T19:41:54+08:00</lastmod>
+    <loc>http://cong.im/post/golang/golang%E7%BB%93%E6%9E%84%E4%BD%93%E6%AF%94%E8%BE%83/</loc>
+    <lastmod>2022-03-25T20:04:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://cong.im/post/</loc>
-    <lastmod>2022-03-25T19:41:54+08:00</lastmod>
+    <lastmod>2022-03-25T20:04:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://cong.im/tags/</loc>
+    <lastmod>2022-03-25T20:04:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/golang/bitmap/</loc>
     <lastmod>2022-03-25T19:41:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
