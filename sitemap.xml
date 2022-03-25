@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cong.im/post/golang/bitmap/</loc>
-    <lastmod>2022-03-25T19:41:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://cong.im/</loc>
     <lastmod>2022-03-25T19:41:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -17,6 +10,13 @@
   
   <url>
     <loc>http://cong.im/tags/golang/</loc>
+    <lastmod>2022-03-25T19:41:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://cong.im/post/golang/bitmap/</loc>
     <lastmod>2022-03-25T19:41:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
