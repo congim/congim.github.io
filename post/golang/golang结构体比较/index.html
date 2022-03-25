@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Golang结构体比较">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-03-25T20:04:50+08:00" />
 <meta itemprop="dateModified" content="2022-03-25T20:04:50+08:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="488">
 <meta itemprop="keywords" content="golang," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang结构体比较"/>
 <meta name="twitter:description" content=""/>
@@ -263,7 +263,7 @@
 <pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
-<span class="s">&#34;fmt&#34;</span>
+    <span class="s">&#34;fmt&#34;</span>
 <span class="p">)</span>
 
 <span class="kd">type</span> <span class="nx">Info</span> <span class="kd">struct</span> <span class="p">{</span>
@@ -272,7 +272,7 @@
 	<span class="nx">weight</span> <span class="kt">int</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">CantNotComparable</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">StructCantNotComparable</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">p1</span> <span class="o">:=</span> <span class="nx">Info</span><span class="p">{</span>
 		<span class="nx">Str</span><span class="p">:</span>    <span class="s">&#34;wang&#34;</span><span class="p">,</span>
 		<span class="nx">m</span><span class="p">:</span>      <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">),</span>
@@ -312,12 +312,33 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">StructComparable2</span><span class="p">()</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+  <span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">StructCantComparable</span><span class="p">()</span> <span class="p">{</span>
+	
   <span class="kd">type</span> <span class="nx">Info</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">value</span> <span class="kt">string</span>
   <span class="p">}</span>
+  
   <span class="kd">type</span> <span class="nx">InfoX</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">value</span> <span class="kt">string</span>
   <span class="p">}</span>
@@ -328,6 +349,11 @@
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span>       <span class="c1">// 不能比较，编译器报错
 </span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nf">Info</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="c1">// 能比较, false
 </span><span class="c1"></span><span class="p">}</span>
+
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">StructCantComparable</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="https://www.cnblogs.com/wlw-x/p/14213434.html" alt="摘自"></p>
