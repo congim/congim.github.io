@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Golang结构体比较">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-03-25T20:04:50+08:00" />
 <meta itemprop="dateModified" content="2022-03-25T20:04:50+08:00" />
-<meta itemprop="wordCount" content="490">
+<meta itemprop="wordCount" content="519">
 <meta itemprop="keywords" content="golang," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang结构体比较"/>
 <meta name="twitter:description" content=""/>
@@ -145,6 +145,10 @@
           <ul>
             <li><a href="#同类型struct比较情况">同类型struct比较情况</a></li>
             <li><a href="#不同类型struct比较情况">不同类型struct比较情况</a></li>
+            <li><a href="#可比较的类型">可比较的类型</a></li>
+            <li><a href="#不可比较的类型">不可比较的类型</a></li>
+            <li><a href="#相同类型struct测试示例">相同类型struct测试示例</a></li>
+            <li><a href="#不相同类型struct测试示例">不相同类型struct测试示例</a></li>
           </ul>
         </li>
       </ul>
@@ -158,7 +162,12 @@
 <p>同类型struct的两个实例在不同的情况下<em><strong>可以也不可以</strong></em>用==或!=</p>
 <pre><code>如果结构体内的所有成员是可以比较的类型，那么可以比较，反正亦然
 </code></pre>
-<h4 id="可比较的类型">可比较的类型</h4>
+<h3 id="不同类型struct比较情况">不同类型struct比较情况</h3>
+<p>不同类型struct的两个实例在不同的情况下<em><strong>可以也不可以</strong></em>用==或!=</p>
+<pre><code>如果想要比较两个不同的struct的实例的话，需要先进行结构类型的转换，转换成同一个结构类型才可以进行比较。
+结构体之间进行转换需要他们具备完全相同的成员(字段名、字段类型、字段个数)
+</code></pre>
+<h3 id="可比较的类型">可比较的类型</h3>
 <ul>
 <li>简单类型</li>
 <li>可排序类型
@@ -179,6 +188,13 @@
 </ul>
 </li>
 </ul>
+<h3 id="不可比较的类型">不可比较的类型</h3>
+<ul>
+<li>Slice</li>
+<li>Map</li>
+<li>Function</li>
+</ul>
+<h3 id="相同类型struct测试示例">相同类型struct测试示例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -221,13 +237,7 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="不可比较的类型">不可比较的类型</h4>
-<ul>
-<li>Slice</li>
-<li>Map</li>
-<li>Function</li>
-</ul>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -291,11 +301,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="不同类型struct比较情况">不同类型struct比较情况</h3>
-<p>不同类型struct的两个实例在不同的情况下<em><strong>可以也不可以</strong></em>用==或!=</p>
-<pre><code>如果想要比较两个不同的struct的实例的话，需要先进行结构类型的转换，转换成同一个结构类型才可以进行比较。
-结构体之间进行转换需要他们具备完全相同的成员(字段名、字段类型、字段个数)
-</code></pre>
+</div><h3 id="不相同类型struct测试示例">不相同类型struct测试示例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
